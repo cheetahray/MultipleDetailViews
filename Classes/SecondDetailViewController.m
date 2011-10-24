@@ -52,7 +52,7 @@
 
 @implementation SecondDetailViewController
 
-@synthesize rootViewController, navigationBar, tapOrMove, imageView, movieTitles, years, tableView, titleName, thirdName, scrollView;
+@synthesize rootViewController, navigationBar, tapOrMove, imageView, movieTitles, years, tableView, label, titleName, thirdName, scrollView;
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -63,25 +63,28 @@
 	[UIView setAnimationDuration:1];
 	[UIView setAnimationCurve:UIViewAnimationCurveLinear];
 	
-    imageView.center = CGPointMake(imageView.center.x + 20,
+    /*
+     imageView.center = CGPointMake(imageView.center.x + 20,
                                    imageView.center.y);
     
-    navigationBar.center = CGPointMake(navigationBar.center.x + 25,
+    tableView.center = CGPointMake(tableView.center.x + 5,
+                                   tableView.center.y);
+    */
+	navigationBar.center = CGPointMake(navigationBar.center.x + 25,
                                        navigationBar.center.y);
-    
-	tableView.center = CGPointMake(tableView.center.x + 5,
-                                       tableView.center.y);
     
     [UIView commitAnimations];
     
     if (imageView.center.x >= self.view.bounds.size.width / 2 )   
     {
+        /*
         imageView.center = CGPointMake(imageView.bounds.size.width/2 ,
                                        imageView.center.y);
-        navigationBar.center = CGPointMake(navigationBar.bounds.size.width/2 ,
-                                           navigationBar.center.y);
         tableView.center = CGPointMake(tableView.bounds.size.width/2 ,
                                        tableView.center.y);
+        */
+        navigationBar.center = CGPointMake(navigationBar.bounds.size.width/2 ,
+                                           navigationBar.center.y);
         [timer invalidate];
     }
 	
@@ -109,11 +112,13 @@
 
 - (void)doAnimation {
     tapOrMove = false;
+    /*
     imageView.center = CGPointMake( -imageView.image.size.width/2 ,
                                    14 + navigationBar.bounds.size.height + imageView.frame.size.height/2);
     [tableView setFrame:CGRectMake(0, 0, 200, 200)];
     tableView.center = CGPointMake( -tableView.bounds.size.width/2 ,
                                    imageView.frame.origin.y + imageView.frame.size.height + tableView.bounds.size.height/2 - 58);
+    */
     navigationBar.center = CGPointMake( -navigationBar.bounds.size.width/2 ,
                                        navigationBar.center.y);
     timer = [NSTimer scheduledTimerWithTimeInterval:0.01
@@ -163,10 +168,16 @@
     if ([titleName isEqualToString:@"【客迎．傳情】"])
     {
         imageName = @"Training Day.jpg";
+        label.text = @"造型與構作:「手工彩色玻璃」與「傳統客家山歌」呈現的視覺、影像與音樂構成客家印象之迎賓長廊空間。\n空間裝置：藝術手工彩色玻璃迎賓\n聲響裝置：客家山歌等傳統歌謠之［空間性重組］"; 
+        [label setFrame:CGRectMake(0, 0, 690, 100)];
+        [tableView setFrame:CGRectMake(0, 0, 730, 160)];
     }
     else if ([titleName isEqualToString:@"【花漾．綠動】"])
     {
         imageName = @"Remember the Titans.jpg";
+        label.text = @"造型與構作:象徵四季花語之大型裝置雕塑作品\n客家文化中心的建築主要以「尊重自然」、「因地制宜」為概念主軸，建築線條隨基地所在的丘陵蜿蜒起伏，【花漾．綠動】公共藝術作品運用了玻璃的穿透感和折射性與水池倒影結合，整體作品與建築物融入於大自然之中。以幾何面的裝置造形，透過特定視角與水面映像呈現花朵的意象，並藉由風力轉動每一角度的觀看面向，不但突破了雕塑品的定點單一觀看方式，且不拘於形地佇立於大自然中。"; 
+        [label setFrame:CGRectMake(0, 0, 690, 140)];
+        [tableView setFrame:CGRectMake(0, 0, 730, 180)];
     }
     else if ([titleName isEqualToString:@"【家客．融蘊】"])
     {
@@ -179,7 +190,6 @@
     {
         self.title = titleName;
         [navigationBar setHidden:TRUE];
-        [tableView setFrame:CGRectMake(0, 0, 100, 100)];
         scrollView.center = CGPointMake( scrollView.center.x , scrollView.center.y - 44); 
         imageView.center = CGPointMake( self.view.bounds.size.width/2 ,
                                        14 + navigationBar.bounds.size.height + imageView.frame.size.height/2);
@@ -191,8 +201,10 @@
         navigationBar.topItem.title = titleName;        
         imageView.center = CGPointMake( imageView.image.size.width/2 ,
                                        14 + navigationBar.bounds.size.height + imageView.frame.size.height/2);
+        label.center = CGPointMake( label.bounds.size.width/2 ,
+                                   imageView.frame.origin.y + imageView.frame.size.height + label.frame.size.height/2 - 62);
         tableView.center = CGPointMake( tableView.bounds.size.width/2 ,
-                                       imageView.frame.origin.y + imageView.frame.size.height + tableView.bounds.size.height/2 - 62);        
+                                       imageView.frame.origin.y + imageView.frame.size.height + label.frame.size.height + tableView.bounds.size.height/2 - 62);        
     }
     CGRect applicationFrame = [[UIScreen mainScreen] applicationFrame];
     scrollView.contentSize = CGSizeMake(applicationFrame.size.width, 

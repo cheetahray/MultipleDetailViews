@@ -2,22 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Games</key>
+	<key>「視覺與聽覺的聯合感知」</key>
 	<array>
-		<string>Animal Park</string>
-		<string>Biology Quiz</string>
-		<string>Calculus Test</string>
-	</array>
-	<key>Entertainment</key>
-	<array>
-		<string>Eye Balls - iBlower</string>
-		<string>iBell</string>
-		<string>iCards Birthday</string>
-	</array>
-	<key>Utilities</key>
-	<array>
-		<string>Battery Monitor</string>
-		<string>iSystemInfo</string>
+		<string>空間裝置：藝術手工彩色玻璃迎賓</string>
+		<string>聲響裝置：客家山歌等傳統歌謠之［空間性重組］</string>
 	</array>
 </dict>
 </plist>
