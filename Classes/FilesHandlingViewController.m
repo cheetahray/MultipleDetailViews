@@ -21,11 +21,16 @@
 }
 
 //---read content from a specified file path---
+-(void) RayWTF:(NSString *)whichonetxt withoneimg:(NSString *)whichoneimg {
+    
+    [self writeToFile:whichonetxt withFileName:[[self documentsPath] stringByAppendingPathComponent:@"whichonetxt.txt"]];
+    
+    [self writeToFile:whichoneimg withFileName:[[self documentsPath] stringByAppendingPathComponent:@"whichoneimg.txt"]];
+}
+
+//---read content from a specified file path---
 -(NSString *) readFromFile:(NSString *) filePath {
-    //---check if file exists---
-    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath] == FALSE) {
-        [self RayWriteFile:filePath];
-    }
+    
     NSArray *array = [[NSArray alloc] initWithContentsOfFile: filePath];
     NSString *data = [NSString stringWithFormat:@"%@",
                       [array objectAtIndex:0]];
@@ -42,38 +47,44 @@
 }
 
 /*
-// The designated initializer. Override to perform setup that is required before the view is loaded.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
-
-/*
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView {
 }
 */
-
+/*
 - (void) RayWriteFile:(NSString *) fileName {
     
     //---write something to the file---
     [self writeToFile:@"a string of text" withFileName:fileName];
     
 }
+*/
+-(NSString *) RayReadTxt {
+    NSString *filePath = [self documentsPath];
+    //---check if file exists---
+    if ([[NSFileManager defaultManager] fileExistsAtPath:[filePath stringByAppendingPathComponent:@"1_1.txt"]] == FALSE) {
+        [self writeToFile:@"作品設置點為入口空橋，具有迎賓意象，將傳統剪紙的門箋轉化排列於入口玻璃空橋頂，參觀賓客進入展場過程中，沐浴於陽光照射下繽紛五彩的吉祥意象下。" withFileName:[filePath stringByAppendingPathComponent:@"1_1.txt"]];
+    }
 
--(NSString *) RayReadFile {
-    
     //---formulate filename---
-    NSString *fileName = [[self documentsPath]
-						  stringByAppendingPathComponent:@"data.txt"];
+    NSString *fileName = [filePath stringByAppendingPathComponent:@"whichonetxt.txt"];
     
     
     //---read it back---
-    return [self readFromFile:fileName];
+    return [self readFromFile:[filePath stringByAppendingPathComponent:[self readFromFile:fileName]]];
 
+}
+
+-(NSString *) RayReadImg {
+    
+    //---formulate filename---
+    NSString *fileName = [self readFromFile:[[self documentsPath]
+						  stringByAppendingPathComponent:@"whichoneimg.txt"]];
+    
+    
+    //---read it back---
+    return fileName;
+    
 }
 
 - RayReadTable {

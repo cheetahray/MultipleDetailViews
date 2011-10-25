@@ -81,7 +81,7 @@
 							<object class="IBUIImageView" id="786478770">
 								<reference key="NSNextResponder" ref="590587698"/>
 								<int key="NSvFlags">319</int>
-								<string key="NSFrame">{{224, 0}, {320, 623}}</string>
+								<string key="NSFrame">{{224, 0}, {320, 531}}</string>
 								<reference key="NSSuperview" ref="590587698"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView"/>
@@ -92,10 +92,10 @@
 							<object class="IBUITableView" id="36796911">
 								<reference key="NSNextResponder" ref="590587698"/>
 								<int key="NSvFlags">306</int>
-								<string key="NSFrameSize">{768, 204}</string>
+								<string key="NSFrameSize">{768, 174}</string>
 								<reference key="NSSuperview" ref="590587698"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="786478770"/>
+								<reference key="NSNextKeyView" ref="359815816"/>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MQA</bytes>
@@ -103,6 +103,7 @@
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<bool key="IBUIAlwaysBounceVertical">YES</bool>
+								<bool key="IBUIScrollEnabled">NO</bool>
 								<int key="IBUISeparatorStyle">1</int>
 								<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
 								<bool key="IBUIShowsSelectionImmediatelyOnTouchBegin">YES</bool>
@@ -116,6 +117,7 @@
 								<string key="NSFrameSize">{240, 128}</string>
 								<reference key="NSSuperview" ref="590587698"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="786478770"/>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MSAxIDEAA</bytes>
@@ -124,14 +126,15 @@
 								<bool key="IBUIMultipleTouchEnabled">YES</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<bool key="IBUIShowsHorizontalScrollIndicator">NO</bool>
-								<string key="IBUIText">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+								<bool key="IBUIEditable">NO</bool>
+								<string key="IBUIText"/>
 								<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 									<int key="IBUIAutocapitalizationType">2</int>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								</object>
 							</object>
 						</object>
-						<string key="NSFrame">{{0, 44}, {768, 1200}}</string>
+						<string key="NSFrame">{{0, 44}, {768, 1024}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="36796911"/>

@@ -11,12 +11,12 @@
 @interface FilesHandlingViewController : NSObject {
 
 }
-
+- (void) RayWTF:(NSString *) whichonetxt withoneimg:(NSString *) whichoneimg;
 - (NSString *) documentsPath;
 - (NSString *) readFromFile:(NSString *) filePath;
+- (NSString *) RayReadTxt;
+- (NSString *) RayReadImg;
 - (void) writeToFile:(NSString *) text withFileName:(NSString *) filePath;
-- (void) RayWriteFile:(NSString *) fileName;
-- (NSString *) RayReadFile;
 
 @end
 

@@ -50,6 +50,7 @@
 
 #import <UIKit/UIKit.h>
 #import "RootViewController.h"
+#import "FilesHandlingViewController.h"
 
 @class RootViewController;
 
@@ -65,7 +66,9 @@
     NSString *titleName, *thirdName;
     NSDictionary *movieTitles;
 	NSArray *years;
-	UIScrollView *scrollView;
+    UIScrollView *scrollView;
+    FilesHandlingViewController *fileController;
+    
 }
 
 @property (nonatomic, retain) IBOutlet UINavigationBar *navigationBar;

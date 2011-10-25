@@ -16,6 +16,7 @@
 		28AA66DC115C16800003B21C /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AA66D7115C16800003B21C /* RootViewController.m */; };
 		28AA66DD115C16800003B21C /* SecondDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AA66D9115C16800003B21C /* SecondDetailViewController.m */; };
 		28AA66DF115C16850003B21C /* ReadMe.txt in Resources */ = {isa = PBXBuildFile; fileRef = 28AA66DE115C16850003B21C /* ReadMe.txt */; };
+		E42C4B2F145699FF007E49B8 /* 1_1.png in Resources */ = {isa = PBXBuildFile; fileRef = E42C4B2E145699FF007E49B8 /* 1_1.png */; };
 		E467841213EFB67600984890 /* John Q.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E467840F13EFB67600984890 /* John Q.jpg */; };
 		E467841313EFB67600984890 /* Remember the Titans.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E467841013EFB67600984890 /* Remember the Titans.jpg */; };
 		E467841413EFB67600984890 /* Training Day.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E467841113EFB67600984890 /* Training Day.jpg */; };
@@ -51,6 +52,7 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* MultipleDetailViews_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipleDetailViews_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* MultipleDetailViews-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MultipleDetailViews-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		E42C4B2E145699FF007E49B8 /* 1_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1_1.png; sourceTree = "<group>"; };
 		E467840F13EFB67600984890 /* John Q.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "John Q.jpg"; sourceTree = "<group>"; };
 		E467841013EFB67600984890 /* Remember the Titans.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Remember the Titans.jpg"; sourceTree = "<group>"; };
 		E467841113EFB67600984890 /* Training Day.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Training Day.jpg"; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E42C4B2E145699FF007E49B8 /* 1_1.png */,
 				E467840F13EFB67600984890 /* John Q.jpg */,
 				E467841013EFB67600984890 /* Remember the Titans.jpg */,
 				E467841113EFB67600984890 /* Training Day.jpg */,
@@ -233,6 +236,7 @@
 				E467841213EFB67600984890 /* John Q.jpg in Resources */,
 				E467841313EFB67600984890 /* Remember the Titans.jpg in Resources */,
 				E467841413EFB67600984890 /* Training Day.jpg in Resources */,
+				E42C4B2F145699FF007E49B8 /* 1_1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

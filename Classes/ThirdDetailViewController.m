@@ -11,33 +11,38 @@
 
 @implementation ThirdDetailViewController
 
-@synthesize rootViewController, navigationBar, tapOrMove, imageView, label, titleName, detailItem;
+@synthesize rootViewController, navigationBar, tapOrMove, imageView, label, titleName, detailItem, scrollView;
 
 -(void) onTimer {
     
 	[UIView beginAnimations:@"my_own_animation" context:nil];
 	[UIView setAnimationDuration:1];
 	[UIView setAnimationCurve:UIViewAnimationCurveLinear];
-	
+	/*
     imageView.center = CGPointMake(imageView.center.x - 20,
                                    imageView.center.y);
     
     label.center = CGPointMake(label.center.x - 20,
                                    label.center.y);
-    
     navigationBar.center = CGPointMake(navigationBar.center.x - 25,
-                                       navigationBar.center.y);
+        navigationBar.center.y);
+     */
+    scrollView.center = CGPointMake(scrollView.center.x - 20,
+                                    scrollView.center.y);
     
 	[UIView commitAnimations];
     
-    if (imageView.center.x <= self.view.bounds.size.width / 2 )   
+    if (scrollView.center.x <= self.view.bounds.size.width / 2 + 20 )   
     {
+        /*
         imageView.center = CGPointMake(self.view.bounds.size.width/2 ,
                                        imageView.center.y);
         navigationBar.center = CGPointMake(imageView.center.x ,
                                            navigationBar.center.y);
         label.center = CGPointMake(imageView.center.x ,
                                            label.center.y);
+        */
+        scrollView.center = CGPointMake(scrollView.bounds.size.width/2, scrollView.center.y);
         [timer invalidate];
     }
 	
@@ -56,13 +61,15 @@
 
 - (void)doAnimation {
     tapOrMove = false;
+    /*
     imageView.center = CGPointMake(self.view.bounds.size.width + imageView.bounds.size.width/2 ,
                                    imageView.center.y);
     navigationBar.center = CGPointMake(self.view.bounds.size.width + navigationBar.bounds.size.width/2 ,
                                        navigationBar.center.y);
     label.center = CGPointMake(self.view.bounds.size.width + label.bounds.size.width/2 ,
                                        label.center.y);
-    
+    */
+    scrollView.center = CGPointMake(self.view.bounds.size.width + scrollView.bounds.size.width/2, scrollView.center.y);
     timer = [NSTimer scheduledTimerWithTimeInterval:0.01
 											 target:self
 										   selector:@selector(onTimer)
@@ -84,6 +91,8 @@
     [navigationBar release];
     [imageView release];
     [fileController release];
+    [scrollView release];
+    [label release];
     [super dealloc];
 }
 
@@ -101,7 +110,11 @@
 {
     [super viewDidLoad];
     fileController = [FilesHandlingViewController new];
-    label.text = [fileController RayReadFile];
+    label.text = [fileController RayReadTxt];
+    imageView.image = [UIImage imageNamed:[fileController RayReadImg]];
+    [imageView setFrame:CGRectMake(0, navigationBar.frame.size.height , imageView.image.size.width, imageView.image.size.height)];
+    label.center = CGPointMake( scrollView.bounds.size.width/2,
+                               imageView.frame.origin.y + imageView.frame.size.height + label.frame.size.height/2);
     [self doAnimation];
     navigationBar.topItem.title = titleName;
     if(rootViewController.rootPopoverButtonItem != nil)

@@ -72,10 +72,13 @@
     */
 	navigationBar.center = CGPointMake(navigationBar.center.x + 25,
                                        navigationBar.center.y);
+    scrollView.center = CGPointMake(scrollView.center.x + 20,
+                                       scrollView.center.y);
+
     
     [UIView commitAnimations];
     
-    if (imageView.center.x >= self.view.bounds.size.width / 2 )   
+    if (scrollView.center.x >= self.view.bounds.size.width / 2 )   
     {
         /*
         imageView.center = CGPointMake(imageView.bounds.size.width/2 ,
@@ -85,6 +88,7 @@
         */
         navigationBar.center = CGPointMake(navigationBar.bounds.size.width/2 ,
                                            navigationBar.center.y);
+        scrollView.center = CGPointMake(scrollView.bounds.size.width/2, scrollView.center.y);
         [timer invalidate];
     }
 	
@@ -98,6 +102,7 @@
     {
         switch (rootViewController.oneOrTwo) {
             case 2:
+                [fileController RayWTF:@"1_1.txt" withoneimg:@"1_1.png"];
                 [rootViewController LoadThreeView:thirdName];
                 break;
             case 3:
@@ -121,6 +126,8 @@
     */
     navigationBar.center = CGPointMake( -navigationBar.bounds.size.width/2 ,
                                        navigationBar.center.y);
+    scrollView.center = CGPointMake( -scrollView.bounds.size.width/2 ,
+                                    scrollView.center.y);
     timer = [NSTimer scheduledTimerWithTimeInterval:0.01
 											 target:self
 										   selector:@selector(onTimer)
@@ -175,13 +182,17 @@
     else if ([titleName isEqualToString:@"【花漾．綠動】"])
     {
         imageName = @"Remember the Titans.jpg";
-        label.text = @"造型與構作:象徵四季花語之大型裝置雕塑作品\n客家文化中心的建築主要以「尊重自然」、「因地制宜」為概念主軸，建築線條隨基地所在的丘陵蜿蜒起伏，【花漾．綠動】公共藝術作品運用了玻璃的穿透感和折射性與水池倒影結合，整體作品與建築物融入於大自然之中。以幾何面的裝置造形，透過特定視角與水面映像呈現花朵的意象，並藉由風力轉動每一角度的觀看面向，不但突破了雕塑品的定點單一觀看方式，且不拘於形地佇立於大自然中。"; 
-        [label setFrame:CGRectMake(0, 0, 690, 140)];
+        label.text = @"作品延伸建築的原意，利用多種三角玻璃面設計一組代表四季的抽象且具趣味性的翻摺裝置雕塑品。\n【花漾．綠動】利用自然風力微微轉動\n四件大型裝置雕塑品其玻璃經高溫夾膜製程\n作品材質與裝置為金屬結構、彩色夾膜玻璃(大型)、手工彩色玻璃(小型)、強化玻璃 、底盤旋轉機械裝置—防水無油軸承、投射燈及沉水揚水馬達"; 
+        [label setFrame:CGRectMake(0, 0, 690, 150)];
         [tableView setFrame:CGRectMake(0, 0, 730, 180)];
     }
     else if ([titleName isEqualToString:@"【家客．融蘊】"])
     {
         imageName = @"John Q.jpg";
+        label.text = @"造型與構作:大型馬賽克圖像創作\n牡丹是客家傳統的文化圖騰，而油桐近年也成演變客家的主要象徵，兩種花在園區的大門前交融接觸，新與舊融合，象徵客家隨時進步的精神\n陶瓷馬賽克拼貼設置於前廣場階梯「垂直立面」\n利用階梯座位特性，觀者視角錯位時，作品呈現出水花波紋漣漪"; 
+        [label setFrame:CGRectMake(0, 0, 690, 130)];
+        [tableView setFrame:CGRectMake(0, 0, 730, 180)];
+
     }
     imageView.image = [UIImage imageNamed:imageName];
     [imageView setFrame:CGRectMake(0, 0, imageView.image.size.width, imageView.image.size.height)];
@@ -223,6 +234,8 @@
         
     }
     // Do any additional setup after loading the view from its nib.
+    fileController = [FilesHandlingViewController new];
+    
 }
 
 #pragma mark -
@@ -254,6 +267,8 @@
     [movieTitles release];
     [years release];
     [scrollView release];
+    [label release];
+    [fileController release];
     [super dealloc];
 }	
 
