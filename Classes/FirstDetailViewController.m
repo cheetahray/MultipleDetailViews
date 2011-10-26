@@ -275,14 +275,12 @@ float ratioxII, ratioyII, originalwidthII, originalheightII;
 		
         NSString *imageName	= [NSString stringWithFormat:@"%@.jpg",[detailItem description] ];
 		imageView.image = [UIImage imageNamed:imageName];
+        originalwidthII = imageView.image.size.width;
+        originalheightII = imageView.image.size.height;
         
         [self doAnimation];
     }
-
-    if (rootViewController.popoverController != nil) {
-        [rootViewController.popoverController dismissPopoverAnimated:YES];
-    }
-
+    
 }
 
 
@@ -294,8 +292,6 @@ float ratioxII, ratioyII, originalwidthII, originalheightII;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    originalwidthII = imageView.image.size.width;
-    originalheightII = imageView.image.size.height;
     ratioxII = 1.0;
     ratioyII = 1.0;
     // Do any additional setup after loading the view from its nib.

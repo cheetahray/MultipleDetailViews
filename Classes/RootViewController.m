@@ -70,7 +70,7 @@ NSMutableArray *listOfMovies;
     [listOfMovies addObject:@"【家客．融蘊】"];
     
     // Set the content size for the popover: there are just two rows in the table view, so set to rowHeight*2.
-    self.contentSizeForViewInPopover = CGSizeMake(310.0, self.tableView.rowHeight*[listOfMovies count]);
+    self.contentSizeForViewInPopover = CGSizeMake(320, 700);
     
     oneOrTwo = 0;
 }
@@ -191,6 +191,9 @@ NSMutableArray *listOfMovies;
                 firstViewController = [[FirstDetailViewController alloc] initWithNibName:@"FirstDetailView" bundle:nil];
                 firstViewController.rootViewController = self;
                 detailViewController = firstViewController;
+                if (popoverController != nil) {
+                    [popoverController dismissPopoverAnimated:YES];
+                }
                 break;
                 
             case 2:
@@ -198,6 +201,10 @@ NSMutableArray *listOfMovies;
                 secondViewController.rootViewController = self;
                 secondViewController.titleName = indexRoom;
                 detailViewController = secondViewController;
+                // Dismiss the popover if it's present.
+                if (popoverController != nil) {
+                    [popoverController dismissPopoverAnimated:YES];
+                }
                 break;
                 
             case 3:
@@ -220,14 +227,7 @@ NSMutableArray *listOfMovies;
         splitViewController.viewControllers = viewControllers;
         [viewControllers release];
         
-        // Dismiss the popover if it's present.
-        
-        if (popoverController != nil) {
-            [popoverController dismissPopoverAnimated:YES];
-        }
-        
         // Configure the new view controller's popover button (after the view has been displayed and its toolbar/navigation bar has been created).
-        
         if (rootPopoverButtonItem != nil) {
             [detailViewController showRootPopoverButtonItem:self.rootPopoverButtonItem];
         }
