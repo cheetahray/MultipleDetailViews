@@ -246,9 +246,9 @@ UIInterfaceOrientation whatNow;
                 break;
         }
         
-        [tableView setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 460, 22 * headcnt + 44 * cellcnt ) ];   
+        [tableView setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 460, tableView.sectionHeaderHeight * headcnt + tableView.rowHeight * cellcnt ) ];   
         
-        theHeight += ( 22 * headcnt + 44 * cellcnt ); 
+        theHeight += ( tableView.sectionHeaderHeight * headcnt + tableView.rowHeight * cellcnt ); 
         
         scrollView.contentSize = CGSizeMake( (applicationFrame.size.width<=imageView.bounds.size.width?imageView.bounds.size.width:applicationFrame.size.width), (applicationFrame.size.height <= theHeight?theHeight:applicationFrame.size.height) );  
         
@@ -278,9 +278,9 @@ UIInterfaceOrientation whatNow;
                 break;
         }
                 
-        [tableView setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 70, 22 * headcnt + 44 * cellcnt ) ];
+        [tableView setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 70, tableView.sectionHeaderHeight * headcnt + tableView.rowHeight * cellcnt ) ];
         
-        theHeight += ( 22 * headcnt + 44 * cellcnt ); 
+        theHeight += ( tableView.sectionHeaderHeight * headcnt + tableView.rowHeight * cellcnt ); 
         
         if(whatNow == UIInterfaceOrientationPortrait)
         {
