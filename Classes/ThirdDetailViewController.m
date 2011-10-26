@@ -180,7 +180,7 @@ UIInterfaceOrientation nowWhat;
 		//imageView.image = [UIImage imageNamed:imageName];
         [self doAnimation];
     }
-
+    
     if (rootViewController.popoverController != nil) {
         [rootViewController.popoverController dismissPopoverAnimated:YES];
     }
