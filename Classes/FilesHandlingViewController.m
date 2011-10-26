@@ -65,7 +65,43 @@
     if ([[NSFileManager defaultManager] fileExistsAtPath:[filePath stringByAppendingPathComponent:@"1_1.txt"]] == FALSE) {
         [self writeToFile:@"作品設置點為入口空橋，具有迎賓意象，將傳統剪紙的門箋轉化排列於入口玻璃空橋頂，參觀賓客進入展場過程中，沐浴於陽光照射下繽紛五彩的吉祥意象下。" withFileName:[filePath stringByAppendingPathComponent:@"1_1.txt"]];
     }
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:[filePath stringByAppendingPathComponent:@"1_2.txt"]] == FALSE) {
+        [self writeToFile:@" " withFileName:[filePath stringByAppendingPathComponent:@"1_2.txt"]];
+    }
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:[filePath stringByAppendingPathComponent:@"2_2.txt"]] == FALSE) {
+        [self writeToFile:@" " withFileName:[filePath stringByAppendingPathComponent:@"2_2.txt"]];
+    }
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:[filePath stringByAppendingPathComponent:@"2_3.txt"]] == FALSE) {
+        [self writeToFile:@" " withFileName:[filePath stringByAppendingPathComponent:@"2_3.txt"]];
+    }
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:[filePath stringByAppendingPathComponent:@"2_4.txt"]] == FALSE) {
+        [self writeToFile:@" " withFileName:[filePath stringByAppendingPathComponent:@"2_4.txt"]];
+    }
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:[filePath stringByAppendingPathComponent:@"2_5.txt"]] == FALSE) {
+        [self writeToFile:@" " withFileName:[filePath stringByAppendingPathComponent:@"2_5.txt"]];
+    }
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:[filePath stringByAppendingPathComponent:@"3_3.txt"]] == FALSE) {
+        [self writeToFile:@" " withFileName:[filePath stringByAppendingPathComponent:@"3_3.txt"]];
+    }
 
+    if ([[NSFileManager defaultManager] fileExistsAtPath:[filePath stringByAppendingPathComponent:@"2_1.txt"]] == FALSE) {
+        [self writeToFile:@"客家文化中心的建築主要以「尊重自然」、「因地制宜」為概念主軸，建築線條隨基地所在的丘陵蜿蜒起伏，【花漾．綠動】公共藝術作品運用了玻璃的穿透感和折射性與水池倒影結合，整體作品與建築物融入於大自然之中。以幾何面的裝置造形，透過特定視角與水面映像呈現花朵的意象，並藉由風力轉動每一角度的觀看面向，不但突破了雕塑品的定點單一觀看方式，且不拘於形地佇立於大自然中。" withFileName:[filePath stringByAppendingPathComponent:@"2_1.txt"]];
+    }
+
+    if ([[NSFileManager defaultManager] fileExistsAtPath:[filePath stringByAppendingPathComponent:@"3_1.txt"]] == FALSE) {
+        [self writeToFile:@"以馬賽克方式拼組成大型的「牡丹花」和「油桐花」圖像，放置於前廣場的階梯立面上(兩座行人樓梯之間)，繽紛的花卉色彩增添了入口廣場的活潑與熱鬧氣氛，也賦予堅硬的水泥階梯較柔性的視覺感知。" withFileName:[filePath stringByAppendingPathComponent:@"3_1.txt"]];
+    }
+
+    if ([[NSFileManager defaultManager] fileExistsAtPath:[filePath stringByAppendingPathComponent:@"3_2.txt"]] == FALSE) {
+        [self writeToFile:@"陶瓷馬賽克拼貼設置於前廣場階梯「垂直立面」，不干擾觀眾座位與配合園區建築及景觀，位在不同角度及高度觀看時，圖案略有變化。" withFileName:[filePath stringByAppendingPathComponent:@"3_2.txt"]];
+    }
+    
     //---formulate filename---
     NSString *fileName = [filePath stringByAppendingPathComponent:@"whichonetxt.txt"];
     

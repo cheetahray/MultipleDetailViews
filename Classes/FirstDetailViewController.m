@@ -59,6 +59,7 @@
 #pragma mark View lifecycle
 
 int areaTypeII = -1;
+int ISurrender = 0;
 CGFloat originalDistance;
 float ratioxII, ratioyII, originalwidthII, originalheightII;
 
@@ -67,8 +68,8 @@ float ratioxII, ratioyII, originalwidthII, originalheightII;
 	[UIView beginAnimations:@"my_own_animation" context:nil];
 	[UIView setAnimationDuration:1];
 	[UIView setAnimationCurve:UIViewAnimationCurveLinear];
-	
-    imageView.center = CGPointMake(imageView.center.x - 20,
+	ISurrender-=20;
+    imageView.center = CGPointMake(ISurrender,
                                    imageView.center.y);
     
     navigationBar.center = CGPointMake(navigationBar.center.x - 20,
@@ -76,7 +77,7 @@ float ratioxII, ratioyII, originalwidthII, originalheightII;
     
 	[UIView commitAnimations];
     
-    if (imageView.center.x <= self.view.bounds.size.width / 2 )   
+    if (navigationBar.center.x <= self.view.bounds.size.width / 2 )   
     {
         imageView.center = CGPointMake(imageView.bounds.size.width/2 ,
                                        imageView.center.y);
@@ -274,7 +275,6 @@ float ratioxII, ratioyII, originalwidthII, originalheightII;
 		
         NSString *imageName	= [NSString stringWithFormat:@"%@.jpg",[detailItem description] ];
 		imageView.image = [UIImage imageNamed:imageName];
-        [imageView setFrame:CGRectMake(0, 0, imageView.image.size.width, imageView.image.size.height)];
         
         [self doAnimation];
     }
@@ -307,9 +307,10 @@ float ratioxII, ratioyII, originalwidthII, originalheightII;
         tapOrMove = false;
     
         //imageView.center = CGPointMake( self.view.bounds.size.width + imageView.image.size.width/2 ,navigationBar.bounds.size.height + imageView.frame.size.height/2);
-    
-        imageView.center = CGPointMake(self.view.bounds.size.width + imageView.bounds.size.width/2 ,
-                                   self.view.bounds.size.height/2);
+        [imageView setFrame:CGRectMake(0, 0, imageView.image.size.width, imageView.image.size.height)];
+        imageView.center = CGPointMake(self.view.bounds.size.width + imageView.bounds.size.width/2 , self.view.bounds.size.height/2);
+        ISurrender = imageView.center.x;
+        
         navigationBar.center = CGPointMake(self.view.bounds.size.width + navigationBar.bounds.size.width/2, navigationBar.center.y);
     
         timer = [NSTimer scheduledTimerWithTimeInterval:0.01

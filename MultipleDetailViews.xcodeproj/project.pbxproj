@@ -20,6 +20,17 @@
 		E467841213EFB67600984890 /* John Q.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E467840F13EFB67600984890 /* John Q.jpg */; };
 		E467841313EFB67600984890 /* Remember the Titans.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E467841013EFB67600984890 /* Remember the Titans.jpg */; };
 		E467841413EFB67600984890 /* Training Day.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E467841113EFB67600984890 /* Training Day.jpg */; };
+		E4E922311457C3A900C5DD55 /* 1_2.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E922301457C3A900C5DD55 /* 1_2.png */; };
+		E4E922361457FD9B00C5DD55 /* Theater.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4E922351457FD9B00C5DD55 /* Theater.plist */; };
+		E4E922381457FE3E00C5DD55 /* 2_1.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E922371457FE3E00C5DD55 /* 2_1.png */; };
+		E4E9223A145801EF00C5DD55 /* 2_2.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E92239145801EF00C5DD55 /* 2_2.png */; };
+		E4E9223C145805F300C5DD55 /* 2_3.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E9223B145805F300C5DD55 /* 2_3.png */; };
+		E4E9223F14580C0F00C5DD55 /* 2_4.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E9223D14580C0E00C5DD55 /* 2_4.png */; };
+		E4E9224014580C0F00C5DD55 /* 2_5.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E9223E14580C0E00C5DD55 /* 2_5.png */; };
+		E4E9224214580E5300C5DD55 /* Ticket.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4E9224114580E5300C5DD55 /* Ticket.plist */; };
+		E4E9224614580FB500C5DD55 /* 3_1.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E9224314580FB400C5DD55 /* 3_1.png */; };
+		E4E9224714580FB500C5DD55 /* 3_2.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E9224414580FB400C5DD55 /* 3_2.png */; };
+		E4E9224814580FB500C5DD55 /* 3_3.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E9224514580FB400C5DD55 /* 3_3.png */; };
 		E4F7DFA413EBDB7100051172 /* HomePage-001.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E4F7DFA313EBDB7100051172 /* HomePage-001.jpg */; };
 		EE0F019B13B1B88400A35829 /* FirstView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0F019913B1B88400A35829 /* FirstView.m */; };
 		EE0F019C13B1B88400A35829 /* FirstView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE0F019A13B1B88400A35829 /* FirstView.xib */; };
@@ -56,6 +67,17 @@
 		E467840F13EFB67600984890 /* John Q.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "John Q.jpg"; sourceTree = "<group>"; };
 		E467841013EFB67600984890 /* Remember the Titans.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Remember the Titans.jpg"; sourceTree = "<group>"; };
 		E467841113EFB67600984890 /* Training Day.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Training Day.jpg"; sourceTree = "<group>"; };
+		E4E922301457C3A900C5DD55 /* 1_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1_2.png; sourceTree = "<group>"; };
+		E4E922351457FD9B00C5DD55 /* Theater.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Theater.plist; sourceTree = "<group>"; };
+		E4E922371457FE3E00C5DD55 /* 2_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2_1.png; sourceTree = "<group>"; };
+		E4E92239145801EF00C5DD55 /* 2_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2_2.png; sourceTree = "<group>"; };
+		E4E9223B145805F300C5DD55 /* 2_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2_3.png; sourceTree = "<group>"; };
+		E4E9223D14580C0E00C5DD55 /* 2_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2_4.png; sourceTree = "<group>"; };
+		E4E9223E14580C0E00C5DD55 /* 2_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2_5.png; sourceTree = "<group>"; };
+		E4E9224114580E5300C5DD55 /* Ticket.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Ticket.plist; sourceTree = "<group>"; };
+		E4E9224314580FB400C5DD55 /* 3_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3_1.png; sourceTree = "<group>"; };
+		E4E9224414580FB400C5DD55 /* 3_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3_2.png; sourceTree = "<group>"; };
+		E4E9224514580FB400C5DD55 /* 3_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3_3.png; sourceTree = "<group>"; };
 		E4F7DFA313EBDB7100051172 /* HomePage-001.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HomePage-001.jpg"; sourceTree = "<group>"; };
 		EE0F019813B1B88400A35829 /* FirstView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstView.h; sourceTree = "<group>"; };
 		EE0F019913B1B88400A35829 /* FirstView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstView.m; sourceTree = "<group>"; };
@@ -146,6 +168,15 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E4E9224314580FB400C5DD55 /* 3_1.png */,
+				E4E9224414580FB400C5DD55 /* 3_2.png */,
+				E4E9224514580FB400C5DD55 /* 3_3.png */,
+				E4E9223D14580C0E00C5DD55 /* 2_4.png */,
+				E4E9223E14580C0E00C5DD55 /* 2_5.png */,
+				E4E9223B145805F300C5DD55 /* 2_3.png */,
+				E4E92239145801EF00C5DD55 /* 2_2.png */,
+				E4E922371457FE3E00C5DD55 /* 2_1.png */,
+				E4E922301457C3A900C5DD55 /* 1_2.png */,
 				E42C4B2E145699FF007E49B8 /* 1_1.png */,
 				E467840F13EFB67600984890 /* John Q.jpg */,
 				E467841013EFB67600984890 /* Remember the Titans.jpg */,
@@ -159,6 +190,8 @@
 				EE79237C13B2F48A001D0E49 /* SecondDetailView.xib */,
 				EE0F019A13B1B88400A35829 /* FirstView.xib */,
 				8D1107310486CEB800E47090 /* MultipleDetailViews-Info.plist */,
+				E4E922351457FD9B00C5DD55 /* Theater.plist */,
+				E4E9224114580E5300C5DD55 /* Ticket.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -237,6 +270,17 @@
 				E467841313EFB67600984890 /* Remember the Titans.jpg in Resources */,
 				E467841413EFB67600984890 /* Training Day.jpg in Resources */,
 				E42C4B2F145699FF007E49B8 /* 1_1.png in Resources */,
+				E4E922311457C3A900C5DD55 /* 1_2.png in Resources */,
+				E4E922361457FD9B00C5DD55 /* Theater.plist in Resources */,
+				E4E922381457FE3E00C5DD55 /* 2_1.png in Resources */,
+				E4E9223A145801EF00C5DD55 /* 2_2.png in Resources */,
+				E4E9223C145805F300C5DD55 /* 2_3.png in Resources */,
+				E4E9223F14580C0F00C5DD55 /* 2_4.png in Resources */,
+				E4E9224014580C0F00C5DD55 /* 2_5.png in Resources */,
+				E4E9224214580E5300C5DD55 /* Ticket.plist in Resources */,
+				E4E9224614580FB500C5DD55 /* 3_1.png in Resources */,
+				E4E9224714580FB500C5DD55 /* 3_2.png in Resources */,
+				E4E9224814580FB500C5DD55 /* 3_3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

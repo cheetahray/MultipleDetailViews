@@ -13,6 +13,8 @@
 
 @synthesize rootViewController, navigationBar, tapOrMove, imageView, label, titleName, detailItem, scrollView;
 
+UIInterfaceOrientation nowWhat;
+
 -(void) onTimer {
     
 	[UIView beginAnimations:@"my_own_animation" context:nil];
@@ -24,28 +26,32 @@
     
     label.center = CGPointMake(label.center.x - 20,
                                    label.center.y);
-    navigationBar.center = CGPointMake(navigationBar.center.x - 25,
-        navigationBar.center.y);
      */
+    navigationBar.center = CGPointMake(navigationBar.center.x - 20,
+                                       navigationBar.center.y);
     scrollView.center = CGPointMake(scrollView.center.x - 20,
                                     scrollView.center.y);
     
 	[UIView commitAnimations];
     
-    if (scrollView.center.x <= self.view.bounds.size.width / 2 + 20 )   
+    if (navigationBar.center.x <= self.view.bounds.size.width / 2 )   
     {
         /*
         imageView.center = CGPointMake(self.view.bounds.size.width/2 ,
                                        imageView.center.y);
-        navigationBar.center = CGPointMake(imageView.center.x ,
-                                           navigationBar.center.y);
         label.center = CGPointMake(imageView.center.x ,
                                            label.center.y);
         */
+        navigationBar.center = CGPointMake(navigationBar.bounds.size.width/2 ,
+                                           navigationBar.center.y);
         scrollView.center = CGPointMake(scrollView.bounds.size.width/2, scrollView.center.y);
         [timer invalidate];
+
+        label.contentOffset = CGPointMake(0, 0);
     }
 	
+    label.contentOffset = CGPointMake(0, 1);
+
 }
 
 -(void) onTimer2 {
@@ -62,13 +68,11 @@
 - (void)doAnimation {
     tapOrMove = false;
     /*
-    imageView.center = CGPointMake(self.view.bounds.size.width + imageView.bounds.size.width/2 ,
-                                   imageView.center.y);
-    navigationBar.center = CGPointMake(self.view.bounds.size.width + navigationBar.bounds.size.width/2 ,
-                                       navigationBar.center.y);
+    imageView.center = CGPointMake(self.view.bounds.size.width + imageView.bounds.size.width/2 , imageView.center.y);
     label.center = CGPointMake(self.view.bounds.size.width + label.bounds.size.width/2 ,
                                        label.center.y);
     */
+    navigationBar.center = CGPointMake(self.view.bounds.size.width + navigationBar.bounds.size.width/2, navigationBar.center.y);
     scrollView.center = CGPointMake(self.view.bounds.size.width + scrollView.bounds.size.width/2, scrollView.center.y);
     timer = [NSTimer scheduledTimerWithTimeInterval:0.01
 											 target:self
@@ -112,9 +116,26 @@
     fileController = [FilesHandlingViewController new];
     label.text = [fileController RayReadTxt];
     imageView.image = [UIImage imageNamed:[fileController RayReadImg]];
-    [imageView setFrame:CGRectMake(0, navigationBar.frame.size.height , imageView.image.size.width, imageView.image.size.height)];
-    label.center = CGPointMake( scrollView.bounds.size.width/2,
-                               imageView.frame.origin.y + imageView.frame.size.height + label.frame.size.height/2);
+    [imageView setFrame:CGRectMake(0, 0, imageView.image.size.width, imageView.image.size.height)];
+    
+    [label setFrame:CGRectMake(0, imageView.bounds.size.height, self.view.bounds.size.width - 70, 200)];
+    
+    CGRect applicationFrame = [[UIScreen mainScreen] applicationFrame];
+    
+    int myWidth = 0;
+    int myHeight = (navigationBar.frame.size.height + imageView.image.size.height + lable.frame.size.height);
+    myWidth = (applicationFrame.size.width <= imageView.image.size.width)?imageView.image.size.width:applicationFrame.size.width;
+    if(nowWhat == UIInterfaceOrientationPortrait)
+    {
+        myHeight = (applicationFrame.size.height <= myHeight)?myHeight:applicationFrame.size.height;
+    }
+    else
+    {
+        myHeight = (applicationFrame.size.height <= myHeight)?myHeight+200:applicationFrame.size.height+300;
+    }
+    
+    scrollView.contentSize = CGSizeMake(myWidth, myHeight);  
+    
     [self doAnimation];
     navigationBar.topItem.title = titleName;
     if(rootViewController.rootPopoverButtonItem != nil)
@@ -143,132 +164,8 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    //return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    nowWhat = interfaceOrientation;
     return YES;
-}
-
-//---fired when the user finger(s) touches the screen---
--(void) touchesBegan: (NSSet *) touches withEvent: (UIEvent *) event {
-	
-    //---get all touches on the screen---
-    NSSet *allTouches = [event allTouches];
-    tapOrMove = true;
-    //---compare the number of touches on the screen---
-    switch ([allTouches count])
-    {
-			//---single touch---
-        case 1: {
-            //---get info of the touch---
-            UITouch *touch = [[allTouches allObjects] objectAtIndex:0];
-			
-            //---compare the touches---
-            switch ([touch tapCount])
-            {
-					//---single tap---
-                case 1: {
-                    tapOrMove = false;
-                    
-                    timer = [NSTimer scheduledTimerWithTimeInterval:0.5
-                                                             target:self
-                                                           selector:@selector(onTimer2)
-                                                           userInfo:nil
-                                                            repeats:NO];
-
-                } break;
-					
-					//---double tap---
-                case 2: {
-                    
-                } break;
-            }
-        }  break;
-			
-            //---double-touch---
-        case 2: {
-            //---get info of first touch---
-            UITouch *touch1 = [[allTouches allObjects] objectAtIndex:0];
-			
-            //---get info of second touch---
-            UITouch *touch2 = [[allTouches allObjects] objectAtIndex:1];
-			
-            //---get the points touched---
-            CGPoint touch1PT = [touch1 locationInView:[self view]];
-            CGPoint touch2PT = [touch2 locationInView:[self view]];
-			
-            NSLog(@"Touch1: %.0f, %.0f", touch1PT.x, touch1PT.y);
-            NSLog(@"Touch2: %.0f, %.0f", touch2PT.x, touch2PT.y);
-			
-			//---record the distance made by the two touches---
-            
-        } break;
-    }
-}
-
-//---fired when the user moved his finger(s) on the screen---
--(void) touchesMoved: (NSSet *) touches withEvent: (UIEvent *) event {
-	
-    //---get all touches on the screen---
-    NSSet *allTouches = [event allTouches];
-	tapOrMove = true;
-    //---compare the number of touches on the screen---
-    switch ([allTouches count])
-    {
-			//---single touch---
-        case 1: {
-            //---get info of the touch---
-            UITouch *touch = [[allTouches allObjects] objectAtIndex:0];
-			
-            //---check to see if the image is being touched---
-            CGPoint touchPoint = [touch locationInView:[self view]];
-			/*
-             if (touchPoint.x > imageView.frame.origin.x &&
-             touchPoint.x < imageView.frame.origin.x +
-             imageView.frame.size.width &&
-             touchPoint.y > imageView.frame.origin.y &&
-             touchPoint.y <imageView.frame.origin.y +
-             imageView.frame.size.height) {
-             [imageView setCenter:touchPoint];
-             }
-             */
-        }  break;
-			
-			//---double-touch---
-        case 2: {
-            //---get info of first touch---
-            UITouch *touch1 = [[allTouches allObjects] objectAtIndex:0];
-			
-            //---get info of second touch---
-            UITouch *touch2 = [[allTouches allObjects] objectAtIndex:1];
-			
-            //---get the points touched---
-            CGPoint touch1PT = [touch1 locationInView:[self view]];
-            CGPoint touch2PT = [touch2 locationInView:[self view]];
-			
-            NSLog(@"Touch1: %.0f, %.0f", touch1PT.x, touch1PT.y);
-            NSLog(@"Touch2: %.0f, %.0f", touch2PT.x, touch2PT.y);
-			/*
-             CGFloat currentDistance = [self distanceBetweenTwoPoints: touch1PT
-             toPoint: touch2PT];
-             
-             //---zoom in---
-             if (currentDistance > originalDistance)
-             {
-             imageView.frame = CGRectMake(imageView.frame.origin.x - 4,
-             imageView.frame.origin.y - 4,
-             imageView.frame.size.width + 8,
-             imageView.frame.size.height + 8);
-             }
-             else {
-             //---zoom out---
-             imageView.frame = CGRectMake(imageView.frame.origin.x + 4,
-             imageView.frame.origin.y + 4,
-             imageView.frame.size.width - 8,
-             imageView.frame.size.height - 8);
-             }
-             originalDistance = currentDistance;
-             */
-        } break;
-    }
 }
 
 - (void)setDetailItem:(id)newDetailItem {

@@ -56,6 +56,9 @@
 
 #pragma mark -
 #pragma mark View lifecycle
+int cellIndex = 0;
+int headcnt = 0;
+UIInterfaceOrientation whatNow;
 
 -(void) onTimer {
     
@@ -70,7 +73,7 @@
     tableView.center = CGPointMake(tableView.center.x + 5,
                                    tableView.center.y);
     */
-	navigationBar.center = CGPointMake(navigationBar.center.x + 25,
+	navigationBar.center = CGPointMake(navigationBar.center.x + 20,
                                        navigationBar.center.y);
     scrollView.center = CGPointMake(scrollView.center.x + 20,
                                        scrollView.center.y);
@@ -90,8 +93,13 @@
                                            navigationBar.center.y);
         scrollView.center = CGPointMake(scrollView.bounds.size.width/2, scrollView.center.y);
         [timer invalidate];
+        
+        label.contentOffset = CGPointMake(0, 0);
+
     }
 	
+    label.contentOffset = CGPointMake(0, 1);
+
 }
 
 -(void) onTimer2 {
@@ -102,7 +110,6 @@
     {
         switch (rootViewController.oneOrTwo) {
             case 2:
-                [fileController RayWTF:@"1_1.txt" withoneimg:@"1_1.png"];
                 [rootViewController LoadThreeView:thirdName];
                 break;
             case 3:
@@ -155,8 +162,40 @@
 - (void)viewDidLoad
 {
     //---path to the property list file---
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"Movies" 
-													 ofType:@"plist"];
+    NSString *path;
+    NSString *imageName;
+    
+    [super viewDidLoad];
+    
+    if ([titleName isEqualToString:@"【客迎．傳情】"])
+    {
+        imageName = @"Training Day.jpg";
+        label.text = @"造型與構作:「手工彩色玻璃」與「傳統客家山歌」呈現的視覺、影像與音樂構成客家印象之迎賓長廊空間。\n空間裝置：藝術手工彩色玻璃迎賓\n聲響裝置：客家山歌等傳統歌謠之［空間性重組］"; 
+        cellIndex = 1;
+        path = [[NSBundle mainBundle] pathForResource:@"Movies" 
+                                               ofType:@"plist"];
+    }
+    else if ([titleName isEqualToString:@"【花漾．綠動】"])
+    {
+        imageName = @"Remember the Titans.jpg";
+        label.text = @"作品延伸建築的原意，利用多種三角玻璃面設計一組代表四季的抽象且具趣味性的翻摺裝置雕塑品。\n【花漾．綠動】利用自然風力微微轉動\n四件大型裝置雕塑品其玻璃經高溫夾膜製程\n作品材質與裝置為金屬結構、彩色夾膜玻璃(大型)、手工彩色玻璃(小型)、強化玻璃 、底盤旋轉機械裝置—防水無油軸承、投射燈及沉水揚水馬達"; 
+        cellIndex = 2;
+        path = [[NSBundle mainBundle] pathForResource:@"Theater" 
+                                               ofType:@"plist"];
+    }
+    else if ([titleName isEqualToString:@"【家客．融蘊】"])
+    {
+        imageName = @"John Q.jpg";
+        label.text = @"造型與構作:大型馬賽克圖像創作\n牡丹是客家傳統的文化圖騰，而油桐近年也成演變客家的主要象徵，兩種花在園區的大門前交融接觸，新與舊融合，象徵客家隨時進步的精神\n陶瓷馬賽克拼貼設置於前廣場階梯「垂直立面」\n利用階梯座位特性，觀者視角錯位時，作品呈現出水花波紋漣漪"; 
+        cellIndex = 3;
+        path = [[NSBundle mainBundle] pathForResource:@"Ticket" 
+                                               ofType:@"plist"];
+    }
+    else
+    {
+        cellIndex = 0;
+    }
+    
     //---load the list into the dictionary---
     NSDictionary *dic = [[NSDictionary alloc] initWithContentsOfFile:path];
     //---save the dictionary object to the property---
@@ -168,58 +207,91 @@
 					  sortedArrayUsingSelector:@selector(compare:)];
     //---save the keys in the years property---
     self.years = array;	
-    
-    [super viewDidLoad];
-    
-    NSString *imageName;
-    if ([titleName isEqualToString:@"【客迎．傳情】"])
-    {
-        imageName = @"Training Day.jpg";
-        label.text = @"造型與構作:「手工彩色玻璃」與「傳統客家山歌」呈現的視覺、影像與音樂構成客家印象之迎賓長廊空間。\n空間裝置：藝術手工彩色玻璃迎賓\n聲響裝置：客家山歌等傳統歌謠之［空間性重組］"; 
-        [label setFrame:CGRectMake(0, 0, 690, 100)];
-        [tableView setFrame:CGRectMake(0, 0, 730, 160)];
+    headcnt = [years count];
+    int cellcnt = 0;
+    for (int ii = 0; ii < headcnt; ii++) {
+        NSArray *movieSection = [movieTitles objectForKey:[years objectAtIndex:ii]];
+        //---return the number of movies for that year as the number of rows in that 
+        // section ---
+        cellcnt += [movieSection count];
     }
-    else if ([titleName isEqualToString:@"【花漾．綠動】"])
-    {
-        imageName = @"Remember the Titans.jpg";
-        label.text = @"作品延伸建築的原意，利用多種三角玻璃面設計一組代表四季的抽象且具趣味性的翻摺裝置雕塑品。\n【花漾．綠動】利用自然風力微微轉動\n四件大型裝置雕塑品其玻璃經高溫夾膜製程\n作品材質與裝置為金屬結構、彩色夾膜玻璃(大型)、手工彩色玻璃(小型)、強化玻璃 、底盤旋轉機械裝置—防水無油軸承、投射燈及沉水揚水馬達"; 
-        [label setFrame:CGRectMake(0, 0, 690, 150)];
-        [tableView setFrame:CGRectMake(0, 0, 730, 180)];
-    }
-    else if ([titleName isEqualToString:@"【家客．融蘊】"])
-    {
-        imageName = @"John Q.jpg";
-        label.text = @"造型與構作:大型馬賽克圖像創作\n牡丹是客家傳統的文化圖騰，而油桐近年也成演變客家的主要象徵，兩種花在園區的大門前交融接觸，新與舊融合，象徵客家隨時進步的精神\n陶瓷馬賽克拼貼設置於前廣場階梯「垂直立面」\n利用階梯座位特性，觀者視角錯位時，作品呈現出水花波紋漣漪"; 
-        [label setFrame:CGRectMake(0, 0, 690, 130)];
-        [tableView setFrame:CGRectMake(0, 0, 730, 180)];
+    
+    CGRect applicationFrame = [[UIScreen mainScreen] applicationFrame];
+    
+    int theHeight = 0;
 
-    }
-    imageView.image = [UIImage imageNamed:imageName];
-    [imageView setFrame:CGRectMake(0, 0, imageView.image.size.width, imageView.image.size.height)];
-    
     if(rootViewController.oneOrTwo == 3)
     {
         self.title = titleName;
         [navigationBar setHidden:TRUE];
-        scrollView.center = CGPointMake( scrollView.center.x , scrollView.center.y - 44); 
-        imageView.center = CGPointMake( self.view.bounds.size.width/2 ,
-                                       14 + navigationBar.bounds.size.height + imageView.frame.size.height/2);
-        tableView.center = CGPointMake( self.view.bounds.size.width/2 ,
-                                       imageView.frame.origin.y + imageView.frame.size.height + tableView.bounds.size.height/2 - 68);        
+        
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        imageView.image = [UIImage imageNamed:imageName];
+        [imageView setFrame:CGRectMake(0, 0, imageView.frame.size.width, imageView.frame.size.width * imageView.image.size.height / imageView.image.size.width)];
+        theHeight = imageView.frame.size.height;
+        
+        switch (cellIndex) {
+            case 1:
+                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 460, 20 * 7)];
+                theHeight += 20 * 7;
+                break;
+            case 2:
+                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 460, 20 * 11)];
+                theHeight += 20 * 11;
+                break;
+            case 3:
+                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 460, 20 * 11)];
+                theHeight += 20 * 11;
+
+                break;
+        }
+        
+        [tableView setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 460, 22 * headcnt + 44 * cellcnt ) ];   
+        
+        theHeight += ( 22 * headcnt + 44 * cellcnt ); 
+        
+        scrollView.contentSize = CGSizeMake( (applicationFrame.size.width<=imageView.bounds.size.width?imageView.bounds.size.width:applicationFrame.size.width), (applicationFrame.size.height <= theHeight?theHeight:applicationFrame.size.height) );  
+        
+        [scrollView setFrame:CGRectMake(0, 0, scrollView.bounds.size.width, scrollView.bounds.size.height)];
+        
     }
     else
     {
-        navigationBar.topItem.title = titleName;        
-        imageView.center = CGPointMake( imageView.image.size.width/2 ,
-                                       14 + navigationBar.bounds.size.height + imageView.frame.size.height/2);
-        label.center = CGPointMake( label.bounds.size.width/2 ,
-                                   imageView.frame.origin.y + imageView.frame.size.height + label.frame.size.height/2 - 62);
-        tableView.center = CGPointMake( tableView.bounds.size.width/2 ,
-                                       imageView.frame.origin.y + imageView.frame.size.height + label.frame.size.height + tableView.bounds.size.height/2 - 62);        
+        navigationBar.topItem.title = titleName;      
+
+        imageView.image = [UIImage imageNamed:imageName];
+        [imageView setFrame:CGRectMake(0, 0, imageView.image.size.width, imageView.image.size.height)];
+        theHeight = imageView.image.size.height;
+
+        switch (cellIndex) {
+            case 1:
+                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 70, 20 * 5)];
+                theHeight += 20 * 5;
+                break;
+            case 2:
+                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 70, 20 * 7)];
+                theHeight += 20 * 7;
+                break;
+            case 3:
+                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 70, 20 * 7)];
+                theHeight += 20 * 7;
+                break;
+        }
+                
+        [tableView setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 70, 22 * headcnt + 44 * cellcnt ) ];
+        
+        theHeight += ( 22 * headcnt + 44 * cellcnt ); 
+        
+        if(whatNow == UIInterfaceOrientationPortrait)
+        {
+            scrollView.contentSize = CGSizeMake( (applicationFrame.size.width<=imageView.bounds.size.width?imageView.bounds.size.width:applicationFrame.size.width), (applicationFrame.size.height <= theHeight?theHeight:applicationFrame.size.height) );  
+        }
+        else
+        {
+            scrollView.contentSize = CGSizeMake( (applicationFrame.size.width<=imageView.bounds.size.width?imageView.bounds.size.width:applicationFrame.size.width), (applicationFrame.size.height <= theHeight?theHeight:applicationFrame.size.height+300) );  
+        }
+
     }
-    CGRect applicationFrame = [[UIScreen mainScreen] applicationFrame];
-    scrollView.contentSize = CGSizeMake(applicationFrame.size.width, 
-                                        applicationFrame.size.height + 200);  
     
     if(rootViewController.rootPopoverButtonItem != nil)
     {
@@ -243,19 +315,19 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)aTableView {
     // Return the number of sections.
     //return 1;
-    return [years count];    
+    return headcnt;    
 }
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     //return 10;
-		//---check the current year based on the section index---
-		NSString *year = [years objectAtIndex:section];
-		//---returns the movies in that year as an array---
-		NSArray *movieSection = [movieTitles objectForKey:year];
-		//---return the number of movies for that year as the number of rows in that 
-		// section ---
-		return [movieSection count];
+    //---check the current year based on the section index---
+    NSString *year = [years objectAtIndex:section];
+    //---returns the movies in that year as an array---
+    NSArray *movieSection = [movieTitles objectForKey:year];
+    //---return the number of movies for that year as the number of rows in that 
+    // section ---
+    return [movieSection count];
 }
 
 #pragma mark -
@@ -276,6 +348,7 @@
 {
     // Return YES for supported orientations
     //return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    whatNow = interfaceOrientation;
     return YES;
 }
 
@@ -323,115 +396,6 @@
 	return year;
 }
 
-
-//---fired when the user finger(s) touches the screen---
--(void) touchesBegan: (NSSet *) touches withEvent: (UIEvent *) event {
-	
-    //---get all touches on the screen---
-    NSSet *allTouches = [event allTouches];
-    tapOrMove = true;
-    //---compare the number of touches on the screen---
-    switch ([allTouches count])
-    {
-			//---single touch---
-        case 1: {
-            //---get info of the touch---
-            UITouch *touch = [[allTouches allObjects] objectAtIndex:0];
-			
-            //---compare the touches---
-            switch ([touch tapCount])
-            {
-					//---single tap---
-                case 1: {
-                    
-                } break;
-					
-					//---double tap---
-                case 2: {
-
-                } break;
-            }
-        }  break;
-			
-            //---double-touch---
-        case 2: {
-            //---get info of first touch---
-            UITouch *touch1 = [[allTouches allObjects] objectAtIndex:0];
-			
-            //---get info of second touch---
-            UITouch *touch2 = [[allTouches allObjects] objectAtIndex:1];
-			
-            //---get the points touched---
-            CGPoint touch1PT = [touch1 locationInView:[self view]];
-            CGPoint touch2PT = [touch2 locationInView:[self view]];
-			
-            NSLog(@"Touch1: %.0f, %.0f", touch1PT.x, touch1PT.y);
-            NSLog(@"Touch2: %.0f, %.0f", touch2PT.x, touch2PT.y);
-			
-			//---record the distance made by the two touches---
-
-        } break;
-    }
-}
-
-//---fired when the user moved his finger(s) on the screen---
--(void) touchesMoved: (NSSet *) touches withEvent: (UIEvent *) event {
-	
-    //---get all touches on the screen---
-    NSSet *allTouches = [event allTouches];
-	tapOrMove = true;
-    //---compare the number of touches on the screen---
-    switch ([allTouches count])
-    {
-			//---single touch---
-        case 1: {
-            //---get info of the touch---
-            UITouch *touch = [[allTouches allObjects] objectAtIndex:0];
-			
-            //---check to see if the image is being touched---
-            CGPoint touchPoint = [touch locationInView:[self view]];
-        
-        }  break;
-			
-			//---double-touch---
-        case 2: {
-            //---get info of first touch---
-            UITouch *touch1 = [[allTouches allObjects] objectAtIndex:0];
-			
-            //---get info of second touch---
-            UITouch *touch2 = [[allTouches allObjects] objectAtIndex:1];
-			
-            //---get the points touched---
-            CGPoint touch1PT = [touch1 locationInView:[self view]];
-            CGPoint touch2PT = [touch2 locationInView:[self view]];
-			
-            NSLog(@"Touch1: %.0f, %.0f", touch1PT.x, touch1PT.y);
-            NSLog(@"Touch2: %.0f, %.0f", touch2PT.x, touch2PT.y);
-			/*
-            CGFloat currentDistance = [self distanceBetweenTwoPoints: touch1PT
-															 toPoint: touch2PT];
-			
-            //---zoom in---
-            if (currentDistance > originalDistance)
-            {
-                imageView.frame = CGRectMake(imageView.frame.origin.x - 4,
-                                             imageView.frame.origin.y - 4,
-                                             imageView.frame.size.width + 8,
-                                             imageView.frame.size.height + 8);
-            }
-            else {
-                //---zoom out---
-                imageView.frame = CGRectMake(imageView.frame.origin.x + 4,
-                                             imageView.frame.origin.y + 4,
-                                             imageView.frame.size.width - 8,
-                                             imageView.frame.size.height - 8);
-            }
-            originalDistance = currentDistance;
-            */
-        } break;
-    }
-}
-
 - (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     /*
@@ -444,7 +408,12 @@
     NSArray *movieSection = [movieTitles objectForKey:year];
     //---get the particular movie based on that row---
     thirdName = [movieSection objectAtIndex:[indexPath row]];
-
+    
+    if(cellIndex > 0)
+    {
+        [fileController RayWTF:[NSString stringWithFormat:@"%d_%d.txt", cellIndex, [indexPath row]+1] withoneimg:[NSString stringWithFormat:@"%d_%d.png", cellIndex, [indexPath row]+1]];
+    }
+    
     timer = [NSTimer scheduledTimerWithTimeInterval:0.5
                                              target:self
                                            selector:@selector(onTimer2)
