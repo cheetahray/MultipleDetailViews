@@ -147,7 +147,7 @@ UIInterfaceOrientation whatNow;
 }
 
 -(void) viewWillDisappear:(BOOL)animated {
-    if ([self.navigationController.viewControllers indexOfObject:self] == NSNotFound) {
+    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
         // back button was pressed.  We know this is true because self is no longer
         // in the navigation stack.  
         if(rootViewController.oneOrTwo == 3)
@@ -219,8 +219,7 @@ UIInterfaceOrientation whatNow;
     CGRect applicationFrame = [[UIScreen mainScreen] applicationFrame];
     
     int theHeight = 0;
-    int labelLen = 0;
-    
+
     if(rootViewController.oneOrTwo == 3)
     {
         self.title = titleName;
@@ -233,26 +232,23 @@ UIInterfaceOrientation whatNow;
         
         switch (cellIndex) {
             case 1:
-                labelLen = 20 * 7;
-                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 460, labelLen)];
-                theHeight += labelLen;
+                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 460, 20 * 7)];
+                theHeight += 20 * 7;
                 break;
             case 2:
-                labelLen = 20 * 11;
-                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 460, labelLen)];
-                theHeight += labelLen;
+                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 460, 20 * 11)];
+                theHeight += 20 * 11;
                 break;
             case 3:
-                labelLen = 20 * 11;
-                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 460, labelLen)];
-                theHeight += labelLen;
+                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 460, 20 * 11)];
+                theHeight += 20 * 11;
 
                 break;
         }
-        labelLen = tableView.sectionHeaderHeight * headcnt + tableView.rowHeight * cellcnt;
-        [tableView setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 460, labelLen ) ];   
         
-        theHeight += labelLen; 
+        [tableView setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 460, tableView.sectionHeaderHeight * headcnt + tableView.rowHeight * cellcnt ) ];   
+        
+        theHeight += ( tableView.sectionHeaderHeight * headcnt + tableView.rowHeight * cellcnt ); 
         
         scrollView.contentSize = CGSizeMake( (applicationFrame.size.width<=imageView.bounds.size.width?imageView.bounds.size.width:applicationFrame.size.width), (applicationFrame.size.height <= theHeight?theHeight:applicationFrame.size.height) );  
         
@@ -264,30 +260,27 @@ UIInterfaceOrientation whatNow;
         navigationBar.topItem.title = titleName;      
 
         imageView.image = [UIImage imageNamed:imageName];
-        
         [imageView setFrame:CGRectMake(0, 0, imageView.image.size.width, imageView.image.size.height)];
         theHeight = imageView.image.size.height;
-        
+
         switch (cellIndex) {
             case 1:
-                labelLen = 20 * 5;
-                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 70, labelLen)];
-                theHeight += labelLen;
+                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 70, 20 * 5)];
+                theHeight += 20 * 5;
                 break;
             case 2:
-                labelLen = 20 * 7;
-                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 70, labelLen)];
-                theHeight += labelLen;
+                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 70, 20 * 7)];
+                theHeight += 20 * 7;
                 break;
             case 3:
-                labelLen = 20 * 7;
-                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 70, labelLen)];
-                theHeight += labelLen;
+                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 70, 20 * 7)];
+                theHeight += 20 * 7;
                 break;
         }
-        labelLen = tableView.sectionHeaderHeight * headcnt + tableView.rowHeight * cellcnt;        
-        [tableView setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 70, labelLen ) ];
-        theHeight += labelLen; 
+                
+        [tableView setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 70, tableView.sectionHeaderHeight * headcnt + tableView.rowHeight * cellcnt ) ];
+        
+        theHeight += ( tableView.sectionHeaderHeight * headcnt + tableView.rowHeight * cellcnt ); 
         
         if(whatNow == UIInterfaceOrientationPortrait)
         {
