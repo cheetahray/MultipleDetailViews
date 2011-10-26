@@ -415,10 +415,11 @@ UIInterfaceOrientation whatNow;
     NSArray *movieSection = [movieTitles objectForKey:year];
     //---get the particular movie based on that row---
     thirdName = [movieSection objectAtIndex:[indexPath row]];
-    
+    int why = [indexPath row];
+    why = why;
     if(cellIndex > 0)
     {
-        [fileController RayWTF:[NSString stringWithFormat:@"%d_%d.txt", cellIndex, [indexPath row]+1] withoneimg:[NSString stringWithFormat:@"%d_%d.png", cellIndex, [indexPath row]+1]];
+        [fileController RayWTF:[NSString stringWithFormat:@"%d_%d.txt", cellIndex, [indexPath row]+1] withoneimg:[NSString stringWithFormat:@"%d_%d.png", cellIndex, ([indexPath row]+1) ]];
     }
     
     timer = [NSTimer scheduledTimerWithTimeInterval:0.5

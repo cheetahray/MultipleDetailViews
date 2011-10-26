@@ -67,11 +67,30 @@ UIInterfaceOrientation nowWhat;
 
 - (void)doAnimation {
     tapOrMove = false;
-    /*
-    imageView.center = CGPointMake(self.view.bounds.size.width + imageView.bounds.size.width/2 , imageView.center.y);
-    label.center = CGPointMake(self.view.bounds.size.width + label.bounds.size.width/2 ,
-                                       label.center.y);
-    */
+    
+    fileController = [FilesHandlingViewController new];
+    label.text = [fileController RayReadTxt];
+    imageView.image = [UIImage imageNamed:[fileController RayReadImg]];
+    [imageView setFrame:CGRectMake(0, 0, imageView.image.size.width, imageView.image.size.height)];
+    
+    [label setFrame:CGRectMake(0, imageView.bounds.size.height, self.view.bounds.size.width - 70, 200)];
+    
+    CGRect applicationFrame = [[UIScreen mainScreen] applicationFrame];
+    
+    int myWidth = 0;
+    int myHeight = (navigationBar.frame.size.height + imageView.image.size.height + lable.frame.size.height);
+    myWidth = (applicationFrame.size.width <= imageView.image.size.width)?imageView.image.size.width:applicationFrame.size.width;
+    if(nowWhat == UIInterfaceOrientationPortrait)
+    {
+        myHeight = (applicationFrame.size.height <= myHeight)?myHeight:applicationFrame.size.height;
+    }
+    else
+    {
+        myHeight = (applicationFrame.size.height <= myHeight)?myHeight+200:applicationFrame.size.height+300;
+    }
+    
+    scrollView.contentSize = CGSizeMake(myWidth, myHeight);  
+    
     navigationBar.center = CGPointMake(self.view.bounds.size.width + navigationBar.bounds.size.width/2, navigationBar.center.y);
     scrollView.center = CGPointMake(self.view.bounds.size.width + scrollView.bounds.size.width/2, scrollView.center.y);
     timer = [NSTimer scheduledTimerWithTimeInterval:0.01
@@ -113,30 +132,9 @@ UIInterfaceOrientation nowWhat;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    fileController = [FilesHandlingViewController new];
-    label.text = [fileController RayReadTxt];
-    imageView.image = [UIImage imageNamed:[fileController RayReadImg]];
-    [imageView setFrame:CGRectMake(0, 0, imageView.image.size.width, imageView.image.size.height)];
-    
-    [label setFrame:CGRectMake(0, imageView.bounds.size.height, self.view.bounds.size.width - 70, 200)];
-    
-    CGRect applicationFrame = [[UIScreen mainScreen] applicationFrame];
-    
-    int myWidth = 0;
-    int myHeight = (navigationBar.frame.size.height + imageView.image.size.height + lable.frame.size.height);
-    myWidth = (applicationFrame.size.width <= imageView.image.size.width)?imageView.image.size.width:applicationFrame.size.width;
-    if(nowWhat == UIInterfaceOrientationPortrait)
-    {
-        myHeight = (applicationFrame.size.height <= myHeight)?myHeight:applicationFrame.size.height;
-    }
-    else
-    {
-        myHeight = (applicationFrame.size.height <= myHeight)?myHeight+200:applicationFrame.size.height+300;
-    }
-    
-    scrollView.contentSize = CGSizeMake(myWidth, myHeight);  
     
     [self doAnimation];
+    
     navigationBar.topItem.title = titleName;
     if(rootViewController.rootPopoverButtonItem != nil)
         rootViewController.rootPopoverButtonItem.title = rootViewController.secondViewController.titleName;
