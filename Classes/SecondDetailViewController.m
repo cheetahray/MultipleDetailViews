@@ -233,17 +233,17 @@ UIInterfaceOrientation whatNow;
         
         switch (cellIndex) {
             case 1:
-                labelLen = 20 * 7;
+                labelLen = label.font.lineHeight * 7;
                 [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 460, labelLen)];
                 theHeight += labelLen;
                 break;
             case 2:
-                labelLen = 20 * 11;
+                labelLen = label.font.lineHeight * 11;
                 [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 460, labelLen)];
                 theHeight += labelLen;
                 break;
             case 3:
-                labelLen = 20 * 11;
+                labelLen = label.font.lineHeight * 11;
                 [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 460, labelLen)];
                 theHeight += labelLen;
 
@@ -270,17 +270,17 @@ UIInterfaceOrientation whatNow;
         
         switch (cellIndex) {
             case 1:
-                labelLen = 20 * 5;
+                labelLen = label.font.lineHeight * 5;
                 [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 70, labelLen)];
                 theHeight += labelLen;
                 break;
             case 2:
-                labelLen = 20 * 7;
+                labelLen = label.font.lineHeight * 7;
                 [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 70, labelLen)];
                 theHeight += labelLen;
                 break;
             case 3:
-                labelLen = 20 * 7;
+                labelLen = label.font.lineHeight * 7;
                 [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 70, labelLen)];
                 theHeight += labelLen;
                 break;
