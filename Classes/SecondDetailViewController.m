@@ -105,7 +105,7 @@ UIInterfaceOrientation whatNow;
 -(void) onTimer2 {
     
     [timer invalidate];
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    //imageView.contentMode = UIViewContentModeScaleAspectFit;
     if(tapOrMove == false)
     {
         switch (rootViewController.oneOrTwo) {

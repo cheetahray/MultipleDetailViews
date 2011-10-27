@@ -12,14 +12,14 @@
 
 @synthesize rootViewController, navigationBar, tapOrMove, imageView;
 
-CGFloat originalDistance;
+CGFloat originalDistance, diffDistanceX, diffDistanceY;
 int areaType = -1;
 float ratiox, ratioy, originalwidth, originalheight;
 
 -(void) onTimer2 {
     
     [timer invalidate];
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    //imageView.contentMode = UIViewContentModeScaleAspectFit;
     if(tapOrMove == false && areaType > 0)
     {
         [rootViewController Ray:1 whichRoom:nil];
@@ -80,12 +80,13 @@ float ratiox, ratioy, originalwidth, originalheight;
                         areaType = 3;
                     else
                         areaType = 0;
-                    
+                    diffDistanceX = touchPT.x-imageView.center.x;
+                    diffDistanceY = touchPT.y-imageView.center.y;
                 } break;
 					
 					//---double tap---
                 case 2: {
-                    imageView.contentMode = UIViewContentModeCenter;
+                    //imageView.contentMode = UIViewContentModeCenter;
                 } break;
             }
         }  break;
@@ -135,7 +136,7 @@ float ratiox, ratioy, originalwidth, originalheight;
                 touchPoint.y > imageView.frame.origin.y &&
                 touchPoint.y <imageView.frame.origin.y +
 				imageView.frame.size.height) {
-                [imageView setCenter:touchPoint];
+                [imageView setCenter:CGPointMake(touchPoint.x - diffDistanceX, touchPoint.y - diffDistanceY)];
             }
         }  break;
 			

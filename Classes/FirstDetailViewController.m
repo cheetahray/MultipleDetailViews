@@ -60,7 +60,7 @@
 
 int areaTypeII = -1;
 int ISurrender = 0;
-CGFloat originalDistance;
+CGFloat originalDistance, diffDistanceX, diffDistanceY;
 float ratioxII, ratioyII, originalwidthII, originalheightII;
 
 -(void) onTimer {
@@ -91,7 +91,7 @@ float ratioxII, ratioyII, originalwidthII, originalheightII;
 -(void) onTimer2 {
     
     [timer invalidate];
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    //imageView.contentMode = UIViewContentModeScaleAspectFit;
     if(tapOrMove == false && areaTypeII > 0)
     {
         switch (areaTypeII) {
@@ -150,11 +150,13 @@ float ratioxII, ratioyII, originalwidthII, originalheightII;
                         areaTypeII = 3;
                     else
                         areaTypeII = 0;
+                    diffDistanceX = touchPT.x-imageView.center.x;
+                    diffDistanceY = touchPT.y-imageView.center.y;
                 } break;
 					
 					//---double tap---
                 case 2: {
-                    imageView.contentMode = UIViewContentModeCenter;
+                    //imageView.contentMode = UIViewContentModeCenter;
                 } break;
             }
         }  break;
@@ -204,7 +206,7 @@ float ratioxII, ratioyII, originalwidthII, originalheightII;
                 touchPoint.y > imageView.frame.origin.y &&
                 touchPoint.y <imageView.frame.origin.y +
 				imageView.frame.size.height) {
-                [imageView setCenter:touchPoint];
+                [imageView setCenter:CGPointMake(touchPoint.x - diffDistanceX, touchPoint.y - diffDistanceY)];
             }
         }  break;
 			
@@ -250,31 +252,37 @@ float ratioxII, ratioyII, originalwidthII, originalheightII;
 
 - (void)setDetailItem:(id)newDetailItem {
     if (detailItem != newDetailItem) {
+        
         [detailItem release];
         detailItem = [newDetailItem retain];
         
-        // Update the view.
+		// Update the view.
         if ([newDetailItem isEqualToString:@"Training Day"])
         {
             navigationBar.topItem.title = @"【客迎．傳情】";
+            //imageView.contentMode = UIViewContentModeCenter;
         }
         else if ([newDetailItem isEqualToString:@"HomePage-001"])
         {
             navigationBar.topItem.title = @"【首頁】";
+            //imageView.contentMode = UIViewContentModeScaleAspectFit;
         }
         else if ([newDetailItem isEqualToString:@"Remember the Titans"])
         {
             navigationBar.topItem.title = @"【花漾．綠動】";
+            //imageView.contentMode = UIViewContentModeCenter;
         }
         else if ([newDetailItem isEqualToString:@"John Q"])
         {
             navigationBar.topItem.title = @"【家客．融蘊】";
+            //imageView.contentMode = UIViewContentModeCenter;
         }
         else
             navigationBar.topItem.title = [detailItem description];
-		
+		/*
         NSString *imageName	= [NSString stringWithFormat:@"%@.jpg",[detailItem description] ];
-		imageView.image = [UIImage imageNamed:imageName];
+        imageView.image = [UIImage imageNamed:imageName];
+        */
         originalwidthII = imageView.image.size.width;
         originalheightII = imageView.image.size.height;
         
@@ -282,7 +290,6 @@ float ratioxII, ratioyII, originalwidthII, originalheightII;
     }
     
 }
-
 
 - (void)viewDidUnload {
 	[super viewDidUnload];
@@ -292,6 +299,7 @@ float ratioxII, ratioyII, originalwidthII, originalheightII;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     ratioxII = 1.0;
     ratioyII = 1.0;
     // Do any additional setup after loading the view from its nib.
@@ -302,8 +310,7 @@ float ratioxII, ratioyII, originalwidthII, originalheightII;
     {
         tapOrMove = false;
     
-        //imageView.center = CGPointMake( self.view.bounds.size.width + imageView.image.size.width/2 ,navigationBar.bounds.size.height + imageView.frame.size.height/2);
-        [imageView setFrame:CGRectMake(0, 0, imageView.image.size.width, imageView.image.size.height)];
+        //[imageView setFrame:CGRectMake(0, 0, imageView.image.size.width, imageView.image.size.height)];
         imageView.center = CGPointMake(self.view.bounds.size.width + imageView.bounds.size.width/2 , self.view.bounds.size.height/2);
         ISurrender = imageView.center.x;
         
