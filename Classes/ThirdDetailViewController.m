@@ -9,11 +9,15 @@
 #import "ThirdDetailViewController.h"
 #import "FilesHandlingViewController.h"
 
+#define ZOOM_VIEW_TAG 100
+#define ZOOM_STEP 1.5
+
 @implementation ThirdDetailViewController
 
-@synthesize rootViewController, navigationBar, tapOrMove, imageView, label, titleName, detailItem, scrollView;
+@synthesize rootViewController, navigationBar, tapOrMove, label, titleName, detailItem, scrollView;
 
 UIInterfaceOrientation nowWhat;
+float zoomHeight;
 
 -(void) onTimer {
     
@@ -66,31 +70,52 @@ UIInterfaceOrientation nowWhat;
 }
 
 - (void)doAnimation {
+    
     tapOrMove = false;
     
     fileController = [FilesHandlingViewController new];
     label.text = [fileController RayReadTxt];
-    imageView.image = [UIImage imageNamed:[fileController RayReadImg]];
-    [imageView setFrame:CGRectMake(0, 0, imageView.image.size.width, imageView.image.size.height)];
     
-    [label setFrame:CGRectMake(0, imageView.bounds.size.height, self.view.bounds.size.width - 70, 200)];
+    [[scrollView viewWithTag:ZOOM_VIEW_TAG] removeFromSuperview];
     
-    CGRect applicationFrame = [[UIScreen mainScreen] applicationFrame];
+    UIImage *image = [UIImage imageNamed:[fileController RayReadImg]];
+    TapDetectingImageView *zoomView = [[TapDetectingImageView alloc] initWithImage:image];
+    [zoomView setDelegate:self];
+    [zoomView setTag:ZOOM_VIEW_TAG];
+    [scrollView addSubview:zoomView];
+    [scrollView setContentSize:[zoomView frame].size];
     
-    int myWidth = 0;
-    int myHeight = (navigationBar.frame.size.height + imageView.image.size.height + lable.frame.size.height);
-    myWidth = (applicationFrame.size.width <= imageView.image.size.width)?imageView.image.size.width:applicationFrame.size.width;
-    if(nowWhat == UIInterfaceOrientationPortrait)
-    {
-        myHeight = (applicationFrame.size.height <= myHeight)?myHeight:applicationFrame.size.height;
-    }
-    else
-    {
-        myHeight = (applicationFrame.size.height <= myHeight)?myHeight+200:applicationFrame.size.height+300;
-    }
+    // choose minimum scale so image width fits screen
+    float minScale  = [scrollView frame].size.width  / [zoomView frame].size.width;
+    [scrollView setMinimumZoomScale:minScale];
+    [scrollView setZoomScale:minScale];
+    [scrollView setContentOffset:CGPointZero];
+
+    zoomHeight = zoomView.bounds.size.height;
     
-    scrollView.contentSize = CGSizeMake(myWidth, myHeight);  
+    [label setFrame:CGRectMake(0, zoomHeight * minScale, self.view.bounds.size.width - 70, 200)];
     
+    [zoomView release];
+    
+    /*
+     // add gesture recognizers to the image view
+     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+     UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTap:)];
+     UITapGestureRecognizer *twoFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTwoFingerTap:)];
+     
+     [doubleTap setNumberOfTapsRequired:2];
+     [twoFingerTap setNumberOfTouchesRequired:2];
+     
+     [imageView addGestureRecognizer:singleTap];
+     [imageView addGestureRecognizer:doubleTap];
+     [imageView addGestureRecognizer:twoFingerTap];
+     
+     [singleTap release];
+     [doubleTap release];
+     [twoFingerTap release];
+     */
+    // calculate minimum scale to perfectly fit image width, and begin at that scale
+
     navigationBar.center = CGPointMake(self.view.bounds.size.width + navigationBar.bounds.size.width/2, navigationBar.center.y);
     scrollView.center = CGPointMake(self.view.bounds.size.width + scrollView.bounds.size.width/2, scrollView.center.y);
     timer = [NSTimer scheduledTimerWithTimeInterval:0.01
@@ -112,7 +137,6 @@ UIInterfaceOrientation nowWhat;
 - (void)dealloc
 {
     [navigationBar release];
-    [imageView release];
     [fileController release];
     [scrollView release];
     [label release];
@@ -182,6 +206,65 @@ UIInterfaceOrientation nowWhat;
     if (rootViewController.popoverController != nil) {
         [rootViewController.popoverController dismissPopoverAnimated:YES];
     }
+
+}
+
+#pragma mark UIScrollViewDelegate methods
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)PscrollView {
+    return [scrollView viewWithTag:ZOOM_VIEW_TAG];
+}
+
+/************************************** NOTE **************************************/
+/* The following delegate method works around a known bug in zoomToRect:animated: */
+/* In the next release after 3.0 this workaround will no longer be necessary      */
+/**********************************************************************************/
+- (void)scrollViewDidEndZooming:(UIScrollView *)PscrollView withView:(UIView *)view atScale:(float)scale {
+    [PscrollView setZoomScale:scale+0.01 animated:NO];
+    [PscrollView setZoomScale:scale animated:NO];
+}
+
+#pragma mark TapDetectingImageViewDelegate methods
+
+- (void)handleSingleTap:(UIGestureRecognizer *)gestureRecognizer {
+    // single tap does nothing for now
+}
+
+- (void)handleDoubleTap:(UIGestureRecognizer *)gestureRecognizer {
+    // double tap zooms in
+
+    float newScale = [scrollView zoomScale] * ZOOM_STEP;
+    CGRect zoomRect = [self zoomRectForScale:newScale withCenter:[gestureRecognizer locationInView:gestureRecognizer.view]];
+    [scrollView zoomToRect:zoomRect animated:YES];
+
+}
+
+- (void)handleTwoFingerTap:(UIGestureRecognizer *)gestureRecognizer {
+
+    // two-finger tap zooms out
+    float newScale = [scrollView zoomScale] / ZOOM_STEP;
+    CGRect zoomRect = [self zoomRectForScale:newScale withCenter:[gestureRecognizer locationInView:gestureRecognizer.view]];
+    [scrollView zoomToRect:zoomRect animated:YES];
+
+}
+
+#pragma mark Utility methods
+
+- (CGRect)zoomRectForScale:(float)scale withCenter:(CGPoint)center {
+
+    CGRect zoomRect;
+    
+    // the zoom rect is in the content view's coordinates. 
+    //    At a zoom scale of 1.0, it would be the size of the imageScrollView's bounds.
+    //    As the zoom scale decreases, so more content is visible, the size of the rect grows.
+    zoomRect.size.height = [scrollView frame].size.height / scale;
+    zoomRect.size.width  = [scrollView frame].size.width  / scale;
+    
+    // choose an origin so as to get the right center.
+    zoomRect.origin.x    = center.x - (zoomRect.size.width  / 2.0);
+    zoomRect.origin.y    = center.y - (zoomRect.size.height / 2.0);
+    
+    return zoomRect;
 
 }
 

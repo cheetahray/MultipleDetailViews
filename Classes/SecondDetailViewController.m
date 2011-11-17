@@ -159,6 +159,17 @@ UIInterfaceOrientation whatNow;
     [super viewWillDisappear:animated];
 }
 
+-(NSURL *)movieURL:(NSString*) myMov
+{
+	NSBundle *bundle = [NSBundle mainBundle];
+	NSString *moviePath = [bundle pathForResource:myMov ofType:@"mp4"];
+	if (moviePath) {
+		return [NSURL fileURLWithPath:moviePath];
+	} else {
+		return nil;
+	}
+}
+
 - (void)viewDidLoad
 {
     //---path to the property list file---
@@ -167,6 +178,8 @@ UIInterfaceOrientation whatNow;
     
     [super viewDidLoad];
     
+    self.imageView = [[MPMoviePlayerController alloc] init];
+    
     if ([titleName isEqualToString:@"【客迎．傳情】"])
     {
         imageName = @"Training Day.jpg";
@@ -174,6 +187,7 @@ UIInterfaceOrientation whatNow;
         cellIndex = 1;
         path = [[NSBundle mainBundle] pathForResource:@"Movies" 
                                                ofType:@"plist"];
+        self.imageView.contentURL = [self movieURL:@"s_1"];
     }
     else if ([titleName isEqualToString:@"【花漾．綠動】"])
     {
@@ -182,6 +196,7 @@ UIInterfaceOrientation whatNow;
         cellIndex = 2;
         path = [[NSBundle mainBundle] pathForResource:@"Theater" 
                                                ofType:@"plist"];
+        self.imageView.contentURL = [self movieURL:@"s_2"];
     }
     else if ([titleName isEqualToString:@"【家客．融蘊】"])
     {
@@ -190,6 +205,7 @@ UIInterfaceOrientation whatNow;
         cellIndex = 3;
         path = [[NSBundle mainBundle] pathForResource:@"Ticket" 
                                                ofType:@"plist"];
+        self.imageView.contentURL = [self movieURL:@"s_3"];
     }
     else
     {
@@ -221,15 +237,22 @@ UIInterfaceOrientation whatNow;
     int theHeight = 0;
     int labelLen = 0;
     
+    self.imageView.view.autoresizingMask = 
+    UIViewAutoresizingFlexibleWidth |
+    UIViewAutoresizingFlexibleHeight;
+    
     if(rootViewController.oneOrTwo == 3)
     {
         self.title = titleName;
         [navigationBar setHidden:TRUE];
-        
+        /*
         imageView.contentMode = UIViewContentModeScaleAspectFit;
         imageView.image = [UIImage imageNamed:imageName];
         [imageView setFrame:CGRectMake(0, 0, imageView.frame.size.width, imageView.frame.size.width * imageView.image.size.height / imageView.image.size.width)];
-        theHeight = imageView.frame.size.height;
+        */
+        
+        self.imageView.view.frame = CGRectMake(0, 0, 325, 185);
+        theHeight = imageView.view.frame.size.height;
         
         switch (cellIndex) {
             case 1:
@@ -254,7 +277,7 @@ UIInterfaceOrientation whatNow;
         
         theHeight += labelLen; 
         
-        scrollView.contentSize = CGSizeMake( (applicationFrame.size.width<=imageView.bounds.size.width?imageView.bounds.size.width:applicationFrame.size.width), (applicationFrame.size.height <= theHeight?theHeight:applicationFrame.size.height) );  
+        scrollView.contentSize = CGSizeMake( (applicationFrame.size.width<=imageView.view.bounds.size.width?imageView.view.bounds.size.width:applicationFrame.size.width), (applicationFrame.size.height <= theHeight?theHeight:applicationFrame.size.height) );  
         
         [scrollView setFrame:CGRectMake(0, 0, scrollView.bounds.size.width, scrollView.bounds.size.height)];
         
@@ -263,10 +286,15 @@ UIInterfaceOrientation whatNow;
     {
         navigationBar.topItem.title = titleName;      
 
+        /*
         imageView.image = [UIImage imageNamed:imageName];
         
         [imageView setFrame:CGRectMake(0, 0, imageView.image.size.width, imageView.image.size.height)];
         theHeight = imageView.image.size.height;
+        */
+        
+        [imageView.view setFrame:CGRectMake(0, 0, 710, 450)];
+        theHeight = imageView.view.bounds.size.height;
         
         switch (cellIndex) {
             case 1:
@@ -291,15 +319,18 @@ UIInterfaceOrientation whatNow;
         
         if(whatNow == UIInterfaceOrientationPortrait)
         {
-            scrollView.contentSize = CGSizeMake( (applicationFrame.size.width<=imageView.bounds.size.width?imageView.bounds.size.width:applicationFrame.size.width), (applicationFrame.size.height <= theHeight?theHeight:applicationFrame.size.height) );  
+            scrollView.contentSize = CGSizeMake( (applicationFrame.size.width<=imageView.view.bounds.size.width?imageView.view.bounds.size.width:applicationFrame.size.width), (applicationFrame.size.height <= theHeight?theHeight:applicationFrame.size.height) );  
         }
         else
         {
-            scrollView.contentSize = CGSizeMake( (applicationFrame.size.width<=imageView.bounds.size.width?imageView.bounds.size.width:applicationFrame.size.width), (applicationFrame.size.height <= theHeight?theHeight:applicationFrame.size.height+300) );  
+            scrollView.contentSize = CGSizeMake( (applicationFrame.size.width<=imageView.view.bounds.size.width?imageView.view.bounds.size.width:applicationFrame.size.width), (applicationFrame.size.height <= theHeight?theHeight:applicationFrame.size.height+300) );  
         }
 
     }
-    
+
+    [scrollView addSubview:imageView.view];
+    [imageView play];
+
     if(rootViewController.rootPopoverButtonItem != nil)
     {
         switch (rootViewController.oneOrTwo) {

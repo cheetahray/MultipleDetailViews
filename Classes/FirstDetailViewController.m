@@ -283,8 +283,8 @@ float ratioxII, ratioyII, originalwidthII, originalheightII;
         NSString *imageName	= [NSString stringWithFormat:@"%@.jpg",[detailItem description] ];
         imageView.image = [UIImage imageNamed:imageName];
         */
-        originalwidthII = imageView.image.size.width;
-        originalheightII = imageView.image.size.height;
+        originalwidthII = imageView.frame.size.width;
+        originalheightII = imageView.frame.size.height;
         
         [self doAnimation];
     }

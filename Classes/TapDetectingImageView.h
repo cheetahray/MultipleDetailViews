@@ -1,8 +1,7 @@
 
 /*
-     File: SecondDetailViewController.h
- Abstract: A simple view controller that adopts the SubstitutableDetailViewController protocol defined by RootViewController.
- It's responsible for adding and removing the popover button in response to rotation. This view controller uses a navigation bar.
+     File: TapDetectingImageView.h
+ Abstract: UIImageView subclass that responds to taps and notifies its delegate.
  
   Version: 1.1
  
@@ -48,42 +47,33 @@
  
  */
 
-#import <UIKit/UIKit.h>
-#import <MediaPlayer/MPMoviePlayerController.h>
-#import "RootViewController.h"
-#import "FilesHandlingViewController.h"
+@protocol TapDetectingImageViewDelegate;
 
-@class RootViewController;
 
-@interface SecondDetailViewController:UIViewController {   
-  
-    UINavigationBar *navigationBar;
-    RootViewController *rootViewController;   
-    UITableView *tableView;
-    UITextView *label;
-    NSTimer *timer;
-    //UIImageView *imageView;
-    BOOL tapOrMove;  
-    NSString *titleName, *thirdName;
-    NSDictionary *movieTitles;
-	NSArray *years;
-    UIScrollView *scrollView;
-    FilesHandlingViewController *fileController;
-    MPMoviePlayerController *imageView;
+@interface TapDetectingImageView : UIImageView {
+	
+    id <TapDetectingImageViewDelegate> delegate;
+    
+    // Touch detection
+    CGPoint tapLocation;         // Needed to record location of single tap, which will only be registered after delayed perform.
+    BOOL multipleTouches;        // YES if a touch event contains more than one touch; reset when all fingers are lifted.
+    BOOL twoFingerTapIsPossible; // Set to NO when 2-finger tap can be ruled out (e.g. 3rd finger down, fingers touch down too far apart, etc).
 }
 
-@property (nonatomic, retain) IBOutlet UINavigationBar *navigationBar;
-@property (nonatomic, retain) IBOutlet RootViewController *rootViewController;
-//@property (nonatomic, retain) IBOutlet UIImageView *imageView;
-@property (nonatomic, retain) IBOutlet UITableView *tableView;
-@property (nonatomic, retain) IBOutlet UITextView *label;
-@property (nonatomic, retain) IBOutlet UIScrollView *scrollView;
-@property (readwrite) BOOL tapOrMove;
-@property (nonatomic, retain) NSString *titleName, *thirdName;
-@property (nonatomic, retain) NSDictionary *movieTitles;
-@property (nonatomic, retain) NSArray *years;
-@property (nonatomic, retain) MPMoviePlayerController *imageView;
-
-- (void)doAnimation;
+@property (nonatomic, assign) id <TapDetectingImageViewDelegate> delegate;
 
 @end
+
+
+/*
+ Protocol for the tap-detecting image view's delegate.
+ */
+@protocol TapDetectingImageViewDelegate <NSObject>
+
+@optional
+- (void)tapDetectingImageView:(TapDetectingImageView *)view gotSingleTapAtPoint:(CGPoint)tapPoint;
+- (void)tapDetectingImageView:(TapDetectingImageView *)view gotDoubleTapAtPoint:(CGPoint)tapPoint;
+- (void)tapDetectingImageView:(TapDetectingImageView *)view gotTwoFingerTapAtPoint:(CGPoint)tapPoint;
+
+@end
+

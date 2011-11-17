@@ -210,8 +210,8 @@ float ratiox, ratioy, originalwidth, originalheight;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    originalwidth = imageView.image.size.width;
-    originalheight = imageView.image.size.height;
+    originalwidth = imageView.frame.size.width;
+    originalheight = imageView.frame.size.height;
     ratiox = 1.0;
     ratioy = 1.0;
 }
