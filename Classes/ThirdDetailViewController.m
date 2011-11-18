@@ -17,7 +17,7 @@
 @synthesize rootViewController, navigationBar, tapOrMove, label, titleName, detailItem, scrollView;
 
 UIInterfaceOrientation nowWhat;
-float zoomHeight;
+float zoomHeight, zoomWidth;
 
 -(void) onTimer {
     
@@ -92,6 +92,7 @@ float zoomHeight;
     [scrollView setContentOffset:CGPointZero];
 
     zoomHeight = zoomView.bounds.size.height;
+    zoomWidth = zoomView.bounds.size.width;
     
     [label setFrame:CGRectMake(0, zoomHeight * minScale, self.view.bounds.size.width - 70, 200)];
     
@@ -222,6 +223,7 @@ float zoomHeight;
 - (void)scrollViewDidEndZooming:(UIScrollView *)PscrollView withView:(UIView *)view atScale:(float)scale {
     [PscrollView setZoomScale:scale+0.01 animated:NO];
     [PscrollView setZoomScale:scale animated:NO];
+    [label setCenter:CGPointMake(view.center.x, zoomHeight * scale + label.frame.size.height / 2)];
 }
 
 #pragma mark TapDetectingImageViewDelegate methods

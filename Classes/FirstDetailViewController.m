@@ -58,10 +58,11 @@
 #pragma mark -
 #pragma mark View lifecycle
 
-int areaTypeII = -1;
 int ISurrender = 0;
-CGFloat originalDistance, diffDistanceX, diffDistanceY;
-float ratioxII, ratioyII, originalwidthII, originalheightII;
+extern CGFloat originalDistance, diffDistanceX, diffDistanceY;
+extern int areaType;
+extern float ratiox, ratioy, originalwidth, originalheight;
+extern bool canTouch;
 
 -(void) onTimer {
     
@@ -91,10 +92,10 @@ float ratioxII, ratioyII, originalwidthII, originalheightII;
 -(void) onTimer2 {
     
     [timer invalidate];
-    //imageView.contentMode = UIViewContentModeScaleAspectFit;
-    if(tapOrMove == false && areaTypeII > 0)
+    canTouch = true;
+    if(tapOrMove == false && areaType > 0)
     {
-        switch (areaTypeII) {
+        switch (areaType) {
             case 1:
                 [rootViewController Ray:2 whichRoom:@"【客迎．傳情】"];
                 break;
@@ -136,20 +137,21 @@ float ratioxII, ratioyII, originalwidthII, originalheightII;
 					//---single tap---
                 case 1: {
                     tapOrMove = false;
-
-                    timer = [NSTimer scheduledTimerWithTimeInterval:0.5
+                    if(true == canTouch)
+                        timer = [NSTimer scheduledTimerWithTimeInterval:0.5
                                                              target:self
                                                            selector:@selector(onTimer2)
                                                            userInfo:nil
                                                             repeats:NO];
-                    if(touchPT.x >= 10 * ratioxII + imageView.frame.origin.x && touchPT.y >= 130 * ratioyII + imageView.frame.origin.y && touchPT.x <= 200 * ratioxII + imageView.frame.origin.x && touchPT.y <= 260 * ratioyII + imageView.frame.origin.y)
-                        areaTypeII = 1;
-                    else if(touchPT.x >= 245 * ratioxII + imageView.frame.origin.x && touchPT.y >= 25 * ratioyII + imageView.frame.origin.y && touchPT.x <= 460 * ratioxII + imageView.frame.origin.x && touchPT.y <= 140 * ratioyII + imageView.frame.origin.y)
-                        areaTypeII = 2;
-                    else if(touchPT.x >= 380 * ratioxII + imageView.frame.origin.x && touchPT.y >= 350 * ratioyII + imageView.frame.origin.y && touchPT.x <= 660 * ratioxII + imageView.frame.origin.x && touchPT.y <= 470 * ratioyII + imageView.frame.origin.y)
-                        areaTypeII = 3;
+                    canTouch = false;
+                    if(touchPT.x >= 10 * ratiox + imageView.frame.origin.x && touchPT.y >= 130 * ratioy + imageView.frame.origin.y && touchPT.x <= 200 * ratiox + imageView.frame.origin.x && touchPT.y <= 260 * ratioy + imageView.frame.origin.y)
+                        areaType = 1;
+                    else if(touchPT.x >= 245 * ratiox + imageView.frame.origin.x && touchPT.y >= 25 * ratioy + imageView.frame.origin.y && touchPT.x <= 460 * ratiox + imageView.frame.origin.x && touchPT.y <= 140 * ratioy + imageView.frame.origin.y)
+                        areaType = 2;
+                    else if(touchPT.x >= 380 * ratiox + imageView.frame.origin.x && touchPT.y >= 350 * ratioy + imageView.frame.origin.y && touchPT.x <= 660 * ratiox + imageView.frame.origin.x && touchPT.y <= 470 * ratioy + imageView.frame.origin.y)
+                        areaType = 3;
                     else
-                        areaTypeII = 0;
+                        areaType = 0;
                     diffDistanceX = touchPT.x-imageView.center.x;
                     diffDistanceY = touchPT.y-imageView.center.y;
                 } break;
@@ -244,8 +246,8 @@ float ratioxII, ratioyII, originalwidthII, originalheightII;
                                              imageView.frame.size.height - 8);
             }
             originalDistance = currentDistance;
-            ratioxII = imageView.bounds.size.width / originalwidthII;
-            ratioyII = imageView.bounds.size.height / originalheightII;
+            ratiox = imageView.bounds.size.width / originalwidth;
+            ratioy = imageView.bounds.size.height / originalheight;
         } break;
     }
 }
@@ -283,8 +285,8 @@ float ratioxII, ratioyII, originalwidthII, originalheightII;
         NSString *imageName	= [NSString stringWithFormat:@"%@.jpg",[detailItem description] ];
         imageView.image = [UIImage imageNamed:imageName];
         */
-        originalwidthII = imageView.frame.size.width;
-        originalheightII = imageView.frame.size.height;
+        originalwidth = imageView.frame.size.width;
+        originalheight = imageView.frame.size.height;
         
         [self doAnimation];
     }
@@ -299,10 +301,10 @@ float ratioxII, ratioyII, originalwidthII, originalheightII;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    ratioxII = 1.0;
-    ratioyII = 1.0;
     // Do any additional setup after loading the view from its nib.
+    ratiox = 1.0;
+    ratioy = 1.0;
+    canTouch = true;
 }
 
 - (void)doAnimation {

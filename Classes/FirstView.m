@@ -15,11 +15,12 @@
 CGFloat originalDistance, diffDistanceX, diffDistanceY;
 int areaType = -1;
 float ratiox, ratioy, originalwidth, originalheight;
+bool canTouch;
 
 -(void) onTimer2 {
     
     [timer invalidate];
-    //imageView.contentMode = UIViewContentModeScaleAspectFit;
+    canTouch = true;
     if(tapOrMove == false && areaType > 0)
     {
         [rootViewController Ray:1 whichRoom:nil];
@@ -65,13 +66,13 @@ float ratiox, ratioy, originalwidth, originalheight;
 					//---single tap---
                 case 1: {
                     tapOrMove = false;
-                    
-                    timer = [NSTimer scheduledTimerWithTimeInterval:0.5
+                    if(true == canTouch)
+                        timer = [NSTimer scheduledTimerWithTimeInterval:0.5
                                                              target:self
                                                            selector:@selector(onTimer2)
                                                            userInfo:nil
                                                             repeats:NO];
-                    NSLog(@"Touch1: %.0f, %.0f", touchPT.x, touchPT.y);
+                    canTouch = false;
                     if(touchPT.x >= 10 * ratiox + imageView.frame.origin.x && touchPT.y >= 130 * ratioy + imageView.frame.origin.y && touchPT.x <= 200 * ratiox + imageView.frame.origin.x && touchPT.y <= 260 * ratioy + imageView.frame.origin.y)
                         areaType = 1;
                     else if(touchPT.x >= 245 * ratiox + imageView.frame.origin.x && touchPT.y >= 25 * ratioy + imageView.frame.origin.y && touchPT.x <= 460 * ratiox + imageView.frame.origin.x && touchPT.y <= 140 * ratioy + imageView.frame.origin.y)
@@ -214,6 +215,7 @@ float ratiox, ratioy, originalwidth, originalheight;
     originalheight = imageView.frame.size.height;
     ratiox = 1.0;
     ratioy = 1.0;
+    canTouch = true;
 }
 
 - (void)viewDidUnload

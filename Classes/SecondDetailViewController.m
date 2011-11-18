@@ -144,6 +144,7 @@ UIInterfaceOrientation whatNow;
 
 -(void) viewDidUnload {
 	[super viewDidUnload];
+    [imageView release];
 }
 
 -(void) viewWillDisappear:(BOOL)animated {
@@ -374,7 +375,6 @@ UIInterfaceOrientation whatNow;
 
 - (void)dealloc {
     [navigationBar release];
-    [imageView release];
     [movieTitles release];
     [years release];
     [scrollView release];
