@@ -174,7 +174,7 @@ UIInterfaceOrientation whatNow;
 {
     //---path to the property list file---
     NSString *path;
-    NSString *imageName;
+    //NSString *imageName;
     
     [super viewDidLoad];
     
@@ -182,7 +182,7 @@ UIInterfaceOrientation whatNow;
     
     if ([titleName isEqualToString:@"【客迎．傳情】"])
     {
-        imageName = @"Training Day.jpg";
+        //imageName = @"Training Day.jpg";
         label.text = @"造型與構作:「手工彩色玻璃」與「傳統客家山歌」呈現的視覺、影像與音樂構成客家印象之迎賓長廊空間。\n空間裝置：藝術手工彩色玻璃迎賓\n聲響裝置：客家山歌等傳統歌謠之［空間性重組］"; 
         cellIndex = 1;
         path = [[NSBundle mainBundle] pathForResource:@"Movies" 
@@ -191,7 +191,7 @@ UIInterfaceOrientation whatNow;
     }
     else if ([titleName isEqualToString:@"【花漾．綠動】"])
     {
-        imageName = @"Remember the Titans.jpg";
+        //imageName = @"Remember the Titans.jpg";
         label.text = @"作品延伸建築的原意，利用多種三角玻璃面設計一組代表四季的抽象且具趣味性的翻摺裝置雕塑品。\n【花漾．綠動】利用自然風力微微轉動\n四件大型裝置雕塑品其玻璃經高溫夾膜製程\n作品材質與裝置為金屬結構、彩色夾膜玻璃(大型)、手工彩色玻璃(小型)、強化玻璃 、底盤旋轉機械裝置—防水無油軸承、投射燈及沉水揚水馬達"; 
         cellIndex = 2;
         path = [[NSBundle mainBundle] pathForResource:@"Theater" 
@@ -200,7 +200,7 @@ UIInterfaceOrientation whatNow;
     }
     else if ([titleName isEqualToString:@"【家客．融蘊】"])
     {
-        imageName = @"John Q.jpg";
+        //imageName = @"John Q.jpg";
         label.text = @"造型與構作:大型馬賽克圖像創作\n牡丹是客家傳統的文化圖騰，而油桐近年也成演變客家的主要象徵，兩種花在園區的大門前交融接觸，新與舊融合，象徵客家隨時進步的精神\n陶瓷馬賽克拼貼設置於前廣場階梯「垂直立面」\n利用階梯座位特性，觀者視角錯位時，作品呈現出水花波紋漣漪"; 
         cellIndex = 3;
         path = [[NSBundle mainBundle] pathForResource:@"Ticket" 
@@ -330,6 +330,7 @@ UIInterfaceOrientation whatNow;
 
     [scrollView addSubview:imageView.view];
     [imageView play];
+    [imageView pause];
 
     if(rootViewController.rootPopoverButtonItem != nil)
     {

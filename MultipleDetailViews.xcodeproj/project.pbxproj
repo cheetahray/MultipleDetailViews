@@ -16,10 +16,9 @@
 		28AA66DC115C16800003B21C /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AA66D7115C16800003B21C /* RootViewController.m */; };
 		28AA66DD115C16800003B21C /* SecondDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AA66D9115C16800003B21C /* SecondDetailViewController.m */; };
 		28AA66DF115C16850003B21C /* ReadMe.txt in Resources */ = {isa = PBXBuildFile; fileRef = 28AA66DE115C16850003B21C /* ReadMe.txt */; };
+		E41FAB641476114F008FFAC1 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E41FAB631476114F008FFAC1 /* MediaPlayer.framework */; };
 		E42C4B2F145699FF007E49B8 /* 1_1.png in Resources */ = {isa = PBXBuildFile; fileRef = E42C4B2E145699FF007E49B8 /* 1_1.png */; };
-		E467841213EFB67600984890 /* John Q.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E467840F13EFB67600984890 /* John Q.jpg */; };
-		E467841313EFB67600984890 /* Remember the Titans.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E467841013EFB67600984890 /* Remember the Titans.jpg */; };
-		E467841413EFB67600984890 /* Training Day.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E467841113EFB67600984890 /* Training Day.jpg */; };
+		E43B84861476155E0034A2EC /* TapDetectingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E43B84841476155E0034A2EC /* TapDetectingImageView.m */; };
 		E4E922311457C3A900C5DD55 /* 1_2.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E922301457C3A900C5DD55 /* 1_2.png */; };
 		E4E922361457FD9B00C5DD55 /* Theater.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4E922351457FD9B00C5DD55 /* Theater.plist */; };
 		E4E922381457FE3E00C5DD55 /* 2_1.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E922371457FE3E00C5DD55 /* 2_1.png */; };
@@ -63,10 +62,10 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* MultipleDetailViews_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipleDetailViews_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* MultipleDetailViews-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MultipleDetailViews-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		E41FAB631476114F008FFAC1 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MediaPlayer.framework; sourceTree = "<group>"; };
 		E42C4B2E145699FF007E49B8 /* 1_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1_1.png; sourceTree = "<group>"; };
-		E467840F13EFB67600984890 /* John Q.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "John Q.jpg"; sourceTree = "<group>"; };
-		E467841013EFB67600984890 /* Remember the Titans.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Remember the Titans.jpg"; sourceTree = "<group>"; };
-		E467841113EFB67600984890 /* Training Day.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Training Day.jpg"; sourceTree = "<group>"; };
+		E43B84841476155E0034A2EC /* TapDetectingImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapDetectingImageView.m; sourceTree = "<group>"; };
+		E43B84851476155E0034A2EC /* TapDetectingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapDetectingImageView.h; sourceTree = "<group>"; };
 		E4E922301457C3A900C5DD55 /* 1_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1_2.png; sourceTree = "<group>"; };
 		E4E922351457FD9B00C5DD55 /* Theater.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Theater.plist; sourceTree = "<group>"; };
 		E4E922371457FE3E00C5DD55 /* 2_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2_1.png; sourceTree = "<group>"; };
@@ -106,6 +105,7 @@
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				EEC39AF013BC739100E4427B /* CFNetwork.framework in Frameworks */,
+				E41FAB641476114F008FFAC1 /* MediaPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +115,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E43B84841476155E0034A2EC /* TapDetectingImageView.m */,
+				E43B84851476155E0034A2EC /* TapDetectingImageView.h */,
 				EEC39AF113BC74AB00E4427B /* GCDAsyncSocket.h */,
 				EEC39AF213BC74AB00E4427B /* GCDAsyncSocket.m */,
 				EE7E47A013B474A000487ED0 /* FilesHandlingViewController.h */,
@@ -178,9 +180,6 @@
 				E4E922371457FE3E00C5DD55 /* 2_1.png */,
 				E4E922301457C3A900C5DD55 /* 1_2.png */,
 				E42C4B2E145699FF007E49B8 /* 1_1.png */,
-				E467840F13EFB67600984890 /* John Q.jpg */,
-				E467841013EFB67600984890 /* Remember the Titans.jpg */,
-				E467841113EFB67600984890 /* Training Day.jpg */,
 				E4F7DFA313EBDB7100051172 /* HomePage-001.jpg */,
 				EECBB76B13B9BFDA00DFDF10 /* apple.jpeg */,
 				EE7E47A613B47DD800487ED0 /* Movies.plist */,
@@ -199,6 +198,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E41FAB631476114F008FFAC1 /* MediaPlayer.framework */,
 				EEC39AEF13BC739100E4427B /* CFNetwork.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
@@ -266,9 +266,6 @@
 				EE7E47A713B47DD800487ED0 /* Movies.plist in Resources */,
 				EECBB76C13B9BFDA00DFDF10 /* apple.jpeg in Resources */,
 				E4F7DFA413EBDB7100051172 /* HomePage-001.jpg in Resources */,
-				E467841213EFB67600984890 /* John Q.jpg in Resources */,
-				E467841313EFB67600984890 /* Remember the Titans.jpg in Resources */,
-				E467841413EFB67600984890 /* Training Day.jpg in Resources */,
 				E42C4B2F145699FF007E49B8 /* 1_1.png in Resources */,
 				E4E922311457C3A900C5DD55 /* 1_2.png in Resources */,
 				E4E922361457FD9B00C5DD55 /* Theater.plist in Resources */,
@@ -300,6 +297,7 @@
 				EEAB1A4B13B43489003E83BE /* ThirdDetailViewController.m in Sources */,
 				EE7E47A213B474A000487ED0 /* FilesHandlingViewController.m in Sources */,
 				EEC39AF313BC74AB00E4427B /* GCDAsyncSocket.m in Sources */,
+				E43B84861476155E0034A2EC /* TapDetectingImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
