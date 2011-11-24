@@ -182,7 +182,6 @@ UIInterfaceOrientation whatNow;
     self.imageView = [[MPMoviePlayerController alloc] init];
     
     NSString *fileString;
-    int labelLen = 0;//[[label stringByEvaluatingJavaScriptFromString:@"document.documentElement.scrollHeight"] intValue];
     
     if ([titleName isEqualToString:@"【客迎．傳情】"])
     {
@@ -190,7 +189,7 @@ UIInterfaceOrientation whatNow;
         /*label.text = @"造型與構作:「手工彩色玻璃」與「傳統客家山歌」呈現的視覺、影像與音樂構成客家印象之迎賓長廊空間。\n空間裝置：藝術手工彩色玻璃迎賓\n聲響裝置：客家山歌等傳統歌謠之［空間性重組］"; */
         
         fileString = [[NSBundle mainBundle] pathForResource:@"0_1" ofType:@"html"];  
-        labelLen = 125;
+
         cellIndex = 1;
         path = [[NSBundle mainBundle] pathForResource:@"Movies" 
                                                ofType:@"plist"];
@@ -202,7 +201,7 @@ UIInterfaceOrientation whatNow;
         /*label.text = @"作品延伸建築的原意，利用多種三角玻璃面設計一組代表四季的抽象且具趣味性的翻摺裝置雕塑品。\n【花漾．綠動】利用自然風力微微轉動\n四件大型裝置雕塑品其玻璃經高溫夾膜製程\n作品材質與裝置為金屬結構、彩色夾膜玻璃(大型)、手工彩色玻璃(小型)、強化玻璃 、底盤旋轉機械裝置—防水無油軸承、投射燈及沉水揚水馬達"; */
         
         fileString = [[NSBundle mainBundle] pathForResource:@"0_2" ofType:@"html"]; 
-        labelLen = 175;
+
         cellIndex = 2;
         path = [[NSBundle mainBundle] pathForResource:@"Theater" 
                                                ofType:@"plist"];
@@ -214,7 +213,7 @@ UIInterfaceOrientation whatNow;
         /*label.text = @"造型與構作:大型馬賽克圖像創作\n牡丹是客家傳統的文化圖騰，而油桐近年也成演變客家的主要象徵，兩種花在園區的大門前交融接觸，新與舊融合，象徵客家隨時進步的精神\n陶瓷馬賽克拼貼設置於前廣場階梯「垂直立面」\n利用階梯座位特性，觀者視角錯位時，作品呈現出水花波紋漣漪"; */
         
         fileString = [[NSBundle mainBundle] pathForResource:@"0_3" ofType:@"html"]; 
-        labelLen = 175;
+
         cellIndex = 3;
         path = [[NSBundle mainBundle] pathForResource:@"Ticket" 
                                                ofType:@"plist"];
@@ -249,6 +248,7 @@ UIInterfaceOrientation whatNow;
     CGRect applicationFrame = [[UIScreen mainScreen] applicationFrame];
     
     int theHeight = 0;
+    int labelLen = 0;//[[label stringByEvaluatingJavaScriptFromString:@"document.documentElement.scrollHeight"] intValue];
     
     self.imageView.view.autoresizingMask = 
     UIViewAutoresizingFlexibleWidth |
@@ -269,18 +269,18 @@ UIInterfaceOrientation whatNow;
         
         switch (cellIndex) {
             case 1:
-                //labelLen = label.font.lineHeight * 7;
-                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 460, labelLen)];
+                labelLen = 140;//label.font.lineHeight * 7;
+                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 445, labelLen)];
                 theHeight += labelLen;
                 break;
             case 2:
-                //labelLen = label.font.lineHeight * 11;
-                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 460, labelLen)];
+                labelLen = 250;//label.font.lineHeight * 11;
+                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 445, labelLen)];
                 theHeight += labelLen;
                 break;
             case 3:
-                //labelLen = label.font.lineHeight * 15;
-                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 460, labelLen)];
+                labelLen = 280;//label.font.lineHeight * 15;
+                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 445, labelLen)];
                 theHeight += labelLen;
 
                 break;
@@ -313,18 +313,18 @@ UIInterfaceOrientation whatNow;
         
         switch (cellIndex) {
             case 1:
-                //labelLen = label.font.lineHeight * 6;
-                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 70, labelLen)];
+                labelLen = 115;//label.font.lineHeight * 6;
+                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 65, labelLen)];
                 theHeight += labelLen;
                 break;
             case 2:
-                //labelLen = label.font.lineHeight * 9;
-                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 70, labelLen)];
+                labelLen = 160;//label.font.lineHeight * 9;
+                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 65, labelLen)];
                 theHeight += labelLen;
                 break;
             case 3:
-                //labelLen = label.font.lineHeight * 9;
-                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 70, labelLen)];
+                labelLen = 155;//label.font.lineHeight * 9;
+                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 65, labelLen)];
                 theHeight += labelLen;
                 break;
         }
@@ -339,7 +339,18 @@ UIInterfaceOrientation whatNow;
         }
         else
         {
-            scrollView.contentSize = CGSizeMake( (applicationFrame.size.width<=imageView.view.bounds.size.width?imageView.view.bounds.size.width:applicationFrame.size.width), (applicationFrame.size.height <= theHeight?theHeight:applicationFrame.size.height+200) );  
+            switch (cellIndex) {
+                case 1:
+                    scrollView.contentSize = CGSizeMake( (applicationFrame.size.width<=imageView.view.bounds.size.width?imageView.view.bounds.size.width:applicationFrame.size.width), (applicationFrame.size.height <= theHeight?theHeight:applicationFrame.size.height) );  
+                    break;
+                case 2:
+                    scrollView.contentSize = CGSizeMake( (applicationFrame.size.width<=imageView.view.bounds.size.width?imageView.view.bounds.size.width:applicationFrame.size.width), (applicationFrame.size.height <= theHeight?theHeight:applicationFrame.size.height+130) );  
+                    break;
+                case 3:
+                    scrollView.contentSize = CGSizeMake( (applicationFrame.size.width<=imageView.view.bounds.size.width?imageView.view.bounds.size.width:applicationFrame.size.width), (applicationFrame.size.height <= theHeight?theHeight:applicationFrame.size.height) );  
+                    break;
+            }
+            
         }
 
     }
@@ -436,7 +447,7 @@ UIInterfaceOrientation whatNow;
     NSArray *movieSection = [movieTitles objectForKey:year];
     //---get the particular movie based on that row---
     cell.textLabel.text = [movieSection objectAtIndex:[indexPath row]]; 
-	
+	cell.textLabel.font = [UIFont boldSystemFontOfSize:18];
     UIImage *image = [UIImage imageNamed:@"apple.jpeg"];
     cell.imageView.image = image;
 
@@ -489,7 +500,7 @@ forRowAtIndexPath: (NSIndexPath*)indexPath
     
 }
 
-#define SectionHeaderHeight 40
+#define SectionHeaderHeight 30
 
 
 - (CGFloat)tableView:(UITableView *)ttableView heightForHeaderInSection:(NSInteger)section {
@@ -512,8 +523,9 @@ forRowAtIndexPath: (NSIndexPath*)indexPath
     // Create label with section title
     
     UILabel *llabel = [[[UILabel alloc] init] autorelease];
-    llabel.frame = CGRectMake(0, 0, 768, 40);
-    llabel.backgroundColor = [UIColor blackColor];
+    llabel.frame = CGRectMake(0, 0, 768, 30);
+    //llabel.backgroundColor = [UIColor redColor];
+    llabel.backgroundColor = [UIColor colorWithRed: 0.0 green: 0.0 blue: 0.0 alpha: 0.8];
     llabel.textColor = [UIColor colorWithRed: 1.0 green: 1.0 blue: 1.0 alpha: 1.0];
     //label.shadowColor = [UIColor whiteColor];
     //label.shadowOffset = CGSizeMake(0.0, 1.0);
