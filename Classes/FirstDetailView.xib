@@ -64,6 +64,10 @@
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSNextKeyView" ref="631379183"/>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<object class="NSColor" key="IBUITintColor">
+							<int key="NSColorSpace">3</int>
+							<bytes key="NSWhite">MC4wOTg1NDAxNDU5OQA</bytes>
+						</object>
 						<object class="NSArray" key="IBUIItems">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBUINavigationItem" id="401344780">

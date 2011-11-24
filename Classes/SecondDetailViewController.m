@@ -184,7 +184,9 @@ UIInterfaceOrientation whatNow;
     if ([titleName isEqualToString:@"【客迎．傳情】"])
     {
         //imageName = @"Training Day.jpg";
-        label.text = @"造型與構作:「手工彩色玻璃」與「傳統客家山歌」呈現的視覺、影像與音樂構成客家印象之迎賓長廊空間。\n空間裝置：藝術手工彩色玻璃迎賓\n聲響裝置：客家山歌等傳統歌謠之［空間性重組］"; 
+        /*label.text = @"造型與構作:「手工彩色玻璃」與「傳統客家山歌」呈現的視覺、影像與音樂構成客家印象之迎賓長廊空間。\n空間裝置：藝術手工彩色玻璃迎賓\n聲響裝置：客家山歌等傳統歌謠之［空間性重組］"; */
+        
+        label.text = @"設置地點：入口空橋\n造型與構作：由「手工彩色玻璃」與「傳統客家山歌」呈現的視覺、影像與音樂構成客家印象之迎賓長廊空間。\n創作人：劉得劭、江薦新、林維源\n音樂創作：江薦新、王榆鈞。";
         cellIndex = 1;
         path = [[NSBundle mainBundle] pathForResource:@"Movies" 
                                                ofType:@"plist"];
@@ -193,7 +195,8 @@ UIInterfaceOrientation whatNow;
     else if ([titleName isEqualToString:@"【花漾．綠動】"])
     {
         //imageName = @"Remember the Titans.jpg";
-        label.text = @"作品延伸建築的原意，利用多種三角玻璃面設計一組代表四季的抽象且具趣味性的翻摺裝置雕塑品。\n【花漾．綠動】利用自然風力微微轉動\n四件大型裝置雕塑品其玻璃經高溫夾膜製程\n作品材質與裝置為金屬結構、彩色夾膜玻璃(大型)、手工彩色玻璃(小型)、強化玻璃 、底盤旋轉機械裝置—防水無油軸承、投射燈及沉水揚水馬達"; 
+        /*label.text = @"作品延伸建築的原意，利用多種三角玻璃面設計一組代表四季的抽象且具趣味性的翻摺裝置雕塑品。\n【花漾．綠動】利用自然風力微微轉動\n四件大型裝置雕塑品其玻璃經高溫夾膜製程\n作品材質與裝置為金屬結構、彩色夾膜玻璃(大型)、手工彩色玻璃(小型)、強化玻璃 、底盤旋轉機械裝置—防水無油軸承、投射燈及沉水揚水馬達"; */
+        label.text = @"設置地點：半月池\n造型與構作：象徵四季花語之大型裝置雕塑作品\n創作人：劉得劭、江薦新、林維源\n創作理念：作品以建築之主要構成為基底出發，利用多種三角玻璃面創作出一整體律動之玻璃裝置雕塑，以四季為概念，抽象地且具趣味性的翻摺造型構成，每個角度皆呈現出不同的造型，在某一個特定視角結合水池之水面反射可以呈現出“花朵”意象，分別以顏色（春綠、夏紅、秋黃、冬白）及造型象徵春、夏、秋、冬四季與春耕、夏耘、秋收、冬藏的整體節氣意象。";
         cellIndex = 2;
         path = [[NSBundle mainBundle] pathForResource:@"Theater" 
                                                ofType:@"plist"];
@@ -202,7 +205,10 @@ UIInterfaceOrientation whatNow;
     else if ([titleName isEqualToString:@"【家客．融蘊】"])
     {
         //imageName = @"John Q.jpg";
-        label.text = @"造型與構作:大型馬賽克圖像創作\n牡丹是客家傳統的文化圖騰，而油桐近年也成演變客家的主要象徵，兩種花在園區的大門前交融接觸，新與舊融合，象徵客家隨時進步的精神\n陶瓷馬賽克拼貼設置於前廣場階梯「垂直立面」\n利用階梯座位特性，觀者視角錯位時，作品呈現出水花波紋漣漪"; 
+        /*label.text = @"造型與構作:大型馬賽克圖像創作\n牡丹是客家傳統的文化圖騰，而油桐近年也成演變客家的主要象徵，兩種花在園區的大門前交融接觸，新與舊融合，象徵客家隨時進步的精神\n陶瓷馬賽克拼貼設置於前廣場階梯「垂直立面」\n利用階梯座位特性，觀者視角錯位時，作品呈現出水花波紋漣漪"; */
+        
+        label.text = @"設置地點：戶外活動廣場階梯垂直立面(兩座行人樓梯之間)\n造型與構作:大型馬賽克圖像創作\n創作人：黃耿茂、林士哲\n創作理念：為了表達客家與時俱進不斷融合的精神，我們選用了牡丹以及油桐作為創作的元素。以馬賽克方式拼組成大型的「牡丹花」和「油桐花」圖像，放置於前廣場的階梯立面上，花卉的爭艷以及震撼的視覺效果不僅可牽動觀眾的情緒，也傳遞了客家人隨遇而安和族群圓滿的生存精神。繽紛的花卉色彩增添了入口廣場的活潑與熱鬧氣氛，也賦予堅硬的水泥階梯較柔性的視覺感知。";
+        
         cellIndex = 3;
         path = [[NSBundle mainBundle] pathForResource:@"Ticket" 
                                                ofType:@"plist"];
@@ -252,7 +258,7 @@ UIInterfaceOrientation whatNow;
         [imageView setFrame:CGRectMake(0, 0, imageView.frame.size.width, imageView.frame.size.width * imageView.image.size.height / imageView.image.size.width)];
         */
         
-        self.imageView.view.frame = CGRectMake(0, 0, 325, 185);
+        self.imageView.view.frame = CGRectMake(0, 0, 325, 183);
         theHeight = imageView.view.frame.size.height;
         
         switch (cellIndex) {
@@ -267,14 +273,16 @@ UIInterfaceOrientation whatNow;
                 theHeight += labelLen;
                 break;
             case 3:
-                labelLen = label.font.lineHeight * 11;
+                labelLen = label.font.lineHeight * 15;
                 [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 460, labelLen)];
                 theHeight += labelLen;
 
                 break;
         }
+        //***
+        
         labelLen = tableView.sectionHeaderHeight * headcnt + tableView.rowHeight * cellcnt;
-        [tableView setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 460, labelLen ) ];   
+        [tableView setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 0, labelLen ) ];   
         
         theHeight += labelLen; 
         
@@ -294,28 +302,29 @@ UIInterfaceOrientation whatNow;
         theHeight = imageView.image.size.height;
         */
         
-        [imageView.view setFrame:CGRectMake(0, 0, 710, 450)];
+        [imageView.view setFrame:CGRectMake(0, 0, 705, 397)];
         theHeight = imageView.view.bounds.size.height;
         
         switch (cellIndex) {
             case 1:
-                labelLen = label.font.lineHeight * 5;
+                labelLen = label.font.lineHeight * 6;
                 [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 70, labelLen)];
                 theHeight += labelLen;
                 break;
             case 2:
-                labelLen = label.font.lineHeight * 7;
+                labelLen = label.font.lineHeight * 9;
                 [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 70, labelLen)];
                 theHeight += labelLen;
                 break;
             case 3:
-                labelLen = label.font.lineHeight * 7;
+                labelLen = label.font.lineHeight * 9;
                 [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 70, labelLen)];
                 theHeight += labelLen;
                 break;
         }
+        //***
         labelLen = tableView.sectionHeaderHeight * headcnt + tableView.rowHeight * cellcnt;        
-        [tableView setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 70, labelLen ) ];
+        [tableView setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 0, labelLen ) ];
         theHeight += labelLen; 
         
         if(whatNow == UIInterfaceOrientationPortrait)
@@ -324,7 +333,7 @@ UIInterfaceOrientation whatNow;
         }
         else
         {
-            scrollView.contentSize = CGSizeMake( (applicationFrame.size.width<=imageView.view.bounds.size.width?imageView.view.bounds.size.width:applicationFrame.size.width), (applicationFrame.size.height <= theHeight?theHeight:applicationFrame.size.height+300) );  
+            scrollView.contentSize = CGSizeMake( (applicationFrame.size.width<=imageView.view.bounds.size.width?imageView.view.bounds.size.width:applicationFrame.size.width), (applicationFrame.size.height <= theHeight?theHeight:applicationFrame.size.height+200) );  
         }
 
     }
@@ -460,6 +469,61 @@ UIInterfaceOrientation whatNow;
                                            userInfo:nil
                                             repeats:NO];
 
+}
+
+
+
+//選單背景色
+- (void)tableView: (UITableView*)tableView 
+  willDisplayCell: (UITableViewCell*)cell 
+forRowAtIndexPath: (NSIndexPath*)indexPath
+{
+    // cell.backgroundColor = [UIColor colorWithRed: 1.0 green: 1.0 blue: 1.0 alpha: 1.0];
+    
+    //cell.textLabel.backgroundColor = [UIColor colorWithRed: 1.0 green: 0.0 blue: 0.0 alpha: 1.0];
+    
+}
+
+#define SectionHeaderHeight 40
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if ([self tableView:tableView titleForHeaderInSection:section] != nil) {
+        return SectionHeaderHeight;
+    }
+    else {
+        // If no section header title, no section header needed
+        return 0;
+    }
+}
+
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    NSString *sectionTitle = [self tableView:tableView titleForHeaderInSection:section];
+    if (sectionTitle == nil) {
+        return nil;
+    }
+    
+    // Create label with section title
+    
+    UILabel *label = [[[UILabel alloc] init] autorelease];
+    label.frame = CGRectMake(0, 0, 768, 40);
+    label.backgroundColor = [UIColor blackColor];
+    label.textColor = [UIColor colorWithRed: 1.0 green: 1.0 blue: 1.0 alpha: 1.0];
+    //label.shadowColor = [UIColor whiteColor];
+    //label.shadowOffset = CGSizeMake(0.0, 1.0);
+    label.font = [UIFont boldSystemFontOfSize:20];
+    label.text = sectionTitle;
+    
+    
+    
+    
+    // Create header view and add label as a subview
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 768, SectionHeaderHeight)];
+    [view autorelease];
+    [view addSubview:label];
+    
+    return view;
 }
 
 @end

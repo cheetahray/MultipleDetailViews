@@ -20,7 +20,7 @@
     NSTimer *timer;
     BOOL tapOrMove;  
     FilesHandlingViewController *fileController;
-    UITextView *lable;
+    //UITextView *lable;
     NSString *titleName;
     id detailItem;
     UIScrollView *scrollView;
@@ -28,7 +28,7 @@
 
 @property (nonatomic, retain) IBOutlet UINavigationBar *navigationBar;
 @property (nonatomic, retain) IBOutlet RootViewController *rootViewController;
-@property (nonatomic, retain) IBOutlet UITextView *label;
+//@property (nonatomic, retain) IBOutlet UITextView *label;
 @property (nonatomic, retain) IBOutlet UIScrollView *scrollView;
 @property (readwrite) BOOL tapOrMove;
 @property (nonatomic, retain) NSString *titleName;

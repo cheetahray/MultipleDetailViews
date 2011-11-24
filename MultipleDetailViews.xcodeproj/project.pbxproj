@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04DBED11147DE73600C05424 /* s_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 04DBED0E147DE73500C05424 /* s_1.mp4 */; };
+		04DBED12147DE73600C05424 /* s_2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 04DBED0F147DE73500C05424 /* s_2.mp4 */; };
+		04DBED13147DE73600C05424 /* s_3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 04DBED10147DE73500C05424 /* s_3.mp4 */; };
+		04DBED16147E378300C05424 /* 2_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DBED15147E378300C05424 /* 2_6.png */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
@@ -47,6 +51,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04DBED0E147DE73500C05424 /* s_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = s_1.mp4; sourceTree = "<group>"; };
+		04DBED0F147DE73500C05424 /* s_2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = s_2.mp4; sourceTree = "<group>"; };
+		04DBED10147DE73500C05424 /* s_3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = s_3.mp4; sourceTree = "<group>"; };
+		04DBED15147E378300C05424 /* 2_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2_6.png; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* MultipleDetailViews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultipleDetailViews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -172,6 +180,10 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				04DBED0E147DE73500C05424 /* s_1.mp4 */,
+				04DBED0F147DE73500C05424 /* s_2.mp4 */,
+				04DBED15147E378300C05424 /* 2_6.png */,
+				04DBED10147DE73500C05424 /* s_3.mp4 */,
 				E43B848C147638470034A2EC /* HomeIcon.jpg */,
 				E4E9224314580FB400C5DD55 /* 3_1.png */,
 				E4E9224414580FB400C5DD55 /* 3_2.png */,
@@ -282,6 +294,10 @@
 				E4E9224714580FB500C5DD55 /* 3_2.png in Resources */,
 				E4E9224814580FB500C5DD55 /* 3_3.png in Resources */,
 				E43B848D147638470034A2EC /* HomeIcon.jpg in Resources */,
+				04DBED11147DE73600C05424 /* s_1.mp4 in Resources */,
+				04DBED12147DE73600C05424 /* s_2.mp4 in Resources */,
+				04DBED13147DE73600C05424 /* s_3.mp4 in Resources */,
+				04DBED16147E378300C05424 /* 2_6.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

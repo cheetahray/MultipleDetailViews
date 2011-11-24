@@ -14,7 +14,7 @@
 
 @implementation ThirdDetailViewController
 
-@synthesize rootViewController, navigationBar, tapOrMove, label, titleName, detailItem, scrollView;
+@synthesize rootViewController, navigationBar, tapOrMove, titleName, detailItem, scrollView;
 
 UIInterfaceOrientation nowWhat;
 float zoomHeight, zoomWidth;
@@ -51,10 +51,10 @@ float zoomHeight, zoomWidth;
         scrollView.center = CGPointMake(scrollView.bounds.size.width/2, scrollView.center.y);
         [timer invalidate];
 
-        label.contentOffset = CGPointMake(0, 0);
+        //label.contentOffset = CGPointMake(0, 0);
     }
 	
-    label.contentOffset = CGPointMake(0, 1);
+    //label.contentOffset = CGPointMake(0, 1);
 
 }
 
@@ -74,7 +74,7 @@ float zoomHeight, zoomWidth;
     tapOrMove = false;
     
     fileController = [FilesHandlingViewController new];
-    label.text = [fileController RayReadTxt];
+    //label.text = [fileController RayReadTxt];
     
     [[scrollView viewWithTag:ZOOM_VIEW_TAG] removeFromSuperview];
     
@@ -94,7 +94,8 @@ float zoomHeight, zoomWidth;
     zoomHeight = zoomView.bounds.size.height;
     zoomWidth = zoomView.bounds.size.width;
     
-    [label setFrame:CGRectMake(0, zoomHeight * minScale, self.view.bounds.size.width - 70, 200)];
+    //***
+    //[label setFrame:CGRectMake(0, zoomHeight * minScale, self.view.bounds.size.width - 0, 200)];
     
     [zoomView release];
     
@@ -140,7 +141,7 @@ float zoomHeight, zoomWidth;
     [navigationBar release];
     [fileController release];
     [scrollView release];
-    [label release];
+    //[label release];
     [super dealloc];
 }
 
@@ -223,7 +224,7 @@ float zoomHeight, zoomWidth;
 - (void)scrollViewDidEndZooming:(UIScrollView *)PscrollView withView:(UIView *)view atScale:(float)scale {
     [PscrollView setZoomScale:scale+0.01 animated:NO];
     [PscrollView setZoomScale:scale animated:NO];
-    [label setCenter:CGPointMake(view.center.x, zoomHeight * scale + label.frame.size.height / 2)];
+    //[label setCenter:CGPointMake(view.center.x, zoomHeight * scale + label.frame.size.height / 2)];
 }
 
 #pragma mark TapDetectingImageViewDelegate methods

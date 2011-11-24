@@ -95,7 +95,7 @@
     }
 
     if ([[NSFileManager defaultManager] fileExistsAtPath:[filePath stringByAppendingPathComponent:@"3_1.txt"]] == FALSE) {
-        [self writeToFile:@"以馬賽克方式拼組成大型的「牡丹花」和「油桐花」圖像，放置於前廣場的階梯立面上(兩座行人樓梯之間)，繽紛的花卉色彩增添了入口廣場的活潑與熱鬧氣氛，也賦予堅硬的水泥階梯較柔性的視覺感知。" withFileName:[filePath stringByAppendingPathComponent:@"3_1.txt"]];
+        [self writeToFile:@"" withFileName:[filePath stringByAppendingPathComponent:@"3_1.txt"]];
     }
 
     if ([[NSFileManager defaultManager] fileExistsAtPath:[filePath stringByAppendingPathComponent:@"3_2.txt"]] == FALSE) {
