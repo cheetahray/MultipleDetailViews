@@ -341,13 +341,13 @@ UIInterfaceOrientation whatNow;
         {
             switch (cellIndex) {
                 case 1:
-                    scrollView.contentSize = CGSizeMake( (applicationFrame.size.width<=imageView.view.bounds.size.width?imageView.view.bounds.size.width:applicationFrame.size.width), (applicationFrame.size.height <= theHeight?theHeight:applicationFrame.size.height) );  
+                    scrollView.contentSize = CGSizeMake( (applicationFrame.size.width<=imageView.view.bounds.size.width?imageView.view.bounds.size.width:applicationFrame.size.width), (applicationFrame.size.height <= theHeight?theHeight:applicationFrame.size.height+50) );  
                     break;
                 case 2:
                     scrollView.contentSize = CGSizeMake( (applicationFrame.size.width<=imageView.view.bounds.size.width?imageView.view.bounds.size.width:applicationFrame.size.width), (applicationFrame.size.height <= theHeight?theHeight:applicationFrame.size.height+130) );  
                     break;
                 case 3:
-                    scrollView.contentSize = CGSizeMake( (applicationFrame.size.width<=imageView.view.bounds.size.width?imageView.view.bounds.size.width:applicationFrame.size.width), (applicationFrame.size.height <= theHeight?theHeight:applicationFrame.size.height) );  
+                    scrollView.contentSize = CGSizeMake( (applicationFrame.size.width<=imageView.view.bounds.size.width?imageView.view.bounds.size.width:applicationFrame.size.width), (applicationFrame.size.height <= theHeight?theHeight:applicationFrame.size.height+50) );  
                     break;
             }
             
