@@ -361,7 +361,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MultipleDetailViews_Prefix.pch;
 				INFOPLIST_FILE = "MultipleDetailViews-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = MultipleDetailViews;
 				SDKROOT = iphoneos;
 			};
@@ -379,7 +379,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MultipleDetailViews_Prefix.pch;
 				INFOPLIST_FILE = "MultipleDetailViews-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = MultipleDetailViews;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
