@@ -6342,7 +6342,7 @@ static void CFWriteStreamCallback (CFWriteStreamRef stream, CFStreamEventType ty
 	
 	if (dispatch_get_current_queue() == socketQueue)
 	{
-		return [self enableBackgroundingOnSocketWithCaveat:NO];
+		return YES;//[self enableBackgroundingOnSocketWithCaveat:NO];
 	}
 	else
 	{
@@ -6356,7 +6356,7 @@ static void CFWriteStreamCallback (CFWriteStreamRef stream, CFStreamEventType ty
 	
 	if (dispatch_get_current_queue() == socketQueue)
 	{
-		return [self enableBackgroundingOnSocketWithCaveat:YES];
+		return YES;//[self enableBackgroundingOnSocketWithCaveat:YES];
 	}
 	else
 	{

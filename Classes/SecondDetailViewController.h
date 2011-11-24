@@ -60,7 +60,7 @@
     UINavigationBar *navigationBar;
     RootViewController *rootViewController;   
     UITableView *tableView;
-    UITextView *label;
+    UIWebView *label;
     NSTimer *timer;
     //UIImageView *imageView;
     BOOL tapOrMove;  
@@ -76,7 +76,7 @@
 @property (nonatomic, retain) IBOutlet RootViewController *rootViewController;
 //@property (nonatomic, retain) IBOutlet UIImageView *imageView;
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
-@property (nonatomic, retain) IBOutlet UITextView *label;
+@property (nonatomic, retain) IBOutlet UIWebView *label;
 @property (nonatomic, retain) IBOutlet UIScrollView *scrollView;
 @property (readwrite) BOOL tapOrMove;
 @property (nonatomic, retain) NSString *titleName, *thirdName;

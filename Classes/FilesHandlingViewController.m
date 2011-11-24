@@ -123,7 +123,7 @@
     
 }
 
-- RayReadTable {
+- (void) RayReadTable {
     
     //---get the path to the property list file---
     NSString *plistFileName = [[self documentsPath]
@@ -169,11 +169,11 @@
 
     }
 
-    //---load the content of the property list file into a NSDictionary
+    /*
+     //---load the content of the property list file into a NSDictionary
     // object---
     NSDictionary *dict = [[NSDictionary alloc]
                           initWithContentsOfFile:plistFileName];
-    
     
     //---for each category---
     for (NSString *category in dict)
@@ -188,8 +188,10 @@
             NSLog(title);
         }
     }
+    
     [dict release];
-
+    */
+    
 }
 
 
