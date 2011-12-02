@@ -106,6 +106,7 @@ extern bool canTouch;
                 [rootViewController Ray:2 whichRoom:@"【家客．融蘊】"];
                 break;
         }
+        [rootViewController.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:areaType inSection: 0] animated:NO scrollPosition:UITableViewScrollPositionNone];
 	}
     
 }
