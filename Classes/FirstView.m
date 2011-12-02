@@ -12,8 +12,8 @@
 
 @synthesize rootViewController, navigationBar, tapOrMove, imageView;
 
-CGFloat originalDistance, diffDistanceX, diffDistanceY;
 int areaType = -1;
+CGFloat originalDistance, diffDistanceX, diffDistanceY;
 float ratiox, ratioy, originalwidth, originalheight;
 bool canTouch;
 
@@ -108,8 +108,9 @@ bool canTouch;
             NSLog(@"Touch2: %.0f, %.0f", touch2PT.x, touch2PT.y);
 			
 			//---record the distance made by the two touches---
-			originalDistance  = [self distanceBetweenTwoPoints:touch1PT 
-													   toPoint:touch2PT];
+            #ifdef zoomInOut
+			originalDistance  = [self distanceBetweenTwoPoints:touch1PT toPoint:touch2PT];
+            #endif
         } break;
     }
 }
@@ -143,6 +144,7 @@ bool canTouch;
 			
 			//---double-touch---
         case 2: {
+            #ifdef zoomInOut
             //---get info of first touch---
             UITouch *touch1 = [[allTouches allObjects] objectAtIndex:0];
 			
@@ -152,13 +154,12 @@ bool canTouch;
             //---get the points touched---
             CGPoint touch1PT = [touch1 locationInView:[self view]];
             CGPoint touch2PT = [touch2 locationInView:[self view]];
-			
+            
             NSLog(@"Touch1: %.0f, %.0f", touch1PT.x, touch1PT.y);
             NSLog(@"Touch2: %.0f, %.0f", touch2PT.x, touch2PT.y);
 			
             CGFloat currentDistance = [self distanceBetweenTwoPoints: touch1PT
 															 toPoint: touch2PT];
-			
             //---zoom in---
             if (currentDistance > originalDistance)
             {
@@ -177,6 +178,7 @@ bool canTouch;
             originalDistance = currentDistance;
             ratiox = imageView.bounds.size.width / originalwidth;
             ratioy = imageView.bounds.size.height / originalheight;
+            #endif
         } break;
     }
 }
