@@ -103,7 +103,7 @@
 	asyncSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:mainQueue];
 	
 	[self normalConnect];
-    [splitViewController setValue:[NSNumber numberWithFloat:275.0] forKey:@"_masterColumnWidth"];
+    [splitViewController setValue:[NSNumber numberWithFloat:260.0] forKey:@"_masterColumnWidth"];
     [window addSubview:splitViewController.view];
     [window makeKeyAndVisible];
 	

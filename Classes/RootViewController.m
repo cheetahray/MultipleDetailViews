@@ -75,11 +75,6 @@ NSMutableArray *listOfMovies;
     oneOrTwo = 0;
 }
 
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection: 0] animated:NO scrollPosition:UITableViewScrollPositionNone];
-}
 
 -(void) viewDidUnload {
 	[super viewDidUnload];

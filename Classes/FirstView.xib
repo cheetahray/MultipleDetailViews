@@ -47,9 +47,10 @@
 					<object class="IBUIImageView" id="915365042">
 						<reference key="NSNextResponder" ref="114896160"/>
 						<int key="NSvFlags">301</int>
-						<string key="NSFrame">{{42, 255.5}, {684, 513}}</string>
+						<string key="NSFrame">{{15, 200}, {763, 633}}</string>
 						<reference key="NSSuperview" ref="114896160"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<int key="IBUIContentMode">1</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -318,7 +319,7 @@
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="NS.key.0">HomePage-001.jpg</string>
-			<string key="NS.object.0">{1500, 1044}</string>
+			<string key="NS.object.0">{760, 631}</string>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">301</string>
 	</data>

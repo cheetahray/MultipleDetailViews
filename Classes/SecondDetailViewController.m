@@ -264,23 +264,23 @@ UIInterfaceOrientation whatNow;
         [imageView setFrame:CGRectMake(0, 0, imageView.frame.size.width, imageView.frame.size.width * imageView.image.size.height / imageView.image.size.width)];
         */
         
-        self.imageView.view.frame = CGRectMake(0, 0, 325, 183);
+        self.imageView.view.frame = CGRectMake(0, 0, 260, 183);
         theHeight = imageView.view.frame.size.height;
         
         switch (cellIndex) {
             case 1:
-                labelLen = 140;//label.font.lineHeight * 7;
-                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 445, labelLen)];
+                labelLen = 155;//label.font.lineHeight * 7;
+                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 503, labelLen)];
                 theHeight += labelLen;
                 break;
             case 2:
                 labelLen = 250;//label.font.lineHeight * 11;
-                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 445, labelLen)];
+                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 503, labelLen)];
                 theHeight += labelLen;
                 break;
             case 3:
-                labelLen = 280;//label.font.lineHeight * 15;
-                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 445, labelLen)];
+                labelLen = 330;//label.font.lineHeight * 15;
+                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 503, labelLen)];
                 theHeight += labelLen;
 
                 break;
@@ -308,23 +308,23 @@ UIInterfaceOrientation whatNow;
         theHeight = imageView.image.size.height;
         */
         
-        [imageView.view setFrame:CGRectMake(0, 0, 705, 397)];
+        [imageView.view setFrame:CGRectMake(0, 0, 763, 397)];
         theHeight = imageView.view.bounds.size.height;
         
         switch (cellIndex) {
             case 1:
                 labelLen = 115;//label.font.lineHeight * 6;
-                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 65, labelLen)];
+                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 5, labelLen)];
                 theHeight += labelLen;
                 break;
             case 2:
                 labelLen = 160;//label.font.lineHeight * 9;
-                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 65, labelLen)];
+                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 5, labelLen)];
                 theHeight += labelLen;
                 break;
             case 3:
                 labelLen = 155;//label.font.lineHeight * 9;
-                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 65, labelLen)];
+                [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 5, labelLen)];
                 theHeight += labelLen;
                 break;
         }

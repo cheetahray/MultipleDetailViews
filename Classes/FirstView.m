@@ -17,6 +17,12 @@ CGFloat originalDistance, diffDistanceX, diffDistanceY;
 float ratiox, ratioy, originalwidth, originalheight;
 bool canTouch;
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [rootViewController.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection: 0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+}
+
 -(void) onTimer2 {
     
     [timer invalidate];
@@ -60,6 +66,7 @@ bool canTouch;
             //---get info of the touch---
             UITouch *touch = [[allTouches allObjects] objectAtIndex:0];
 			CGPoint touchPT = [touch locationInView:[self view]];
+            
             //---compare the touches---
             switch ([touch tapCount])
             {
@@ -73,11 +80,11 @@ bool canTouch;
                                                            userInfo:nil
                                                             repeats:NO];
                     canTouch = false;
-                    if(touchPT.x >= 10 * ratiox + imageView.frame.origin.x && touchPT.y >= 130 * ratioy + imageView.frame.origin.y && touchPT.x <= 200 * ratiox + imageView.frame.origin.x && touchPT.y <= 260 * ratioy + imageView.frame.origin.y)
+                    if(touchPT.x >= 30 * ratiox + imageView.frame.origin.x && touchPT.y >= 240 * ratioy + imageView.frame.origin.y && touchPT.x <= 240 * ratiox + imageView.frame.origin.x && touchPT.y <= 375 * ratioy + imageView.frame.origin.y)
                         areaType = 1;
-                    else if(touchPT.x >= 245 * ratiox + imageView.frame.origin.x && touchPT.y >= 25 * ratioy + imageView.frame.origin.y && touchPT.x <= 460 * ratiox + imageView.frame.origin.x && touchPT.y <= 140 * ratioy + imageView.frame.origin.y)
+                    else if(touchPT.x >= 280 * ratiox + imageView.frame.origin.x && touchPT.y >= 130 * ratioy + imageView.frame.origin.y && touchPT.x <= 515 * ratiox + imageView.frame.origin.x && touchPT.y <= 255 * ratioy + imageView.frame.origin.y)
                         areaType = 2;
-                    else if(touchPT.x >= 380 * ratiox + imageView.frame.origin.x && touchPT.y >= 350 * ratioy + imageView.frame.origin.y && touchPT.x <= 660 * ratiox + imageView.frame.origin.x && touchPT.y <= 470 * ratioy + imageView.frame.origin.y)
+                    else if(touchPT.x >= 425 * ratiox + imageView.frame.origin.x && touchPT.y >= 470 * ratioy + imageView.frame.origin.y && touchPT.x <= 725 * ratiox + imageView.frame.origin.x && touchPT.y <= 585 * ratioy + imageView.frame.origin.y)
                         areaType = 3;
                     else
                         areaType = 0;
@@ -131,7 +138,7 @@ bool canTouch;
 			
             //---check to see if the image is being touched---
             CGPoint touchPoint = [touch locationInView:[self view]];
-			
+			/*
             if (touchPoint.x > imageView.frame.origin.x &&
                 touchPoint.x < imageView.frame.origin.x +
 				imageView.frame.size.width &&
@@ -140,6 +147,7 @@ bool canTouch;
 				imageView.frame.size.height) {
                 [imageView setCenter:CGPointMake(touchPoint.x - diffDistanceX, touchPoint.y - diffDistanceY)];
             }
+             */
         }  break;
 			
 			//---double-touch---
