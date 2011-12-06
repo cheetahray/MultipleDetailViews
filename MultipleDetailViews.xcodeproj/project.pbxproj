@@ -41,8 +41,6 @@
 		E4E9224714580FB500C5DD55 /* 3_2.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E9224414580FB400C5DD55 /* 3_2.png */; };
 		E4E9224814580FB500C5DD55 /* 3_3.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E9224514580FB400C5DD55 /* 3_3.png */; };
 		E4F7DFA413EBDB7100051172 /* HomePage-001.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E4F7DFA313EBDB7100051172 /* HomePage-001.jpg */; };
-		EE0F019B13B1B88400A35829 /* FirstView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0F019913B1B88400A35829 /* FirstView.m */; };
-		EE0F019C13B1B88400A35829 /* FirstView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE0F019A13B1B88400A35829 /* FirstView.xib */; };
 		EE79237D13B2F48A001D0E49 /* FirstDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE79237A13B2F48A001D0E49 /* FirstDetailView.xib */; };
 		EE79237E13B2F48A001D0E49 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE79237B13B2F48A001D0E49 /* MainWindow.xib */; };
 		EE79237F13B2F48A001D0E49 /* SecondDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE79237C13B2F48A001D0E49 /* SecondDetailView.xib */; };
@@ -98,9 +96,6 @@
 		E4E9224414580FB400C5DD55 /* 3_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3_2.png; sourceTree = "<group>"; };
 		E4E9224514580FB400C5DD55 /* 3_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3_3.png; sourceTree = "<group>"; };
 		E4F7DFA313EBDB7100051172 /* HomePage-001.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HomePage-001.jpg"; sourceTree = "<group>"; };
-		EE0F019813B1B88400A35829 /* FirstView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstView.h; sourceTree = "<group>"; };
-		EE0F019913B1B88400A35829 /* FirstView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstView.m; sourceTree = "<group>"; };
-		EE0F019A13B1B88400A35829 /* FirstView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FirstView.xib; path = Classes/FirstView.xib; sourceTree = "<group>"; };
 		EE79237A13B2F48A001D0E49 /* FirstDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FirstDetailView.xib; path = Classes/FirstDetailView.xib; sourceTree = "<group>"; };
 		EE79237B13B2F48A001D0E49 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindow.xib; path = Classes/MainWindow.xib; sourceTree = "<group>"; };
 		EE79237C13B2F48A001D0E49 /* SecondDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SecondDetailView.xib; path = Classes/SecondDetailView.xib; sourceTree = "<group>"; };
@@ -147,8 +142,6 @@
 				28AA66D5115C16800003B21C /* FirstDetailViewController.m */,
 				28AA66D2115C16800003B21C /* AppDelegate.h */,
 				28AA66D3115C16800003B21C /* AppDelegate.m */,
-				EE0F019813B1B88400A35829 /* FirstView.h */,
-				EE0F019913B1B88400A35829 /* FirstView.m */,
 				28AA66D8115C16800003B21C /* SecondDetailViewController.h */,
 				28AA66D9115C16800003B21C /* SecondDetailViewController.m */,
 				EEAB1A4813B43489003E83BE /* ThirdDetailViewController.h */,
@@ -217,7 +210,6 @@
 				EE79237A13B2F48A001D0E49 /* FirstDetailView.xib */,
 				EE79237B13B2F48A001D0E49 /* MainWindow.xib */,
 				EE79237C13B2F48A001D0E49 /* SecondDetailView.xib */,
-				EE0F019A13B1B88400A35829 /* FirstView.xib */,
 				8D1107310486CEB800E47090 /* MultipleDetailViews-Info.plist */,
 				E4E922351457FD9B00C5DD55 /* Theater.plist */,
 				E4E9224114580E5300C5DD55 /* Ticket.plist */,
@@ -291,7 +283,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				28AA66DF115C16850003B21C /* ReadMe.txt in Resources */,
-				EE0F019C13B1B88400A35829 /* FirstView.xib in Resources */,
 				EE79237D13B2F48A001D0E49 /* FirstDetailView.xib in Resources */,
 				EE79237E13B2F48A001D0E49 /* MainWindow.xib in Resources */,
 				EE79237F13B2F48A001D0E49 /* SecondDetailView.xib in Resources */,
@@ -336,7 +327,6 @@
 				28AA66DB115C16800003B21C /* FirstDetailViewController.m in Sources */,
 				28AA66DC115C16800003B21C /* RootViewController.m in Sources */,
 				28AA66DD115C16800003B21C /* SecondDetailViewController.m in Sources */,
-				EE0F019B13B1B88400A35829 /* FirstView.m in Sources */,
 				EEAB1A4B13B43489003E83BE /* ThirdDetailViewController.m in Sources */,
 				EE7E47A213B474A000487ED0 /* FilesHandlingViewController.m in Sources */,
 				EEC39AF313BC74AB00E4427B /* GCDAsyncSocket.m in Sources */,
