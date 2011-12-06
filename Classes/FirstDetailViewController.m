@@ -1,5 +1,17 @@
 #import "FirstDetailViewController.h"
 
+#define X1 30
+#define Y1 240
+#define W1 210
+#define H1 135
+#define X2 280
+#define Y2 130
+#define W2 235
+#define H2 125
+#define X3 425
+#define Y3 470
+#define W3 300
+#define H3 115
 
 @implementation FirstDetailViewController
 
@@ -95,16 +107,28 @@ extern bool canTouch;
                                                            userInfo:nil
                                                             repeats:NO];
                     canTouch = false;
-                    if(touchPT.x >= 30 * ratiox + imageView.frame.origin.x && touchPT.y >= 240 * ratioy + imageView.frame.origin.y && touchPT.x <= 240 * ratiox + imageView.frame.origin.x && touchPT.y <= 375 * ratioy + imageView.frame.origin.y)
+                    if(touchPT.x >= X1 * ratiox + imageView.frame.origin.x && touchPT.y >= Y1 * ratioy + imageView.frame.origin.y && touchPT.x <= X1+W1 * ratiox + imageView.frame.origin.x && touchPT.y <= Y1+H1 * ratioy + imageView.frame.origin.y)
+                    {
                         areaType = 1;
-                    else if(touchPT.x >= 280 * ratiox + imageView.frame.origin.x && touchPT.y >= 130 * ratioy + imageView.frame.origin.y && touchPT.x <= 515 * ratiox + imageView.frame.origin.x && touchPT.y <= 255 * ratioy + imageView.frame.origin.y)
+                        rectangle = [[UIView alloc] initWithFrame:CGRectMake(X1, Y1, W1, H1)]; 
+                    }
+                    else if(touchPT.x >= X2 * ratiox + imageView.frame.origin.x && touchPT.y >= Y2 * ratioy + imageView.frame.origin.y && touchPT.x <= X2+W2 * ratiox + imageView.frame.origin.x && touchPT.y <= Y2+H2 * ratioy + imageView.frame.origin.y)
+                    {
                         areaType = 2;
-                    else if(touchPT.x >= 425 * ratiox + imageView.frame.origin.x && touchPT.y >= 470 * ratioy + imageView.frame.origin.y && touchPT.x <= 725 * ratiox + imageView.frame.origin.x && touchPT.y <= 585 * ratioy + imageView.frame.origin.y)
+                        rectangle = [[UIView alloc] initWithFrame:CGRectMake(X2, Y2, W2, H2)]; 
+                    }
+                    else if(touchPT.x >= X3 * ratiox + imageView.frame.origin.x && touchPT.y >= Y3 * ratioy + imageView.frame.origin.y && touchPT.x <= X3+W3 * ratiox + imageView.frame.origin.x && touchPT.y <= Y3+H3 * ratioy + imageView.frame.origin.y)
+                    {
                         areaType = 3;
+                        rectangle = [[UIView alloc] initWithFrame:CGRectMake(X3, Y3, W3, H3)]; 
+                    }
                     else
                         areaType = 0;
                     diffDistanceX = touchPT.x-imageView.center.x;
                     diffDistanceY = touchPT.y-imageView.center.y;
+                    
+                    rectangle.backgroundColor = [UIColor lightTextColor]; //color the rectangle
+                    [imageView addSubview:rectangle]; //add the rectangle to your image
                 } break;
 					
 					//---double tap---
@@ -135,7 +159,7 @@ extern bool canTouch;
         } break;
     }
 }
-
+#ifdef zoomInOut
 //---fired when the user moved his finger(s) on the screen---
 -(void) touchesMoved: (NSSet *) touches withEvent: (UIEvent *) event {
 	
@@ -152,7 +176,7 @@ extern bool canTouch;
 			
             //---check to see if the image is being touched---
             CGPoint touchPoint = [touch locationInView:[self view]];
-			/*
+
             if (touchPoint.x > imageView.frame.origin.x &&
                 touchPoint.x < imageView.frame.origin.x +
 				imageView.frame.size.width &&
@@ -161,12 +185,11 @@ extern bool canTouch;
 				imageView.frame.size.height) {
                 [imageView setCenter:CGPointMake(touchPoint.x - diffDistanceX, touchPoint.y - diffDistanceY)];
             }
-             */
+
         }  break;
 			
 			//---double-touch---
         case 2: {
-            #ifdef zoomInOut
             //---get info of first touch---
             UITouch *touch1 = [[allTouches allObjects] objectAtIndex:0];
 			
@@ -201,11 +224,10 @@ extern bool canTouch;
             originalDistance = currentDistance;
             ratiox = imageView.bounds.size.width / originalwidth;
             ratioy = imageView.bounds.size.height / originalheight;
-            #endif
         } break;
     }
 }
-
+#endif
 - (void)setDetailItem:(id)newDetailItem {
     if (detailItem != newDetailItem) {
         

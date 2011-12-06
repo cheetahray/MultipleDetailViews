@@ -18,7 +18,7 @@
     BOOL tapOrMove; 
     NSTimer *timer;
     UIImageView *imageView;
-    
+    UIView *rectangle;
 }
 
 @property (nonatomic, retain) IBOutlet UINavigationBar *navigationBar;

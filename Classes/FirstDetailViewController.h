@@ -58,7 +58,7 @@
     UINavigationBar *navigationBar;
     RootViewController *rootViewController;   
     NSTimer *timer;
-    
+    UIView *rectangle;
     id detailItem;
 	UIImageView *imageView;
     BOOL tapOrMove;    
