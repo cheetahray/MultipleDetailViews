@@ -1,17 +1,17 @@
 #import "FirstDetailViewController.h"
 
 #define X1 30
-#define Y1 240
-#define W1 210
-#define H1 135
+#define Y1 280
+#define W1 208
+#define H1 140
 #define X2 280
-#define Y2 130
-#define W2 235
-#define H2 125
+#define Y2 170
+#define W2 240
+#define H2 130
 #define X3 425
-#define Y3 470
-#define W3 300
-#define H3 115
+#define Y3 511
+#define W3 299
+#define H3 119
 
 @implementation FirstDetailViewController
 
@@ -25,6 +25,7 @@ int areaType;
 CGFloat originalDistance, diffDistanceX, diffDistanceY;
 float ratiox, ratioy, originalwidth, originalheight;
 bool canTouch;
+bool stupid = TRUE;
 
 -(void) onTimer {
     
@@ -281,6 +282,11 @@ bool canTouch;
     ratiox = 1.0;
     ratioy = 1.0;
     canTouch = true;
+    if(TRUE == stupid)
+    {
+        [rootViewController.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection: 0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+        stupid = FALSE;
+    }
 }
 
 - (void)doAnimation {

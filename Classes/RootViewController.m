@@ -70,7 +70,7 @@ NSMutableArray *listOfMovies;
     [listOfMovies addObject:@"【家客．融蘊】"];
     
     // Set the content size for the popover: there are just two rows in the table view, so set to rowHeight*2.
-    self.contentSizeForViewInPopover = CGSizeMake(320, 700);
+    self.contentSizeForViewInPopover = CGSizeMake(260, 700);
     
     oneOrTwo = 0;
 }
