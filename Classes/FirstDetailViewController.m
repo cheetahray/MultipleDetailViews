@@ -21,10 +21,10 @@
 #pragma mark View lifecycle
 
 int ISurrender = 0;
-extern int areaType;
-extern CGFloat originalDistance, diffDistanceX, diffDistanceY;
-extern float ratiox, ratioy, originalwidth, originalheight;
-extern bool canTouch;
+int areaType;
+CGFloat originalDistance, diffDistanceX, diffDistanceY;
+float ratiox, ratioy, originalwidth, originalheight;
+bool canTouch;
 
 -(void) onTimer {
     

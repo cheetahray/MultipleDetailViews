@@ -144,6 +144,9 @@ UIInterfaceOrientation whatNow;
 
 -(void) viewDidUnload {
 	[super viewDidUnload];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:MPMoviePlayerPlaybackDidFinishNotification
+                                                  object:imageView];
     [imageView release];
 }
 
@@ -354,7 +357,10 @@ UIInterfaceOrientation whatNow;
         }
 
     }
-
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(moviePlayBackDidFinish:) 
+                                                 name:MPMoviePlayerPlaybackDidFinishNotification 
+                                               object:imageView];
     [scrollView addSubview:imageView.view];
     [imageView play];
     [imageView pause];
@@ -374,6 +380,11 @@ UIInterfaceOrientation whatNow;
     // Do any additional setup after loading the view from its nib.
     fileController = [FilesHandlingViewController new];
     
+}
+
+-(void)moviePlayBackDidFinish: (NSNotification*)notification
+{
+    [imageView setFullscreen:NO animated:YES];
 }
 
 #pragma mark -
