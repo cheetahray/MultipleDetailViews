@@ -55,7 +55,7 @@
 
 @class RootViewController;
 
-@interface SecondDetailViewController:UIViewController {   
+@interface SecondDetailViewController:UIViewController <UIScrollViewDelegate> {   
   
     UINavigationBar *navigationBar;
     RootViewController *rootViewController;   

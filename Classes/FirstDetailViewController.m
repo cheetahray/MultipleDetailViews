@@ -102,7 +102,7 @@ bool stupid = TRUE;
                 case 1: {
                     tapOrMove = false;
                     if(true == canTouch)
-                        timer = [NSTimer scheduledTimerWithTimeInterval:0.5
+                        timer = [NSTimer scheduledTimerWithTimeInterval:singletap
                                                              target:self
                                                            selector:@selector(onTimer2)
                                                            userInfo:nil
@@ -282,6 +282,11 @@ bool stupid = TRUE;
     ratiox = 1.0;
     ratioy = 1.0;
     canTouch = true;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     if(TRUE == stupid)
     {
         [rootViewController.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection: 0] animated:NO scrollPosition:UITableViewScrollPositionNone];
@@ -301,7 +306,7 @@ bool stupid = TRUE;
         
         navigationBar.center = CGPointMake(self.view.bounds.size.width + navigationBar.bounds.size.width/2, navigationBar.center.y);
     
-        timer = [NSTimer scheduledTimerWithTimeInterval:0.01
+        timer = [NSTimer scheduledTimerWithTimeInterval:aniinterval
 											 target:self
 										   selector:@selector(onTimer)
 										   userInfo:nil

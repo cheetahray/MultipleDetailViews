@@ -52,6 +52,10 @@
 #import "SecondDetailViewController.h"
 #import "ThirdDetailViewController.h"
 
+#define screensaver 180
+#define singletap 0.5
+#define aniinterval 0.01
+
 @class FirstDetailViewController;
 @class SecondDetailViewController;
 @class ThirdDetailViewController;

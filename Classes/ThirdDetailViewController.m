@@ -7,7 +7,6 @@
 //
 
 #import "ThirdDetailViewController.h"
-#import "FilesHandlingViewController.h"
 
 #define ZOOM_VIEW_TAG 100
 #define ZOOM_STEP 1.5
@@ -50,14 +49,17 @@ float zoomHeight, zoomWidth;
                                            navigationBar.center.y);
         scrollView.center = CGPointMake(scrollView.bounds.size.width/2, scrollView.center.y);
         [timer invalidate];
-
-        //label.contentOffset = CGPointMake(0, 0);
+        /*
+        timer = [NSTimer scheduledTimerWithTimeInterval:screensaver
+                                                 target:self
+                                               selector:@selector(onTimer3)
+                                               userInfo:nil
+                                                repeats:NO];
+        */
     }
 	
-    //label.contentOffset = CGPointMake(0, 1);
-
 }
-
+/*
 -(void) onTimer2 {
     
     [timer invalidate];
@@ -68,6 +70,15 @@ float zoomHeight, zoomWidth;
 	}
     
 }
+*/
+-(void) onTimer3 {
+    
+    [timer invalidate];
+    //imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [rootViewController Ray:1 whichRoom:@"【首頁】"];
+    [rootViewController.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection: 0] animated:NO scrollPosition:UITableViewScrollPositionNone];    
+}
+
 
 - (void)doAnimation {
     
@@ -120,7 +131,9 @@ float zoomHeight, zoomWidth;
 
     navigationBar.center = CGPointMake(self.view.bounds.size.width + navigationBar.bounds.size.width/2, navigationBar.center.y);
     scrollView.center = CGPointMake(self.view.bounds.size.width + scrollView.bounds.size.width/2, scrollView.center.y);
-    timer = [NSTimer scheduledTimerWithTimeInterval:0.01
+    if(timer.isValid)
+        [timer invalidate];
+    timer = [NSTimer scheduledTimerWithTimeInterval:aniinterval
 											 target:self
 										   selector:@selector(onTimer)
 										   userInfo:nil
@@ -269,6 +282,22 @@ float zoomHeight, zoomWidth;
     
     return zoomRect;
 
+}
+
+-(void) scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    if(timer.isValid)
+    {
+        [timer invalidate];
+        
+    }
+    /*
+    timer = [NSTimer scheduledTimerWithTimeInterval:screensaver
+                                             target:self
+                                           selector:@selector(onTimer3)
+                                           userInfo:nil
+                                            repeats:NO];
+    */
 }
 
 @end

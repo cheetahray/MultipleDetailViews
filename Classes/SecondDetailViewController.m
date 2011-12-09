@@ -93,12 +93,14 @@ UIInterfaceOrientation whatNow;
                                            navigationBar.center.y);
         scrollView.center = CGPointMake(scrollView.bounds.size.width/2, scrollView.center.y);
         [timer invalidate];
+        timer = [NSTimer scheduledTimerWithTimeInterval:screensaver
+                                                 target:self
+                                               selector:@selector(onTimer3)
+                                               userInfo:nil
+                                                repeats:NO];
         
-        //label.contentOffset = CGPointMake(0, 0);
-
     }
 	
-    //label.contentOffset = CGPointMake(0, 1);
 
 }
 
@@ -122,6 +124,15 @@ UIInterfaceOrientation whatNow;
     
 }
 
+-(void) onTimer3 {
+    
+    [timer invalidate];
+    //imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [rootViewController Ray:1 whichRoom:@"【首頁】"];
+    [rootViewController.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection: 0] animated:NO scrollPosition:UITableViewScrollPositionNone];    
+}
+
+
 - (void)doAnimation {
     tapOrMove = false;
     /*
@@ -135,7 +146,11 @@ UIInterfaceOrientation whatNow;
                                        navigationBar.center.y);
     scrollView.center = CGPointMake( -scrollView.bounds.size.width/2 ,
                                     scrollView.center.y);
-    timer = [NSTimer scheduledTimerWithTimeInterval:0.01
+    if(timer.isValid)
+    {
+        [timer invalidate];
+    }
+    timer = [NSTimer scheduledTimerWithTimeInterval:aniinterval
 											 target:self
 										   selector:@selector(onTimer)
 										   userInfo:nil
@@ -360,6 +375,16 @@ UIInterfaceOrientation whatNow;
             }
             
         }
+        //Because no animation!!
+        if(timer.isValid)
+        {
+            [timer invalidate];
+        }
+        timer = [NSTimer scheduledTimerWithTimeInterval:screensaver
+                                                 target:self
+                                               selector:@selector(onTimer3)
+                                               userInfo:nil
+                                                repeats:NO];
 
     }
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -384,7 +409,7 @@ UIInterfaceOrientation whatNow;
     }
     // Do any additional setup after loading the view from its nib.
     fileController = [FilesHandlingViewController new];
-    
+    self.scrollView.delegate = self;
 }
 
 -(void)moviePlayBackDidFinish: (NSNotification*)notification
@@ -494,8 +519,11 @@ UIInterfaceOrientation whatNow;
     {
         [fileController RayWTF:[NSString stringWithFormat:@"%d_%d.txt", cellIndex, [indexPath row]+1] withoneimg:[NSString stringWithFormat:@"%d_%d.png", cellIndex, ([indexPath row]+1) ]];
     }
-    
-    timer = [NSTimer scheduledTimerWithTimeInterval:0.5
+    if(timer.isValid)
+    {
+        [timer invalidate];
+    }
+    timer = [NSTimer scheduledTimerWithTimeInterval:singletap
                                              target:self
                                            selector:@selector(onTimer2)
                                            userInfo:nil
@@ -557,6 +585,20 @@ forRowAtIndexPath: (NSIndexPath*)indexPath
     [view addSubview:llabel];
     
     return view;
+}
+
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    if(timer.isValid)
+    {
+        [timer invalidate];
+        
+    }
+    timer = [NSTimer scheduledTimerWithTimeInterval:screensaver
+                                                 target:self
+                                               selector:@selector(onTimer3)
+                                               userInfo:nil
+                                                repeats:NO];
 }
 
 @end
