@@ -17,7 +17,7 @@
     
     UINavigationBar *navigationBar;
     RootViewController *rootViewController;   
-    NSTimer *timer;
+    NSTimer *timer, *timer3;
     BOOL tapOrMove;  
     FilesHandlingViewController *fileController;
     //UITextView *lable;

@@ -61,7 +61,7 @@
     RootViewController *rootViewController;   
     UITableView *tableView;
     UIWebView *label;
-    NSTimer *timer;
+    NSTimer *timer, *timer2, *timer3;
     //UIImageView *imageView;
     BOOL tapOrMove;  
     NSString *titleName, *thirdName;

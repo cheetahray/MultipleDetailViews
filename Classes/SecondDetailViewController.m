@@ -56,7 +56,7 @@
 
 #pragma mark -
 #pragma mark View lifecycle
-int cellIndex = 0;
+int cellIndex = 0, tableIdx = 0;
 int headcnt = 0;
 UIInterfaceOrientation whatNow;
 
@@ -93,12 +93,12 @@ UIInterfaceOrientation whatNow;
                                            navigationBar.center.y);
         scrollView.center = CGPointMake(scrollView.bounds.size.width/2, scrollView.center.y);
         [timer invalidate];
-        timer = [NSTimer scheduledTimerWithTimeInterval:screensaver
+        timer3 = [NSTimer scheduledTimerWithTimeInterval:screensaver
                                                  target:self
                                                selector:@selector(onTimer3)
                                                userInfo:nil
                                                 repeats:NO];
-        
+
     }
 	
 
@@ -106,7 +106,7 @@ UIInterfaceOrientation whatNow;
 
 -(void) onTimer2 {
     
-    [timer invalidate];
+    [timer2 invalidate];
     //imageView.contentMode = UIViewContentModeScaleAspectFit;
     if(tapOrMove == false)
     {
@@ -126,7 +126,7 @@ UIInterfaceOrientation whatNow;
 
 -(void) onTimer3 {
     
-    [timer invalidate];
+    [timer3 invalidate];
     //imageView.contentMode = UIViewContentModeScaleAspectFit;
     [rootViewController Ray:1 whichRoom:@"【首頁】"];
     [rootViewController.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection: 0] animated:NO scrollPosition:UITableViewScrollPositionNone];    
@@ -146,10 +146,6 @@ UIInterfaceOrientation whatNow;
                                        navigationBar.center.y);
     scrollView.center = CGPointMake( -scrollView.bounds.size.width/2 ,
                                     scrollView.center.y);
-    if(timer.isValid)
-    {
-        [timer invalidate];
-    }
     timer = [NSTimer scheduledTimerWithTimeInterval:aniinterval
 											 target:self
 										   selector:@selector(onTimer)
@@ -316,6 +312,7 @@ UIInterfaceOrientation whatNow;
         
         [scrollView setFrame:CGRectMake(0, 0, scrollView.bounds.size.width, scrollView.bounds.size.height)];
         
+        [tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:tableIdx inSection: 0] animated:NO scrollPosition:UITableViewScrollPositionNone];
     }
     else
     {
@@ -376,11 +373,7 @@ UIInterfaceOrientation whatNow;
             
         }
         //Because no animation!!
-        if(timer.isValid)
-        {
-            [timer invalidate];
-        }
-        timer = [NSTimer scheduledTimerWithTimeInterval:screensaver
+        timer3 = [NSTimer scheduledTimerWithTimeInterval:screensaver
                                                  target:self
                                                selector:@selector(onTimer3)
                                                userInfo:nil
@@ -512,18 +505,15 @@ UIInterfaceOrientation whatNow;
     //---get the list of movies for that year---
     NSArray *movieSection = [movieTitles objectForKey:year];
     //---get the particular movie based on that row---
-    thirdName = [movieSection objectAtIndex:[indexPath row]];
-    int why = [indexPath row];
-    why = why;
+    tableIdx = [indexPath row];
+    thirdName = [movieSection objectAtIndex:tableIdx];
+    
     if(cellIndex > 0)
     {
-        [fileController RayWTF:[NSString stringWithFormat:@"%d_%d.txt", cellIndex, [indexPath row]+1] withoneimg:[NSString stringWithFormat:@"%d_%d.png", cellIndex, ([indexPath row]+1) ]];
+        [fileController RayWTF:[NSString stringWithFormat:@"%d_%d.txt", cellIndex, tableIdx+1] withoneimg:[NSString stringWithFormat:@"%d_%d.png", cellIndex, (tableIdx+1) ]];
     }
-    if(timer.isValid)
-    {
-        [timer invalidate];
-    }
-    timer = [NSTimer scheduledTimerWithTimeInterval:singletap
+    
+    timer2 = [NSTimer scheduledTimerWithTimeInterval:singletap
                                              target:self
                                            selector:@selector(onTimer2)
                                            userInfo:nil
@@ -589,12 +579,8 @@ forRowAtIndexPath: (NSIndexPath*)indexPath
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    if(timer.isValid)
-    {
-        [timer invalidate];
-        
-    }
-    timer = [NSTimer scheduledTimerWithTimeInterval:screensaver
+    [timer3 invalidate];
+    timer3 = [NSTimer scheduledTimerWithTimeInterval:screensaver
                                                  target:self
                                                selector:@selector(onTimer3)
                                                userInfo:nil
