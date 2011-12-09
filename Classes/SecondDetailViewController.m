@@ -275,17 +275,19 @@ UIInterfaceOrientation whatNow;
                 labelLen = 155;//label.font.lineHeight * 7;
                 [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 503, labelLen)];
                 theHeight += labelLen;
+                [label setUserInteractionEnabled:FALSE];
                 break;
             case 2:
                 labelLen = 250;//label.font.lineHeight * 11;
                 [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 503, labelLen)];
                 theHeight += labelLen;
+                [label setUserInteractionEnabled:TRUE];
                 break;
             case 3:
                 labelLen = 330;//label.font.lineHeight * 15;
                 [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 503, labelLen)];
                 theHeight += labelLen;
-
+                [label setUserInteractionEnabled:FALSE];
                 break;
         }
         //***
@@ -319,16 +321,19 @@ UIInterfaceOrientation whatNow;
                 labelLen = 115;//label.font.lineHeight * 6;
                 [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 5, labelLen)];
                 theHeight += labelLen;
+                [label setUserInteractionEnabled:FALSE];
                 break;
             case 2:
                 labelLen = 160;//label.font.lineHeight * 9;
                 [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 5, labelLen)];
                 theHeight += labelLen;
+                [label setUserInteractionEnabled:FALSE];
                 break;
             case 3:
                 labelLen = 155;//label.font.lineHeight * 9;
                 [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 5, labelLen)];
                 theHeight += labelLen;
+                [label setUserInteractionEnabled:FALSE];
                 break;
         }
         //***
