@@ -49,13 +49,13 @@ float zoomHeight, zoomWidth;
                                            navigationBar.center.y);
         scrollView.center = CGPointMake(scrollView.bounds.size.width/2, scrollView.center.y);
         [timer invalidate];
-        /*
+        
         timer3 = [NSTimer scheduledTimerWithTimeInterval:screensaver
                                                  target:self
                                                selector:@selector(onTimer3)
                                                userInfo:nil
                                                 repeats:NO];
-        */
+
     }
 	
 }
@@ -75,8 +75,9 @@ float zoomHeight, zoomWidth;
     
     [timer3 invalidate];
     //imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [rootViewController.nc1 popToRootViewControllerAnimated:YES];
     [rootViewController Ray:1 whichRoom:@"【首頁】"];
-    [rootViewController.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection: 0] animated:NO scrollPosition:UITableViewScrollPositionNone];    
+    [rootViewController.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection: 0] animated:NO scrollPosition:UITableViewScrollPositionNone];   
 }
 
 
@@ -290,13 +291,13 @@ float zoomHeight, zoomWidth;
         [timer3 invalidate];
         
     }
-    /*
+
     timer3 = [NSTimer scheduledTimerWithTimeInterval:screensaver
                                              target:self
                                            selector:@selector(onTimer3)
                                            userInfo:nil
                                             repeats:NO];
-    */
+
 }
 
 @end
