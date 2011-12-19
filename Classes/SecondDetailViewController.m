@@ -171,6 +171,8 @@ UIInterfaceOrientation whatNow;
             [rootViewController.secondViewController doAnimation];
         }
     }
+    if(timer3 != nil && [timer3 isValid])
+        [timer3 invalidate];
     [super viewWillDisappear:animated];
 }
 
