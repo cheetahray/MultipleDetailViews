@@ -58,7 +58,7 @@
 {
 	NSError *error = nil;
 	
-	NSString *host = @"192.168.11.45";
+	NSString *host = @"192.168.11.122";
     //	NSString *host = @"deusty.com";
 	
 	if (![asyncSocket connectToHost:host onPort:11999 error:&error])
@@ -92,7 +92,7 @@
 
     NSData *data = [[NSData alloc] initWithData:[@"1[/TCP]" dataUsingEncoding:NSASCIIStringEncoding]];
 
-    [asyncSocket writeData:data withTimeout:5 tag:1];
+    [asyncSocket writeData:data withTimeout:10 tag:1];
 
 }
 
@@ -116,7 +116,7 @@
 	
     //	DDLogInfo(@"localHost :%@ port:%hu", [sock localHost], [sock localPort]);
     
-    timer = [NSTimer scheduledTimerWithTimeInterval:5
+    timer = [NSTimer scheduledTimerWithTimeInterval:600
 											 target:self
 										   selector:@selector(onTimer)
 										   userInfo:nil

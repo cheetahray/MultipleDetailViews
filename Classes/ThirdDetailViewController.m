@@ -202,7 +202,21 @@ float zoomHeight, zoomWidth;
 {
     // Return YES for supported orientations
     nowWhat = interfaceOrientation;
+    if(nowWhat == UIInterfaceOrientationPortrait)
+    {
+        [scrollView setFrame:CGRectMake(scrollView.frame.origin.x, scrollView.frame.origin.y, scrollView.frame.size.width, 1000)];
+    }
+    else
+    {
+        [scrollView setFrame:CGRectMake(scrollView.frame.origin.x, scrollView.frame.origin.y, scrollView.frame.size.width, 715)];
+    }
     return YES;
+}
+
+-(void) viewWillDisappear:(BOOL)animated {
+    if(timer3 != nil && [timer3 isValid])
+        [timer3 invalidate];
+    [super viewWillDisappear:animated];
 }
 
 - (void)setDetailItem:(id)newDetailItem {
