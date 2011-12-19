@@ -64,10 +64,10 @@ NSMutableArray *listOfMovies;
     [super viewDidLoad];
     
     listOfMovies = [[NSMutableArray alloc] init];
-    [listOfMovies addObject:@"【首頁】"];
-	[listOfMovies addObject:@"【客迎．傳情】"];
-	[listOfMovies addObject:@"【花漾．綠動】"];
-    [listOfMovies addObject:@"【家客．融蘊】"];
+    [listOfMovies addObject:@"【公共藝術說明】"];
+	[listOfMovies addObject:@"       【客迎．傳情】"];
+	[listOfMovies addObject:@"       【花漾．綠動】"];
+    [listOfMovies addObject:@"       【家客．融蘊】"];
     
     // Set the content size for the popover: there are just two rows in the table view, so set to rowHeight*2.
     self.contentSizeForViewInPopover = CGSizeMake(260, 700);
@@ -99,7 +99,7 @@ NSMutableArray *listOfMovies;
             barButtonItem.title = nc2.titleName;
             break;
         default:
-            barButtonItem.title = @"客家文化會館";
+            barButtonItem.title = @"客家文化中心苗栗園區";
             break;
     }
 

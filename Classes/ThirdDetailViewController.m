@@ -76,7 +76,7 @@ float zoomHeight, zoomWidth;
     [timer3 invalidate];
     //imageView.contentMode = UIViewContentModeScaleAspectFit;
     [rootViewController.nc1 popToRootViewControllerAnimated:YES];
-    [rootViewController Ray:1 whichRoom:@"【首頁】"];
+    [rootViewController Ray:1 whichRoom:@"【公共藝術說明】"];
     [rootViewController.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection: 0] animated:NO scrollPosition:UITableViewScrollPositionNone];   
 }
 

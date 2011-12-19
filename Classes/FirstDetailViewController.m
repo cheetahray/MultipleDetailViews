@@ -243,7 +243,7 @@ bool stupid = TRUE;
         }
         else if ([newDetailItem isEqualToString:@"HomePage-001"])
         {
-            navigationBar.topItem.title = @"【首頁】";
+            navigationBar.topItem.title = @"【公共藝術說明】";
             //imageView.contentMode = UIViewContentModeScaleAspectFit;
         }
         else if ([newDetailItem isEqualToString:@"Remember the Titans"])
@@ -295,7 +295,7 @@ bool stupid = TRUE;
 }
 
 - (void)doAnimation {
-    if([navigationBar.topItem.title isEqualToString:@"【首頁】"])
+    if([navigationBar.topItem.title isEqualToString:@"【公共藝術說明】"])
     {
         tapOrMove = false;
     

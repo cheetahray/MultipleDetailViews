@@ -47,7 +47,6 @@
 						<string key="NSFrame">{{0, 200}, {763, 680}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<int key="IBUIContentMode">1</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -72,7 +71,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBUINavigationItem" id="401344780">
 								<reference key="IBUINavigationBar" ref="119678242"/>
-								<string key="IBUITitle">【首頁】</string>
+								<string key="IBUITitle">【公共藝術說明】</string>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 							</object>
 						</object>

@@ -128,7 +128,7 @@ UIInterfaceOrientation whatNow;
     
     [timer3 invalidate];
     //imageView.contentMode = UIViewContentModeScaleAspectFit;
-    [rootViewController Ray:1 whichRoom:@"【首頁】"];
+    [rootViewController Ray:1 whichRoom:@"【公共藝術說明】"];
     [rootViewController.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection: 0] animated:NO scrollPosition:UITableViewScrollPositionNone];    
 }
 
