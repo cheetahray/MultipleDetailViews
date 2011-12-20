@@ -68,7 +68,6 @@
     NSDictionary *movieTitles;
 	NSArray *years;
     UIScrollView *scrollView;
-    FilesHandlingViewController *fileController;
     MPMoviePlayerController *imageView;
 }
 

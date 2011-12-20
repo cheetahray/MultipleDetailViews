@@ -19,7 +19,6 @@
     RootViewController *rootViewController;   
     NSTimer *timer, *timer3;
     BOOL tapOrMove;  
-    FilesHandlingViewController *fileController;
     //UITextView *lable;
     NSString *titleName;
     id detailItem;

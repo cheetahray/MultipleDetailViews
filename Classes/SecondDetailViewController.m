@@ -154,11 +154,11 @@ UIInterfaceOrientation whatNow;
 }
 
 -(void) viewDidUnload {
-	[super viewDidUnload];
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:MPMoviePlayerPlaybackDidFinishNotification
                                                   object:imageView];
     [imageView release];
+	[super viewDidUnload];
 }
 
 -(void) viewWillDisappear:(BOOL)animated {
@@ -239,7 +239,9 @@ UIInterfaceOrientation whatNow;
     {
         cellIndex = 0;
     }
-    [label loadRequest: [[NSURLRequest alloc] initWithURL: [[NSURL alloc] initFileURLWithPath: fileString]]];
+    NSURL *myURL = [[NSURL alloc] initFileURLWithPath: fileString] ;
+    NSURLRequest *myReq = [[NSURLRequest alloc] initWithURL: myURL];
+    [label loadRequest: myReq];
     
     //---load the list into the dictionary---
     NSDictionary *dic = [[NSDictionary alloc] initWithContentsOfFile:path];
@@ -403,8 +405,10 @@ UIInterfaceOrientation whatNow;
         
     }
     // Do any additional setup after loading the view from its nib.
-    fileController = [FilesHandlingViewController new];
     self.scrollView.delegate = self;
+    
+    [myURL release];
+    [myReq release];
 }
 
 -(void)moviePlayBackDidFinish: (NSNotification*)notification
@@ -441,7 +445,6 @@ UIInterfaceOrientation whatNow;
     [years release];
     [scrollView release];
     [label release];
-    [fileController release];
     [super dealloc];
 }	
 
@@ -512,7 +515,9 @@ UIInterfaceOrientation whatNow;
     
     if(cellIndex > 0)
     {
+        FilesHandlingViewController *fileController = [FilesHandlingViewController new];
         [fileController RayWTF:[NSString stringWithFormat:@"%d_%d.txt", cellIndex, tableIdx+1] withoneimg:[NSString stringWithFormat:@"%d_%d.png", cellIndex, (tableIdx+1) ]];
+        [fileController release];
     }
     
     timer2 = [NSTimer scheduledTimerWithTimeInterval:singletap

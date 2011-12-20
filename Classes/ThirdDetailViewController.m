@@ -84,9 +84,7 @@ float zoomHeight, zoomWidth;
 - (void)doAnimation {
     
     tapOrMove = false;
-    
-    fileController = [FilesHandlingViewController new];
-    //label.text = [fileController RayReadTxt];
+    FilesHandlingViewController *fileController = [FilesHandlingViewController new];
     
     [[scrollView viewWithTag:ZOOM_VIEW_TAG] removeFromSuperview];
     
@@ -132,7 +130,7 @@ float zoomHeight, zoomWidth;
 
     navigationBar.center = CGPointMake(self.view.bounds.size.width + navigationBar.bounds.size.width/2, navigationBar.center.y);
     scrollView.center = CGPointMake(self.view.bounds.size.width + scrollView.bounds.size.width/2, scrollView.center.y);
-    
+    [fileController release];
     timer = [NSTimer scheduledTimerWithTimeInterval:aniinterval
 											 target:self
 										   selector:@selector(onTimer)
@@ -152,7 +150,6 @@ float zoomHeight, zoomWidth;
 - (void)dealloc
 {
     [navigationBar release];
-    [fileController release];
     [scrollView release];
     //[label release];
     [super dealloc];
@@ -171,7 +168,7 @@ float zoomHeight, zoomWidth;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+        
     [self doAnimation];
     
     navigationBar.topItem.title = titleName;
