@@ -13,10 +13,28 @@
 
 @implementation ThirdDetailViewController
 
-@synthesize rootViewController, navigationBar, tapOrMove, titleName, detailItem, scrollView;
+@synthesize rootViewController, navigationBar, tapOrMove, titleName, detailItem, scrollView, audioPlayer;
 
 UIInterfaceOrientation nowWhat;
 float zoomHeight, zoomWidth;
+
+-(void)audioPlayerDidFinishPlaying:
+(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+}
+
+-(void)audioPlayerDecodeErrorDidOccur:
+(AVAudioPlayer *)player error:(NSError *)error
+{
+}
+
+-(void)audioPlayerBeginInterruption:(AVAudioPlayer *)player
+{
+}
+
+-(void)audioPlayerEndInterruption:(AVAudioPlayer *)player
+{
+}
 
 -(void) onTimer {
     
@@ -151,7 +169,7 @@ float zoomHeight, zoomWidth;
 {
     [navigationBar release];
     [scrollView release];
-    //[label release];
+    [audioPlayer release];
     [super dealloc];
 }
 
@@ -168,7 +186,22 @@ float zoomHeight, zoomWidth;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-        
+    
+    // Do any additional setup after loading the view, typically from a nib.
+    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Kalimba" ofType:@"mp3"]];
+    
+    NSError *error;
+    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    if (error)
+    {
+        NSLog(@"Error in audioPlayer: %@", [error localizedDescription]);
+    } 
+    else 
+    {
+        audioPlayer.delegate = self;
+        [audioPlayer play];
+    }
+    
     [self doAnimation];
     
     navigationBar.topItem.title = titleName;

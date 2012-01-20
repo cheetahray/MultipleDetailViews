@@ -51,6 +51,8 @@
 		EEC39AF013BC739100E4427B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEC39AEF13BC739100E4427B /* CFNetwork.framework */; };
 		EEC39AF313BC74AB00E4427B /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC39AF213BC74AB00E4427B /* GCDAsyncSocket.m */; };
 		EECBB76C13B9BFDA00DFDF10 /* apple.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EECBB76B13B9BFDA00DFDF10 /* apple.jpeg */; };
+		EEEDC1B214C951790071E1C5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEEDC1B114C951790071E1C5 /* AVFoundation.framework */; };
+		EEEDC1B514C953820071E1C5 /* Kalimba.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EEEDC1B414C953820071E1C5 /* Kalimba.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +111,8 @@
 		EEC39AF113BC74AB00E4427B /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
 		EEC39AF213BC74AB00E4427B /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
 		EECBB76B13B9BFDA00DFDF10 /* apple.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = apple.jpeg; sourceTree = "<group>"; };
+		EEEDC1B114C951790071E1C5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AVFoundation.framework; sourceTree = "<group>"; };
+		EEEDC1B414C953820071E1C5 /* Kalimba.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Kalimba.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,7 @@
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				EEC39AF013BC739100E4427B /* CFNetwork.framework in Frameworks */,
 				E41FAB641476114F008FFAC1 /* MediaPlayer.framework in Frameworks */,
+				EEEDC1B214C951790071E1C5 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,6 +188,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EEEDC1B414C953820071E1C5 /* Kalimba.mp3 */,
 				04DBED1B147E99E400C05424 /* 1_3.png */,
 				E4204B7F147E59D700FF7C73 /* 0_1.html */,
 				E4204B80147E59D700FF7C73 /* 0_2.html */,
@@ -220,6 +226,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EEEDC1B114C951790071E1C5 /* AVFoundation.framework */,
 				E41FAB631476114F008FFAC1 /* MediaPlayer.framework */,
 				EEC39AEF13BC739100E4427B /* CFNetwork.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
@@ -312,6 +319,7 @@
 				E4204B84147E59D700FF7C73 /* 0_3.html in Resources */,
 				04DBED1C147E99E400C05424 /* 1_3.png in Resources */,
 				04DBED1F147E9E8600C05424 /* 1_4.png in Resources */,
+				EEEDC1B514C953820071E1C5 /* Kalimba.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

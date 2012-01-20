@@ -10,10 +10,11 @@
 #import "RootViewController.h"
 #import "FilesHandlingViewController.h"
 #import "TapDetectingImageView.h"
+#import <AVFoundation/AVFoundation.h>
 
 @class RootViewController;
 
-@interface ThirdDetailViewController : UIViewController <UIScrollViewDelegate, TapDetectingImageViewDelegate> {
+@interface ThirdDetailViewController : UIViewController <UIScrollViewDelegate, TapDetectingImageViewDelegate, AVAudioPlayerDelegate> {
     
     UINavigationBar *navigationBar;
     RootViewController *rootViewController;   
@@ -32,6 +33,7 @@
 @property (readwrite) BOOL tapOrMove;
 @property (nonatomic, retain) NSString *titleName;
 @property (nonatomic, retain) id detailItem;
+@property (nonatomic, strong) AVAudioPlayer *audioPlayer;
 
 - (CGRect)zoomRectForScale:(float)scale withCenter:(CGPoint)center;
 
