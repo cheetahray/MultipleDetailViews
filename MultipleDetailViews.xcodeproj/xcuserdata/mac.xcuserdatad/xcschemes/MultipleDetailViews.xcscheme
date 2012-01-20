@@ -13,7 +13,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
+               BlueprintIdentifier = "04E9B8D114C9603A00576A16"
                BuildableName = "MultipleDetailViews.app"
                BlueprintName = "MultipleDetailViews"
                ReferencedContainer = "container:MultipleDetailViews.xcodeproj">
@@ -40,7 +40,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
+            BlueprintIdentifier = "04E9B8D114C9603A00576A16"
             BuildableName = "MultipleDetailViews.app"
             BlueprintName = "MultipleDetailViews"
             ReferencedContainer = "container:MultipleDetailViews.xcodeproj">
@@ -59,7 +59,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
+            BlueprintIdentifier = "04E9B8D114C9603A00576A16"
             BuildableName = "MultipleDetailViews.app"
             BlueprintName = "MultipleDetailViews"
             ReferencedContainer = "container:MultipleDetailViews.xcodeproj">

@@ -33,7 +33,7 @@
 @property (readwrite) BOOL tapOrMove;
 @property (nonatomic, retain) NSString *titleName;
 @property (nonatomic, retain) id detailItem;
-@property (nonatomic, strong) AVAudioPlayer *audioPlayer;
+@property (nonatomic, retain) AVAudioPlayer *audioPlayer;
 
 - (CGRect)zoomRectForScale:(float)scale withCenter:(CGPoint)center;
 
