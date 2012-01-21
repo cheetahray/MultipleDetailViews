@@ -199,8 +199,7 @@ float zoomHeight, zoomWidth;
     else 
     {
         audioPlayer.delegate = self;
-        [audioPlayer play];
-    }
+            }
     
     [self doAnimation];
     
@@ -209,6 +208,7 @@ float zoomHeight, zoomWidth;
         rootViewController.rootPopoverButtonItem.title = rootViewController.secondViewController.titleName;
     // Do any additional setup after loading the view from its nib.
 }
+
 
 - (void)viewDidUnload
 {
@@ -243,9 +243,21 @@ float zoomHeight, zoomWidth;
     return YES;
 }
 
+- (void) viewWillAppear:(BOOL)animated
+{
+    
+    if ([titleName isEqualToString:@"傳統客家山歌"]) {
+        [audioPlayer play];
+    }else{
+        [audioPlayer stop];
+    }
+    
+}
+
 -(void) viewWillDisappear:(BOOL)animated {
     if(timer3 != nil && [timer3 isValid])
         [timer3 invalidate];
+    [audioPlayer stop];
     [super viewWillDisappear:animated];
 }
 
