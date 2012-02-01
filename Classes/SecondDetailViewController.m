@@ -62,6 +62,8 @@ UIInterfaceOrientation whatNow;
 
 -(void) onTimer {
     
+    [rootViewController.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:cellIndex inSection: 0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+    
 	[UIView beginAnimations:@"my_own_animation" context:nil];
 	[UIView setAnimationDuration:1];
 	[UIView setAnimationCurve:UIViewAnimationCurveLinear];
@@ -390,7 +392,7 @@ UIInterfaceOrientation whatNow;
                                                object:imageView];
     [scrollView addSubview:imageView.view];
     [imageView play];
-    [imageView pause];
+    //[imageView pause];
 
     if(rootViewController.rootPopoverButtonItem != nil)
     {

@@ -271,6 +271,17 @@ float zoomHeight, zoomWidth;
 		
         //NSString *imageName	= [NSString stringWithFormat:@"%@.jpg",navigationBar.topItem.title];
 		//imageView.image = [UIImage imageNamed:imageName];
+        
+        if ([navigationBar.topItem.title isEqualToString:@"傳統客家山歌"]) 
+        {
+            [audioPlayer setCurrentTime:0];
+            [audioPlayer play];
+        }
+        else
+        {
+            [audioPlayer stop];
+        }
+        
         [self doAnimation];
     }
     
