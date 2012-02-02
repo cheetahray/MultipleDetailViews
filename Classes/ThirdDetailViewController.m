@@ -17,6 +17,7 @@
 
 UIInterfaceOrientation nowWhat;
 float zoomHeight, zoomWidth;
+extern int cellIndex;
 
 -(void)audioPlayerDidFinishPlaying:
 (AVAudioPlayer *)player successfully:(BOOL)flag
@@ -95,7 +96,8 @@ float zoomHeight, zoomWidth;
     //imageView.contentMode = UIViewContentModeScaleAspectFit;
     [rootViewController.nc1 popToRootViewControllerAnimated:YES];
     [rootViewController Ray:1 whichRoom:@"【公共藝術說明】"];
-    [rootViewController.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection: 0] animated:NO scrollPosition:UITableViewScrollPositionNone];   
+    [rootViewController.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection: 0] animated:NO scrollPosition:UITableViewScrollPositionNone]; 
+    cellIndex = 0;
 }
 
 
