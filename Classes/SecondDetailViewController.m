@@ -127,8 +127,8 @@ UIInterfaceOrientation whatNow;
 }
 
 -(void) onTimer3 {
-    
-    [timer3 invalidate];
+    if(timer3 != nil && [timer3 isValid])
+        [timer3 invalidate];
     //imageView.contentMode = UIViewContentModeScaleAspectFit;
     [rootViewController.nc1 popToRootViewControllerAnimated:YES];
     [rootViewController Ray:1 whichRoom:@"【公共藝術說明】"];
@@ -303,7 +303,7 @@ UIInterfaceOrientation whatNow;
                 [label setUserInteractionEnabled:TRUE];
                 break;
             case 3:
-                labelLen = 330;//label.font.lineHeight * 15;
+                labelLen = 350;//label.font.lineHeight * 15;
                 [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 503, labelLen)];
                 theHeight += labelLen;
                 [label setUserInteractionEnabled:FALSE];
@@ -350,7 +350,7 @@ UIInterfaceOrientation whatNow;
                 [label setUserInteractionEnabled:FALSE];
                 break;
             case 3:
-                labelLen = 155;//label.font.lineHeight * 9;
+                labelLen = 170;//label.font.lineHeight * 9;
                 [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 5, labelLen)];
                 theHeight += labelLen;
                 [label setUserInteractionEnabled:FALSE];
