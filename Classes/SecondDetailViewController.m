@@ -58,6 +58,7 @@
 #pragma mark View lifecycle
 int cellIndex = 0, tableIdx = 0;
 int headcnt = 0;
+bool flagtest = true;
 UIInterfaceOrientation whatNow;
 
 -(void) onTimer {
@@ -108,8 +109,7 @@ UIInterfaceOrientation whatNow;
 }
 
 -(void) onTimer2 {
-    
-    [timer2 invalidate];
+    if(timer2 != nil && [timer2 isValid]) [timer2 invalidate];
     //imageView.contentMode = UIViewContentModeScaleAspectFit;
     if(tapOrMove == false)
     {
@@ -135,6 +135,12 @@ UIInterfaceOrientation whatNow;
     [rootViewController Ray:1 whichRoom:@"【公共藝術說明】"];
     [rootViewController.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection: 0] animated:NO scrollPosition:UITableViewScrollPositionNone];    
     cellIndex = 0;
+}
+
+-(void) onTimerFlag {
+    
+    flagtest = true;
+    
 }
 
 
@@ -422,6 +428,7 @@ UIInterfaceOrientation whatNow;
     
     [myURL release];
     [myReq release];
+
 }
 
 -(void)moviePlayBackDidFinish: (NSNotification*)notification
@@ -533,11 +540,21 @@ UIInterfaceOrientation whatNow;
         [fileController release];
     }
     
-    timer2 = [NSTimer scheduledTimerWithTimeInterval:singletap
-                                             target:self
-                                           selector:@selector(onTimer2)
-                                           userInfo:nil
-                                            repeats:NO];
+    if(flagtest){
+        timer2 = [NSTimer scheduledTimerWithTimeInterval:singletap
+                                                  target:self
+                                                selector:@selector(onTimer2)
+                                                userInfo:nil
+                                                 repeats:NO];
+        flagtest = false;
+        timerFlag = [NSTimer scheduledTimerWithTimeInterval:0.5
+                                                  target:self
+                                                selector:@selector(onTimerFlag)
+                                                userInfo:nil
+                                                 repeats:NO];
+    }
+    
+    
 
 }
 

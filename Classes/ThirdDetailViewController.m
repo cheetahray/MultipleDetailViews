@@ -67,7 +67,7 @@ extern int cellIndex;
         navigationBar.center = CGPointMake(navigationBar.bounds.size.width/2 ,
                                            navigationBar.center.y);
         scrollView.center = CGPointMake(scrollView.bounds.size.width/2, scrollView.center.y);
-        [timer invalidate];
+        if(timer != nil && [timer isValid]) [timer invalidate];
         
         /*
         timer3 = [NSTimer scheduledTimerWithTimeInterval:screensaver

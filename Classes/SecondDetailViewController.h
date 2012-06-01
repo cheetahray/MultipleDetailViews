@@ -63,12 +63,13 @@
     UIWebView *label;
     NSTimer *timer, *timer2, *timer3;
     //UIImageView *imageView;
-    BOOL tapOrMove;  
+    BOOL tapOrMove; 
     NSString *titleName, *thirdName;
     NSDictionary *movieTitles;
 	NSArray *years;
     UIScrollView *scrollView;
     MPMoviePlayerController *imageView;
+    NSTimer *timerFlag;
 }
 
 @property (nonatomic, retain) IBOutlet UINavigationBar *navigationBar;
