@@ -3,7 +3,7 @@
 //  MultipleDetailViews
 //
 //  Created by Chang Alf on 2011/6/24.
-//  Copyright 2011年 __MyCompanyName__. All rights reserved.
+//  Copyright 2011Âπ?__MyCompanyName__. All rights reserved.
 //
 
 #import "ThirdDetailViewController.h"
@@ -69,11 +69,13 @@ extern int cellIndex;
         scrollView.center = CGPointMake(scrollView.bounds.size.width/2, scrollView.center.y);
         [timer invalidate];
         
+        /*
         timer3 = [NSTimer scheduledTimerWithTimeInterval:screensaver
                                                  target:self
                                                selector:@selector(onTimer3)
                                                userInfo:nil
                                                 repeats:NO];
+        */
 
     }
 	
@@ -96,7 +98,7 @@ extern int cellIndex;
     //imageView.contentMode = UIViewContentModeScaleAspectFit;
     [rootViewController.nc1 popToRootViewControllerAnimated:YES];
     [rootViewController Ray:1 whichRoom:@"【公共藝術說明】"];
-    [rootViewController.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection: 0] animated:NO scrollPosition:UITableViewScrollPositionNone]; 
+    [rootViewController.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection: 0] animated:NO scrollPosition:UITableViewScrollPositionNone];   
     cellIndex = 0;
 }
 
@@ -190,6 +192,8 @@ extern int cellIndex;
     [super viewDidLoad];
     
     // Do any additional setup after loading the view, typically from a nib.
+    
+    /*
     NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Kalimba" ofType:@"mp3"]];
     
     NSError *error;
@@ -201,7 +205,8 @@ extern int cellIndex;
     else 
     {
         audioPlayer.delegate = self;
-            }
+    }
+    */
     
     [self doAnimation];
     
@@ -210,7 +215,6 @@ extern int cellIndex;
         rootViewController.rootPopoverButtonItem.title = rootViewController.secondViewController.titleName;
     // Do any additional setup after loading the view from its nib.
 }
-
 
 - (void)viewDidUnload
 {
@@ -247,19 +251,22 @@ extern int cellIndex;
 
 - (void) viewWillAppear:(BOOL)animated
 {
-    
+    /*
     if ([titleName isEqualToString:@"傳統客家山歌"]) {
         [audioPlayer play];
     }else{
         [audioPlayer stop];
     }
+    */
     
 }
 
 -(void) viewWillDisappear:(BOOL)animated {
+    /*
     if(timer3 != nil && [timer3 isValid])
         [timer3 invalidate];
-    [audioPlayer stop];
+    */ 
+    //[audioPlayer stop];
     [super viewWillDisappear:animated];
 }
 
@@ -274,6 +281,7 @@ extern int cellIndex;
         //NSString *imageName	= [NSString stringWithFormat:@"%@.jpg",navigationBar.topItem.title];
 		//imageView.image = [UIImage imageNamed:imageName];
         
+        /*
         if ([navigationBar.topItem.title isEqualToString:@"傳統客家山歌"]) 
         {
             [audioPlayer setCurrentTime:0];
@@ -283,6 +291,7 @@ extern int cellIndex;
         {
             [audioPlayer stop];
         }
+        */
         
         [self doAnimation];
     }
@@ -355,6 +364,7 @@ extern int cellIndex;
 
 -(void) scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
+    /*
     if(timer3 != NULL)
     {
         [timer3 invalidate];
@@ -366,7 +376,7 @@ extern int cellIndex;
                                            selector:@selector(onTimer3)
                                            userInfo:nil
                                             repeats:NO];
-
+     */
 }
 
 @end

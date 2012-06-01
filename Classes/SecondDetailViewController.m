@@ -95,12 +95,13 @@ UIInterfaceOrientation whatNow;
                                            navigationBar.center.y);
         scrollView.center = CGPointMake(scrollView.bounds.size.width/2, scrollView.center.y);
         [timer invalidate];
+        /*
         timer3 = [NSTimer scheduledTimerWithTimeInterval:screensaver
                                                  target:self
                                                selector:@selector(onTimer3)
                                                userInfo:nil
                                                 repeats:NO];
-
+        */
     }
 	
 
@@ -128,11 +129,11 @@ UIInterfaceOrientation whatNow;
 
 -(void) onTimer3 {
     if(timer3 != nil && [timer3 isValid])
-        [timer3 invalidate];
+    [timer3 invalidate];
     //imageView.contentMode = UIViewContentModeScaleAspectFit;
     [rootViewController.nc1 popToRootViewControllerAnimated:YES];
     [rootViewController Ray:1 whichRoom:@"【公共藝術說明】"];
-    [rootViewController.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection: 0] animated:NO scrollPosition:UITableViewScrollPositionNone]; 
+    [rootViewController.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection: 0] animated:NO scrollPosition:UITableViewScrollPositionNone];    
     cellIndex = 0;
 }
 
@@ -175,8 +176,10 @@ UIInterfaceOrientation whatNow;
             [rootViewController.secondViewController doAnimation];
         }
     }
+    /*
     if(timer3 != nil && [timer3 isValid])
         [timer3 invalidate];
+    */
     [super viewWillDisappear:animated];
 }
 
@@ -218,7 +221,9 @@ UIInterfaceOrientation whatNow;
     else if ([titleName isEqualToString:@"【花漾．綠動】"])
     {
         //imageName = @"Remember the Titans.jpg";
-        /*label.text = @"作品延伸建築的原意，利用多種三角玻璃面設計一組代表四季的抽象且具趣味性的翻摺裝置雕塑品。\n【花漾．綠動】利用自然風力微微轉動\n四件大型裝置雕塑品其玻璃經高溫夾膜製程\n作品材質與裝置為金屬結構、彩色夾膜玻璃(大型)、手工彩色玻璃(小型)、強化玻璃 、底盤旋轉機械裝置—防水無油軸承、投射燈及沉水揚水馬達"; */
+        /*label.text = @"作品延伸建築的原意，利用多種三角玻璃面設計一組代表四季的抽象且具趣味性的翻摺裝置雕塑品。\n【花漾．綠動】利用自然風力微微轉動\n四件大型裝置雕塑品其玻璃經高溫夾膜製程\n作品材質與裝置為金屬結構、彩色夾膜玻璃(大型)、手工彩色玻璃(小型)、強化玻璃 、底盤旋轉機械裝置—防水無油軸承、投射燈及沉水揚水馬達"; 
+        */
+        
         
         fileString = [[NSBundle mainBundle] pathForResource:@"0_2" ofType:@"html"]; 
 
@@ -381,12 +386,14 @@ UIInterfaceOrientation whatNow;
             
         }
         if(cellIndex!=0){
-            //Because no animation!!
-            timer3 = [NSTimer scheduledTimerWithTimeInterval:screensaver
+        /*
+        //Because no animation!!
+        timer3 = [NSTimer scheduledTimerWithTimeInterval:screensaver
                                                  target:self
                                                selector:@selector(onTimer3)
                                                userInfo:nil
                                                 repeats:NO];
+        */
         }
 
     }
@@ -592,12 +599,14 @@ forRowAtIndexPath: (NSIndexPath*)indexPath
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
+    /*
     [timer3 invalidate];
     timer3 = [NSTimer scheduledTimerWithTimeInterval:screensaver
                                                  target:self
                                                selector:@selector(onTimer3)
                                                userInfo:nil
                                                 repeats:NO];
+     */
 }
 
 @end
