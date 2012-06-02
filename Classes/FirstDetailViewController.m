@@ -47,6 +47,7 @@ bool stupid = TRUE;
                                        imageView.center.y);
         navigationBar.center = CGPointMake(navigationBar.bounds.size.width/2 ,
                                            navigationBar.center.y);
+        canTouch = true;
         [timer invalidate];
     }
 	
@@ -54,9 +55,7 @@ bool stupid = TRUE;
 
 -(void) onTimer2 {
     
-    [timer invalidate];
-    canTouch = true;
-    if(tapOrMove == false && areaType > 0)
+    if(areaType > 0)
     {
         switch (areaType) {
             case 1:
@@ -70,6 +69,7 @@ bool stupid = TRUE;
                 break;
         }
         [rootViewController.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:areaType inSection: 0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+        [timer invalidate];
 	}
     
 }
@@ -101,14 +101,13 @@ bool stupid = TRUE;
 					//---single tap---
                 case 1: {
                     tapOrMove = false;
-                    if(true == canTouch)
+                    if(true == canTouch){
                         timer = [NSTimer scheduledTimerWithTimeInterval:singletap
                                                              target:self
                                                            selector:@selector(onTimer2)
                                                            userInfo:nil
                                                             repeats:NO];
-                    canTouch = false;
-                    if(touchPT.x >= X1 * ratiox + imageView.frame.origin.x && touchPT.y >= Y1 * ratioy + imageView.frame.origin.y && touchPT.x <= X1+W1 * ratiox + imageView.frame.origin.x && touchPT.y <= Y1+H1 * ratioy + imageView.frame.origin.y)
+                                        if(touchPT.x >= X1 * ratiox + imageView.frame.origin.x && touchPT.y >= Y1 * ratioy + imageView.frame.origin.y && touchPT.x <= X1+W1 * ratiox + imageView.frame.origin.x && touchPT.y <= Y1+H1 * ratioy + imageView.frame.origin.y)
                     {
                         areaType = 1;
                         rectangle = [[UIView alloc] initWithFrame:CGRectMake(X1, Y1, W1, H1)]; 
@@ -130,6 +129,10 @@ bool stupid = TRUE;
                     
                     rectangle.backgroundColor = [UIColor lightTextColor]; //color the rectangle
                     [imageView addSubview:rectangle]; //add the rectangle to your image
+                        
+                    if(areaType>0) canTouch = false;
+
+                    }
                 } break;
 					
 					//---double tap---
