@@ -308,16 +308,16 @@ UIInterfaceOrientation whatNow;
                 [label setUserInteractionEnabled:FALSE];
                 break;
             case 2:
-                labelLen = 250;//label.font.lineHeight * 11;
+                labelLen = 210;//label.font.lineHeight * 11;
                 [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 503, labelLen)];
                 theHeight += labelLen;
                 [label setUserInteractionEnabled:TRUE];
                 break;
             case 3:
-                labelLen = 350;//label.font.lineHeight * 15;
+                labelLen = 330;//label.font.lineHeight * 15;
                 [label setFrame:CGRectMake(0, theHeight, self.view.bounds.size.width - 503, labelLen)];
                 theHeight += labelLen;
-                [label setUserInteractionEnabled:FALSE];
+                [label setUserInteractionEnabled:TRUE];
                 break;
         }
         //***
@@ -383,10 +383,10 @@ UIInterfaceOrientation whatNow;
                     scrollView.contentSize = CGSizeMake( (applicationFrame.size.width<=imageView.view.bounds.size.width?imageView.view.bounds.size.width:applicationFrame.size.width), (applicationFrame.size.height <= theHeight?theHeight:applicationFrame.size.height+50) );  
                     break;
                 case 2:
-                    scrollView.contentSize = CGSizeMake( (applicationFrame.size.width<=imageView.view.bounds.size.width?imageView.view.bounds.size.width:applicationFrame.size.width), (applicationFrame.size.height <= theHeight?theHeight:applicationFrame.size.height+130) );  
+                    scrollView.contentSize = CGSizeMake( (applicationFrame.size.width<=imageView.view.bounds.size.width?imageView.view.bounds.size.width:applicationFrame.size.width), (applicationFrame.size.height <= theHeight?theHeight:applicationFrame.size.height+170) );  
                     break;
                 case 3:
-                    scrollView.contentSize = CGSizeMake( (applicationFrame.size.width<=imageView.view.bounds.size.width?imageView.view.bounds.size.width:applicationFrame.size.width), (applicationFrame.size.height <= theHeight?theHeight:applicationFrame.size.height+50) );  
+                    scrollView.contentSize = CGSizeMake( (applicationFrame.size.width<=imageView.view.bounds.size.width?imageView.view.bounds.size.width:applicationFrame.size.width), (applicationFrame.size.height <= theHeight?theHeight:applicationFrame.size.height+60) );  
                     break;
             }
             

@@ -57,7 +57,7 @@
 
     UINavigationBar *navigationBar;
     RootViewController *rootViewController;   
-    NSTimer *timer;
+    NSTimer *timer, *timer2;
     UIView *rectangle;
     id detailItem;
 	UIImageView *imageView;

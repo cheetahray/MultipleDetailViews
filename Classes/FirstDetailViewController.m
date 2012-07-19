@@ -24,7 +24,7 @@ int ISurrender = 0;
 int areaType;
 CGFloat originalDistance, diffDistanceX, diffDistanceY;
 float ratiox, ratioy, originalwidth, originalheight;
-bool canTouch;
+bool canTouch = TRUE;
 bool stupid = TRUE;
 
 -(void) onTimer {
@@ -69,7 +69,7 @@ bool stupid = TRUE;
                 break;
         }
         [rootViewController.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:areaType inSection: 0] animated:NO scrollPosition:UITableViewScrollPositionNone];
-        [timer invalidate];
+        [timer2 invalidate];
 	}
     
 }
@@ -102,7 +102,7 @@ bool stupid = TRUE;
                 case 1: {
                     tapOrMove = false;
                     if(true == canTouch){
-                        timer = [NSTimer scheduledTimerWithTimeInterval:singletap
+                        timer2 = [NSTimer scheduledTimerWithTimeInterval:singletap
                                                              target:self
                                                            selector:@selector(onTimer2)
                                                            userInfo:nil
@@ -284,7 +284,7 @@ bool stupid = TRUE;
     // Do any additional setup after loading the view from its nib.
     ratiox = 1.0;
     ratioy = 1.0;
-    canTouch = true;
+    //canTouch = true;
 }
 
 - (void)viewDidAppear:(BOOL)animated
