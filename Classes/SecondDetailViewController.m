@@ -63,7 +63,7 @@ UIInterfaceOrientation whatNow;
 
 -(void) onTimer {
     
-    [rootViewController.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:cellIndex inSection: 0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+    [rootViewController.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:(cellIndex+1) inSection: 0] animated:NO scrollPosition:UITableViewScrollPositionNone];
     
 	[UIView beginAnimations:@"my_own_animation" context:nil];
 	[UIView setAnimationDuration:1];

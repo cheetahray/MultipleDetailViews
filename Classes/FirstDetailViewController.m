@@ -68,7 +68,7 @@ bool stupid = TRUE;
                 [rootViewController Ray:2 whichRoom:@"【家客．融蘊】"];
                 break;
         }
-        [rootViewController.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:areaType inSection: 0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+        [rootViewController.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:(areaType+1) inSection: 0] animated:NO scrollPosition:UITableViewScrollPositionNone];
         [timer2 invalidate];
 	}
     
@@ -292,7 +292,7 @@ bool stupid = TRUE;
     [super viewDidAppear:animated];
     if(TRUE == stupid)
     {
-        [rootViewController.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection: 0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+        [rootViewController.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection: 0] animated:NO scrollPosition:UITableViewScrollPositionNone];
         stupid = FALSE;
     }
 }

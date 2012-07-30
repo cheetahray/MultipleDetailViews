@@ -64,6 +64,7 @@ NSMutableArray *listOfMovies;
     [super viewDidLoad];
     
     listOfMovies = [[NSMutableArray alloc] init];
+    [listOfMovies addObject:@""];
     [listOfMovies addObject:@"【公共藝術說明】"];
 	[listOfMovies addObject:@"       【客迎．傳情】"];
 	[listOfMovies addObject:@"       【花漾．綠動】"];
@@ -73,6 +74,8 @@ NSMutableArray *listOfMovies;
     self.contentSizeForViewInPopover = CGSizeMake(260, 700);
     
     oneOrTwo = 0;
+    
+    self.navigationController.view.backgroundColor = [UIColor colorWithRed:256/256 green:0/256 blue:0/256 alpha:1.0];
 }
 
 
@@ -163,16 +166,16 @@ NSMutableArray *listOfMovies;
     // Dismiss the popover if it's present.
     [self Ray:1 whichRoom:nil];
     switch (indexPath.row) {
-        case 0:
+        case 1:
             firstViewController.detailItem = @"HomePage-001";
             break;
-        case 1:
+        case 2:
             firstViewController.detailItem = @"Training Day";
             break;
-        case 2:
+        case 3:
             firstViewController.detailItem = @"Remember the Titans";
             break;
-        case 3:
+        case 4:
             firstViewController.detailItem = @"John Q";
             break;
         default:
