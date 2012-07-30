@@ -74,8 +74,6 @@ NSMutableArray *listOfMovies;
     self.contentSizeForViewInPopover = CGSizeMake(260, 700);
     
     oneOrTwo = 0;
-    
-    self.navigationController.view.backgroundColor = [UIColor colorWithRed:256/256 green:0/256 blue:0/256 alpha:1.0];
 }
 
 
