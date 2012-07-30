@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04912D7D15B8137D0091C9E5 /* 3_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 04912D7A15B8137C0091C9E5 /* 3_4.png */; };
+		04912D7F15B8137D0091C9E5 /* 1_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 04912D7C15B8137D0091C9E5 /* 1_5.png */; };
+		04912D8215B814F80091C9E5 /* 2_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 04912D8115B814F80091C9E5 /* 2_7.png */; };
 		04E9B8D714C9603A00576A16 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04E9B8D614C9603A00576A16 /* UIKit.framework */; };
 		04E9B8D914C9603A00576A16 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04E9B8D814C9603A00576A16 /* Foundation.framework */; };
 		04E9B8DB14C9603B00576A16 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04E9B8DA14C9603A00576A16 /* CoreGraphics.framework */; };
@@ -57,6 +60,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04912D7A15B8137C0091C9E5 /* 3_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3_4.png; sourceTree = "<group>"; };
+		04912D7C15B8137D0091C9E5 /* 1_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1_5.png; sourceTree = "<group>"; };
+		04912D8115B814F80091C9E5 /* 2_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2_7.png; sourceTree = "<group>"; };
 		04E9B8D214C9603A00576A16 /* MultipleDetailViews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultipleDetailViews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E9B8D614C9603A00576A16 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		04E9B8D814C9603A00576A16 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -201,6 +207,9 @@
 		04E9B92014C9610600576A16 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				04912D8115B814F80091C9E5 /* 2_7.png */,
+				04912D7A15B8137C0091C9E5 /* 3_4.png */,
+				04912D7C15B8137D0091C9E5 /* 1_5.png */,
 				04E9B92114C9617600576A16 /* Kalimba.mp3 */,
 				04E9B92214C9617600576A16 /* 1_3.png */,
 				04E9B92314C9617600576A16 /* 0_1.html */,
@@ -261,6 +270,9 @@
 /* Begin PBXProject section */
 		04E9B8C914C9603A00576A16 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = 04E9B8CC14C9603A00576A16 /* Build configuration list for PBXProject "MultipleDetailViews" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -315,6 +327,9 @@
 				04E9B9A314C9649A00576A16 /* MainWindow.xib in Resources */,
 				04E9B9A414C9649A00576A16 /* SecondDetailView.xib in Resources */,
 				04E9B9A514C9649A00576A16 /* ThirdDetailViewController.xib in Resources */,
+				04912D7D15B8137D0091C9E5 /* 3_4.png in Resources */,
+				04912D7F15B8137D0091C9E5 /* 1_5.png in Resources */,
+				04912D8215B814F80091C9E5 /* 2_7.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,7 +367,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -367,7 +382,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -387,7 +402,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MultipleDetailViews_Prefix.pch;
 				INFOPLIST_FILE = "MultipleDetailViews-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -404,7 +421,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MultipleDetailViews_Prefix.pch;
 				INFOPLIST_FILE = "MultipleDetailViews-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
